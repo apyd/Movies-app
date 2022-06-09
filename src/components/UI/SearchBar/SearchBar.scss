@@ -1,0 +1,23 @@
+@use "./../../../styles/colors";
+@use "./../../../styles/variables";
+
+.searchBar {
+  flex: 1;
+
+  > input {
+    font-size: inherit;
+    font-family: inherit;
+    color: colors.$white;
+    background-color: colors.$dark;
+    border: 1px solid colors.$dark-grey;
+    border-radius: 3px;
+    padding: variables.$section-padding;
+    height: 100%;
+    width: 100%;
+  }
+
+  ::placeholder {
+    color: inherit;
+    font-family: inherit;
+  }
+}

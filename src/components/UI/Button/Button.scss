@@ -1,0 +1,40 @@
+@use "./../../../styles/colors";
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+
+  &--primary {
+    background-color: colors.$pastel-red;
+    color: colors.$white;
+  }
+
+  &--secondary {
+    background-color: colors.$light-grey;
+    color: colors.$pastel-red;
+  }
+
+  &--small {
+    padding: 0.2rem 0.4rem;
+  }
+
+  &--medium {
+    padding: 0.6rem 0.8rem;
+  }
+
+  &--large {
+    padding: 1rem 3rem;
+  }
+
+  &--round {
+    padding: 0.3rem;
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,34 @@
+@use "./styles/colors";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 0.8rem;
+  font-size: clamp(
+    0.8rem,
+    0.7350000000000001rem + 0.32499999999999996vw,
+    1.125rem
+  );
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: colors.$dark;
+  color: colors.$white;
+  // font-size: 1rem;
+  // font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

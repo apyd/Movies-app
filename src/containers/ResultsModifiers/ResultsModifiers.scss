@@ -1,0 +1,21 @@
+@use "../../styles/colors";
+@use "../../styles/variables";
+
+.results-modifiers {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 1rem;
+  max-width: variables.$section-max-width;
+  padding: variables.$section-padding;
+  position: relative;
+
+  &::after {
+    content: "";
+    height: 0.1rem;
+    background-color: colors.$light-grey;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.2rem;
+  }
+}

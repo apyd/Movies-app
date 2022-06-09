@@ -1,0 +1,38 @@
+@use "../../../styles/colors";
+
+.select {
+  display: flex;
+  align-items: center;
+  font-size: inherit;
+  text-transform: uppercase;
+  gap: 0 1rem;
+  position: relative;
+  font-size: 0.9rem;
+
+  &::after {
+    content: "\25BC";
+    // height: 15px;
+    position: absolute;
+    right: 0;
+    color: colors.$pastel-red;
+  }
+
+  &__label {
+    color: colors.$alt-grey;
+    letter-spacing: 0.1ch;
+    white-space: nowrap;
+  }
+
+  &__input {
+    background: transparent;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+    color: colors.$white;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: 0.1ch;
+    text-transform: uppercase;
+  }
+}
