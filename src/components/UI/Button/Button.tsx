@@ -1,10 +1,6 @@
 import React, { FC } from "react";
-import {
-  ButtonType,
-  ButtonSize,
-  ButtonShape,
-  IButtonProps,
-} from "./Button.types";
+import { IButtonProps } from "./Button.types";
+import { ButtonType, ButtonSize, ButtonShape } from "./Button.consts";
 import "./Button.scss";
 
 export const Button: FC<IButtonProps> = ({

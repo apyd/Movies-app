@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import { ILogoProps, LogoSize } from "./Logo.types";
+import { LogoSize } from "./Logo.const";
+import { ILogoProps } from "./Logo.types";
 import "./Logo.scss";
 
 export const Logo: FC<ILogoProps> = ({ size }) => {

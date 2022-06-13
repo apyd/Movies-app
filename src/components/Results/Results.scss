@@ -4,7 +4,7 @@
 .results {
   margin: 0 auto;
   max-width: variables.$section-max-width;
-  padding: variables.$section-padding;
+  padding: 2rem 1rem;
 
   &__modifiers {
     display: flex;
@@ -13,7 +13,7 @@
     max-width: variables.$section-max-width;
     padding: variables.$section-padding;
     position: relative;
-  
+
     &::after {
       content: "";
       height: 0.1rem;
