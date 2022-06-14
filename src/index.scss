@@ -8,11 +8,8 @@
 
 html {
   font-size: 0.8rem;
-  font-size: clamp(
-    0.8rem,
-    0.7350000000000001rem + 0.32499999999999996vw,
-    1.125rem
-  );
+  font-size: clamp(0.8rem, 0.73rem + 0.329vw, 1.125rem);
+  height: 100%;
 }
 
 body {
@@ -24,8 +21,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: colors.$dark;
   color: colors.$white;
-  // font-size: 1rem;
-  // font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  height: 100%;
 }
 
 code {
