@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { IMovieCardProps } from "./MovieCard.types";
-import MovieContextMenu from "../MovieContextMenu/MovieContextMenu";
+import { MovieContextMenu } from "../MovieContextMenu/MovieContextMenu";
 import "./MovieCard.scss";
 
 export const MovieCard: FC<IMovieCardProps> = ({
