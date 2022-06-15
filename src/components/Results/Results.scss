@@ -2,16 +2,22 @@
 @use "../../styles/colors";
 
 .results {
+  display: flex;
+  justify-content: center;
   flex: 1;
-  max-width: variables.$section-max-width;
-  padding: 2rem 1rem;
+  padding: 0 1rem;
+
+  &__inner-container {
+    display: flex;
+    flex-direction: column;
+    max-width: variables.$section-max-width;
+  }
 
   &__modifiers {
     display: flex;
     justify-content: space-between;
-    gap: 0 1rem;
-    max-width: variables.$section-max-width;
-    padding: variables.$section-padding;
+    align-items: center;
+    padding: 0.8rem 1rem 0.8rem 0;
     position: relative;
 
     &::after {
