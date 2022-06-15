@@ -1,15 +1,20 @@
-@use '../../../styles/colors';
+@use "../../../styles/colors";
 
 .context-menu {
-    position: absolute;
-    right: 0;
-    padding: .5rem .5rem;
+  position: absolute;
+  right: 0;
+  padding: 0.5rem 0.5rem;
 
-    &__options {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        z-index: 10;
-        background-color: colors.$light-grey;
-    }
+  &__icon {
+    width: 1.3rem;
+    height: auto;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 10;
+    background-color: colors.$light-grey;
+  }
 }

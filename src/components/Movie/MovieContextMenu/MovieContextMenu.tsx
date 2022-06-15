@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "../../UI/Button/Button";
-import { ReactComponent as MenuIcon } from "../../../assets/threedots.svg";
+import MenuIcon from "../../../assets/threedots.svg";
 import "./MovieContextMenu.scss";
 
-const MovieContextMenu = () => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+export const MovieContextMenu = () => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
   return (
     <div className="context-menu">
       <Button
@@ -12,9 +12,9 @@ const MovieContextMenu = () => {
         shape="round"
         onClick={() => setIsCollapsed((isCollapsed) => !isCollapsed)}
       >
-        <MenuIcon width="1rem" />
+        <MenuIcon className="context-menu__icon" />
       </Button>
-      {!isCollapsed && (
+      {isCollapsed && (
         <div className="context-menu__options">
           <Button variant="secondary" onClick={() => {}}>
             Edit
@@ -27,5 +27,3 @@ const MovieContextMenu = () => {
     </div>
   );
 };
-
-export default MovieContextMenu;
