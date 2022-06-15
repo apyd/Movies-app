@@ -1,6 +1,15 @@
+@use "../../../../styles/colors";
+
 .status-modal {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.5rem;
+}
+
+.icon {
+  width: 3rem;
+  height: auto;
+  fill: colors.$pastel-red;
 }
