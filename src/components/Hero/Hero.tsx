@@ -24,7 +24,7 @@ export const Hero = () => {
           <Search setQuery={() => {}} onSearch={() => {}} />
         </section>
       </div>
-      {/* <AddMovie isOpened={isOpened} toggleModal={toggleModal} /> */}
+      <AddMovie isOpened={isOpened} toggleModal={toggleModal} />
     </div>
   );
 };

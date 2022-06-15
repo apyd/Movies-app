@@ -4,7 +4,7 @@ import { Modal } from "../../Modal";
 
 export const DeleteMovie = () => {
   return (
-    <Modal title="Delete movie" toggleModal={() => {}} isOpened="false">
+    <Modal title="Delete movie" toggleModal={() => {}} isOpened="true">
       <p className="delete-text">Are you sure you want to delete this movie?</p>
       <div className="delete-actions">
         <Button onClick={() => {}}>Confirm</Button>

@@ -28,18 +28,23 @@ export const Modal: FC<IModalProps> = ({
   //   );
   // };
 
-  return (
+  return createPortal(
     <>
-      <div className="overlay" onClick={toggleModal}></div>
-      <div className="modal">
-        <div className="modal__header">
-          <h2>{title.toUpperCase()}</h2>
-          <Button variant={ButtonType.secondary} onClick={toggleModal}>
-            x
-          </Button>
-        </div>
-        {children}
-      </div>
-    </>
+      {isOpened && (
+        <>
+          <div className="overlay" onClick={toggleModal}></div>
+          <div className="modal">
+            <div className="modal__header">
+              <h2>{title.toUpperCase()}</h2>
+              <Button variant={ButtonType.secondary} onClick={toggleModal}>
+                x
+              </Button>
+            </div>
+            {children}
+          </div>
+        </>
+      )}
+    </>,
+    portalDiv
   );
 };
