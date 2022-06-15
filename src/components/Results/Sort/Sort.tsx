@@ -20,9 +20,11 @@ export const Sort: FC<ISortProps> = ({
         defaultValue={0}
       >
         {options &&
-          options.map(({ id, label, value, isDefault }) =>
-            <option key={id} value={value}>{label}</option>
-          )}
+          options.map(({ id, label, value, isDefault }) => (
+            <option key={id} value={value}>
+              {label}
+            </option>
+          ))}
       </select>
     </div>
   );
@@ -30,6 +32,6 @@ export const Sort: FC<ISortProps> = ({
 
 Sort.defaultProps = {
   options: [],
-  onOptionChange: () => { },
+  onOptionChange: () => {},
   sortLabel: "Sort by",
 };

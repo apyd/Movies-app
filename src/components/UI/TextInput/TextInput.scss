@@ -1,0 +1,29 @@
+@use "../../../styles/colors";
+
+.text-input {
+  width: 100%;
+  appearance: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: colors.$dark-grey;
+  color: colors.$white;
+  min-width: 100px;
+
+  &::placeholder {
+    color: colors.$white;
+    text-transform: capitalize;
+  }
+}
+
+.text-label {
+  color: colors.$pastel-red;
+  font-weight: bold;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.error {
+  color: colors.$pastel-red;
+  font-size: 0.8rem;
+}
