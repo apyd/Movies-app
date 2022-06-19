@@ -1,0 +1,19 @@
+@mixin flex-position($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin position($type, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin size($height: 100%, $width: 100%) {
+  height: $height;
+  width: $width;
+}
