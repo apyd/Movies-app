@@ -11,7 +11,7 @@ export const DatePicker: FC<IPropsDatePicker> = ({ id, name, label }) => {
 
   return (
     <>
-      <label htmlFor={id} className="label">
+      <label htmlFor={id} className="date-picker__label">
         {label.toUpperCase()}
       </label>
       <input
