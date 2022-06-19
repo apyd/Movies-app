@@ -15,10 +15,14 @@ export const STATUS_TEXT: { [key: string]: string } = {
   ERROR: "Action cannot be performed. Please contact administrator.",
 };
 
-export const StatusModal: FC<IStatusModalProps> = ({ status }) => {
+export const StatusModal: FC<IStatusModalProps> = ({
+  status,
+  isOpened,
+  toggleModal,
+}) => {
   const Icon = STATUS_ICON[status];
   return (
-    <Modal title="" toggleModal={() => {}} isOpened="false">
+    <Modal title="" toggleModal={toggleModal} isOpened={isOpened}>
       <div className="status-modal">
         {Icon}
         <p className="status-modal__text">{STATUS_TEXT[status]}</p>

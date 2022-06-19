@@ -8,8 +8,8 @@ import {
   RESULTS,
   RESULTS_COUNT,
 } from "../../api/resultsData";
-import "./Results.scss";
 import { ResultsCount } from "./ResultsCount/ResultsCount";
+import "./Results.scss";
 
 export const Results = () => {
   return (

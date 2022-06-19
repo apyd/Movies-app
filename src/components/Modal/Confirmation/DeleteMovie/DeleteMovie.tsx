@@ -9,10 +9,10 @@ export const DeleteMovie: FC<IDeleteMovieProps> = ({
   toggleModal,
 }) => {
   return (
-    <Modal title="Delete movie" toggleModal={() => {}} isOpened={isOpened}>
+    <Modal title="Delete movie" toggleModal={toggleModal} isOpened={isOpened}>
       <p className="delete-text">Are you sure you want to delete this movie?</p>
       <div className="delete-actions">
-        <Button onClick={() => toggleModal()}>Confirm</Button>
+        <Button onClick={toggleModal}>Confirm</Button>
       </div>
     </Modal>
   );
