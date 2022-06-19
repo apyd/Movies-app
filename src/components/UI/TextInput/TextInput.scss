@@ -1,13 +1,14 @@
 @use "../../../styles/colors";
+@use "../../../styles/mixins";
 
 .text-input {
-  width: 100%;
   appearance: none;
-  border: none;
+  @include mixins.size(30px, 100%);
+  min-width: 100px;
   padding: 0.5rem 1rem;
+  border: none;
   background-color: colors.$dark-grey;
   color: colors.$white;
-  min-width: 100px;
 
   &::placeholder {
     color: colors.$white;
@@ -16,11 +17,11 @@
 }
 
 .text-label {
-  color: colors.$pastel-red;
-  font-weight: bold;
-  font-size: 0.8rem;
   display: inline-block;
   margin: 1.5rem 0 0.5rem 0;
+  color: colors.$pastel-red;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .error {

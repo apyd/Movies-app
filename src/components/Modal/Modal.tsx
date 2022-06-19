@@ -13,26 +13,11 @@ export const Modal: FC<IModalProps> = ({
 }) => {
   const portalDiv = document.getElementById("modal") as HTMLElement;
 
-  //   return createPortal(
-  //     <>
-  //       {isOpened && (
-  //         <>
-  //           <div className="overlay">Overlay</div>
-  //           <div className="modal">
-  //             <Button onClick={toggleModal}>ToggleModal</Button>
-  //           </div>
-  //         </>
-  //       )}
-  //     </>,
-  //     portalDiv
-  //   );
-  // };
-
   return createPortal(
     <>
       {isOpened && (
         <>
-          <div className="overlay" onClick={toggleModal}></div>
+          <div className="overlay"></div>
           <div className="modal">
             <div className="modal__header">
               <h2>{title.toUpperCase()}</h2>

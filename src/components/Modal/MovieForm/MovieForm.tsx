@@ -4,11 +4,14 @@ import { DatePicker } from "../../UI/DatePicker/DatePicker";
 import { MultiSelect } from "../../UI/MultiSelect/MultiSelect";
 import { Textarea } from "../../UI/Textarea/Textarea";
 import { TextInput } from "../../UI/TextInput/TextInput";
+import { useMultiSelect } from "../../../hooks/useMultiSelect";
 import { IMovieFormProps } from "./MovieForm.types";
-import "./MovieForm.scss";
 import { ButtonType } from "../../UI/Button/Button.consts";
+import "./MovieForm.scss";
 
 export const MovieForm: FC<IMovieFormProps> = () => {
+  const { selected, toggleOption, options, label } = useMultiSelect("Genres");
+
   return (
     <form className="form">
       <div className="inputs--wrapper">
@@ -25,27 +28,15 @@ export const MovieForm: FC<IMovieFormProps> = () => {
             placeholder="movie url"
             label="movie url"
           />
-          <TextInput
-            id="genre"
-            name="genre"
-            placeholder="genre"
-            label="genre"
+          <MultiSelect
+            selected={selected}
+            toggleOption={toggleOption}
+            options={options}
+            label={label}
           />
-          {/* <MultiSelect
-            id="genre"
-            name="genre"
-            placeholder="genre"
-            label="genre"
-          /> */}
         </div>
         <div className="form__column form__column--half-size">
-          {/* <DatePicker
-            id="date-picker"
-            name="date-picker"
-            placeholder="date picker"
-            label="date picker"
-          /> */}
-          <TextInput
+          <DatePicker
             id="date-picker"
             name="date-picker"
             placeholder="date picker"

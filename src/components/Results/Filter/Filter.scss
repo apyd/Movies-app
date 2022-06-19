@@ -1,4 +1,5 @@
 @use "../../../styles/colors";
+@use "../../../styles/mixins";
 
 .filter {
   $this: &;
@@ -9,21 +10,19 @@
     width: 0;
 
     &:checked + #{$this}__label:after {
-      content: "";
       height: 0.2rem;
-      background-color: colors.$pastel-red;
-      position: absolute;
-      left: 0;
-      bottom: 0;
       width: 100%;
+      @include mixins.position(absolute, $left: 0, $bottom: 0);
+      content: "";
+      background-color: colors.$pastel-red;
       z-index: 10;
     }
   }
 
   &__label {
     display: inline-block;
-    padding: 0.5rem 0.8rem;
     position: relative;
+    padding: 0.5rem 0.8rem;
     text-transform: uppercase;
   }
 }

@@ -10,7 +10,7 @@ export const TextInput: FC<IPropsTextInput> = ({
   errorText,
 }) => {
   return (
-    <div className="wrapper--text-input">
+    <>
       <label htmlFor={id} className="text-label">
         {label.toUpperCase()}
       </label>
@@ -22,6 +22,6 @@ export const TextInput: FC<IPropsTextInput> = ({
         className="text-input"
       />
       <span className="text-input__error">{errorText}</span>
-    </div>
+    </>
   );
 };

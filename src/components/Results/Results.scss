@@ -1,33 +1,27 @@
 @use "../../styles/variables";
 @use "../../styles/colors";
+@use "../../styles/mixins";
 
 .results {
-  display: flex;
-  justify-content: center;
+  @include mixins.flex-position(row, center);
   flex: 1;
   padding: 0 1rem;
 
   &__inner-container {
-    display: flex;
-    flex-direction: column;
+    @include mixins.flex-position(column);
     max-width: variables.$section-max-width;
   }
 
   &__modifiers {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 1rem 0.8rem 0;
+    @include mixins.flex-position(row, space-between, center);
     position: relative;
+    padding: 0.8rem 1rem 0.8rem 0;
 
     &::after {
-      content: "";
+      @include mixins.position(absolute, $left: 0, $right: 0, $bottom: 0.2rem);
       height: 0.1rem;
+      content: "";
       background-color: colors.$light-grey;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0.2rem;
     }
   }
 }

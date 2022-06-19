@@ -2,10 +2,10 @@
 
 .textarea {
   width: 100%;
-  font-family: inherit;
+  padding: 0.5rem 1rem;
   background-color: colors.$dark-grey;
   color: colors.$white;
-  padding: 0.5rem 1rem;
+  font-family: inherit;
 
   &::placeholder {
     color: colors.$white;
@@ -14,9 +14,9 @@
 }
 
 .textarea-label {
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem 0;
   color: colors.$pastel-red;
   font-weight: bold;
   font-size: 0.8rem;
-  display: inline-block;
-  margin: 1.5rem 0 0.5rem 0;
 }

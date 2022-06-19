@@ -1,11 +1,11 @@
+@use "../../../styles/mixins";
+
 .form {
-  display: flex;
-  flex-direction: column;
+  @include mixins.flex-position(column);
   height: 100%;
 
   &__column {
-    display: flex;
-    flex-direction: column;
+    @include mixins.flex-position(column, flex-end);
     flex: 2;
     min-width: 200px;
 
@@ -15,17 +15,15 @@
   }
 
   &__actions {
-    display: flex;
+    @include mixins.flex-position(row, flex-end, flex-end);
     gap: 1rem;
     height: 100%;
-    justify-content: flex-end;
-    align-items: flex-end;
     margin: 1rem 0 0.3rem 0;
   }
 }
 
 .inputs--wrapper {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
 }

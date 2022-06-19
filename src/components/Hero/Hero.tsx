@@ -4,7 +4,7 @@ import { Button } from "../../components/UI/Button/Button";
 import { ButtonType } from "../../components/UI/Button/Button.consts";
 import { useModal } from "../../hooks/useModal";
 import { AddMovie } from "../Modal/MovieForm/AddMovie/AddMovie";
-import { Search } from "../Search/Search";
+import { Search } from "../UI/Search/Search";
 import "./Hero.scss";
 
 export const Hero = () => {
