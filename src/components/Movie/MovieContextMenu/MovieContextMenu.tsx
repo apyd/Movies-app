@@ -1,15 +1,14 @@
-import React, { useState } from "react";
-import { useModal } from "../../../hooks/useModal";
+import React, { FC, useState } from "react";
 import { Button } from "../../UI/Button/Button";
-import { EditMovie } from "../../Modal/MovieForm/EditMovie/EditMovie";
-import { DeleteMovie } from "../../Modal/Confirmation/DeleteMovie/DeleteMovie";
+import { IMovieContextMenuProps } from "./MovieContextMenu.types";
 import MenuIcon from "../../../assets/threedots.svg";
 import "./MovieContextMenu.scss";
 
-export const MovieContextMenu = () => {
+export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
+  toggleEditModal,
+  toggleDeleteModal,
+}) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isDeleteModalOpened, toggleDeleteModal] = useModal();
-  const [isEditModalOpened, toggleEditModal] = useModal();
 
   return (
     <>
@@ -32,11 +31,6 @@ export const MovieContextMenu = () => {
           </div>
         )}
       </div>
-      <EditMovie isOpened={isEditModalOpened} toggleModal={toggleEditModal} />
-      <DeleteMovie
-        isOpened={isDeleteModalOpened}
-        toggleModal={toggleDeleteModal}
-      />
     </>
   );
 };

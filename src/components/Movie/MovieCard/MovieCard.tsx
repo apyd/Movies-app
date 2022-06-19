@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { IMovieCardProps } from "./MovieCard.types";
 import { MovieContextMenu } from "../MovieContextMenu/MovieContextMenu";
+import { IMovieCardProps } from "./MovieCard.types";
 import "./MovieCard.scss";
 
 export const MovieCard: FC<IMovieCardProps> = ({
@@ -9,11 +9,16 @@ export const MovieCard: FC<IMovieCardProps> = ({
   poster_url,
   production_year,
   genres,
+  toggleEditModal,
+  toggleDeleteModal,
 }) => {
   return (
     <li key={id} className="movie-card">
       <div className="poster">
-        <MovieContextMenu />
+        <MovieContextMenu
+          toggleDeleteModal={toggleDeleteModal}
+          toggleEditModal={toggleEditModal}
+        />
         <img src={poster_url} alt="movie poster" className="poster__img" />
       </div>
       <section className="details">

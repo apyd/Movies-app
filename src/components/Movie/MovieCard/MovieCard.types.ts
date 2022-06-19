@@ -3,5 +3,7 @@ export interface IMovieCardProps {
     title: string,
     poster_url: string,
     production_year: string,
-    genres: string[] | string
+    genres: string[] | string,
+    toggleEditModal: any // FIX IT
+    toggleDeleteModal: any // FIX IT
 }
