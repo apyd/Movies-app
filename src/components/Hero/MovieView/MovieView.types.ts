@@ -3,8 +3,9 @@ export interface IMovieViewProps {
     title: string,
     rating: string,
     poster_url: string,
-    genres: string[],
+    genres: string[] | string,
     release_year: string,
     runtime: string,
     description: string,
+    onSearchIconPress: () => void
 }

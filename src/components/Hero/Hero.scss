@@ -3,7 +3,7 @@
 
 .hero {
   display: flex;
-  min-height: clamp(200px, 45vh, 400px);
+  height: clamp(200px, 45vh, 400px);
   background-size: cover;
 
   &--search {

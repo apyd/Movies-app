@@ -1,10 +1,13 @@
 export interface IResultsProps {
     numberOfResults: number,
     results: {
-        id: number,
+        id: string,
         title: string,
-        genres: string[],
-        production_year: number
+        rating: string,
         poster_url: string,
+        genres: string[] | string,
+        release_year: string,
+        runtime: string,
+        description: string,
     }
 }

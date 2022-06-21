@@ -14,12 +14,13 @@ export const MovieView: FC<IMovieViewProps> = ({
   release_year,
   runtime,
   description,
+  onSearchIconPress,
 }) => {
   return (
     <>
       <div className="movie-view__top-banner">
         <Logo />
-        <Button variant={ButtonType.secondary} onClick={() => {}}>
+        <Button variant={ButtonType.secondary} onClick={onSearchIconPress}>
           <SearchIcon className="icon" />
         </Button>
       </div>

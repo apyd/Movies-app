@@ -6,11 +6,9 @@
   &__content {
     @include mixins.flex-position(row, flex-start, center);
     gap: 0 3rem;
-    // flex: 1;
-    // width: 100%;
-    max-width: 1024px;
-    margin: variables.$margin-center-vertically;
+    flex: 1;
     padding: variables.$section-padding;
+    height: 100%;
   }
 
   &__top-banner {
@@ -19,6 +17,10 @@
 
   &__header {
     @include mixins.flex-position(row, flex-start, center);
+  }
+
+  &__details {
+    flex: 1;
   }
 
   &__heading {
@@ -70,11 +72,18 @@
   }
 
   &__poster {
-    width: 100%;
-    min-width: 200px;
+    height: 90%;
+
+    @media screen and (max-width: 768px) {
+      height: 60%;
+    }
+
+    @media screen and (max-width: 550px) {
+      display: none;
+    }
 
     > img {
-      width: 100%;
+      height: 100%;
       object-fit: contain;
     }
   }

@@ -2,18 +2,35 @@ import React, { FC } from "react";
 import { MovieContextMenu } from "../MovieContextMenu/MovieContextMenu";
 import { IMovieCardProps } from "./MovieCard.types";
 import "./MovieCard.scss";
+import useMovie from "../../../context/MovieContext/MovieContext";
 
 export const MovieCard: FC<IMovieCardProps> = ({
   id,
   title,
+  rating,
   poster_url,
-  production_year,
   genres,
+  release_year,
+  runtime,
+  description,
   toggleEditModal,
   toggleDeleteModal,
 }) => {
+  const { setMovie } = useMovie();
+
+  const movieDetails = {
+    id,
+    title,
+    rating,
+    poster_url,
+    genres,
+    release_year,
+    runtime,
+    description,
+  };
+
   return (
-    <li key={id} className="movie-card">
+    <li key={id} className="movie-card" onClick={() => setMovie(movieDetails)}>
       <div className="poster">
         <MovieContextMenu
           toggleDeleteModal={toggleDeleteModal}
@@ -26,7 +43,7 @@ export const MovieCard: FC<IMovieCardProps> = ({
           <div className="title__wrapper">
             <h3 className="details__title">{title}</h3>
           </div>
-          <span className="details__production-year">{production_year}</span>
+          <span className="details__production-year">{release_year}</span>
         </header>
         <span className="details__genres">{genres}</span>
       </section>
