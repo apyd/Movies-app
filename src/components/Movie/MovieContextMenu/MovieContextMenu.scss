@@ -4,7 +4,6 @@
 .context-menu {
   @include mixins.position(absolute, $right: 0);
   padding: 0.5rem 0.5rem;
-  z-index: 150;
 
   &__icon {
     @include mixins.size(auto, 1.3rem);

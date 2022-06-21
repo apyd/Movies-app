@@ -21,7 +21,7 @@ export const Modal: FC<IModalProps> = ({
           <div className="modal">
             <div className="modal__header">
               <h2>{title.toUpperCase()}</h2>
-              <Button variant={ButtonType.secondary} onClick={toggleModal}>
+              <Button variant={ButtonType.ghost} onClick={toggleModal}>
                 x
               </Button>
             </div>

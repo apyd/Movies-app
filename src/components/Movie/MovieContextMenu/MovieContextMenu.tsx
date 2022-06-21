@@ -4,6 +4,7 @@ import { IMovieContextMenuProps } from "./MovieContextMenu.types";
 import MenuIcon from "../../../assets/threedots.svg";
 import "./MovieContextMenu.scss";
 import useMovie from "../../../context/MovieContext/MovieContext";
+import { ButtonType } from "../../UI/Button/Button.consts";
 
 export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
   movieId,
@@ -30,10 +31,10 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
         </Button>
         {openedMovieMenuId === movieId && (
           <div className="context-menu__options">
-            <Button variant="secondary" onClick={toggleEditModal}>
+            <Button variant={ButtonType.secondary} onClick={toggleEditModal}>
               Edit
             </Button>
-            <Button variant="secondary" onClick={toggleDeleteModal}>
+            <Button variant={ButtonType.secondary} onClick={toggleDeleteModal}>
               Delete
             </Button>
           </div>

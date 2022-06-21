@@ -20,7 +20,7 @@ export const MovieView: FC<IMovieViewProps> = ({
     <>
       <div className="movie-view__top-banner">
         <Logo />
-        <Button variant={ButtonType.secondary} onClick={onSearchIconPress}>
+        <Button variant={ButtonType.ghost} onClick={onSearchIconPress}>
           <SearchIcon className="icon" />
         </Button>
       </div>
