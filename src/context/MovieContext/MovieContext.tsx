@@ -1,31 +1,14 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, FC, useContext, useState } from "react";
+import { IMovieContextType, IMovieDetails } from "./MovieContext.types";
 
-interface IMovieDetails {
-  id: string;
-  title: string;
-  rating: string;
-  poster_url: string;
-  genres: string[];
-  release_year: string;
-  runtime: string;
-  description: string;
-}
-
-interface IMovieContextType {
-  movie: null | IMovieDetails;
-  setMovie: (movie: IMovieDetails) => void;
-}
-
-const initialState = {
+const initialState: IMovieContextType = {
   movie: null,
   setMovie: () => {},
 };
 
-export const MovieContext = createContext<IMovieContextType | null>(
-  initialState
-);
+export const MovieContext = createContext<IMovieContextType>(initialState);
 
-export const MovieProvider = ({ children }) => {
+export const MovieProvider: FC = ({ children }) => {
   const [movie, setMovie] = useState<IMovieDetails | null>(null);
   return (
     <MovieContext.Provider value={{ movie, setMovie }}>
