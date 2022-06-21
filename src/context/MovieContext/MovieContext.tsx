@@ -4,14 +4,21 @@ import { IMovieContextType, IMovieDetails } from "./MovieContext.types";
 const initialState: IMovieContextType = {
   movie: null,
   setMovie: () => {},
+  openedMovieMenuId: null,
+  setOpenedMovieMenuId: () => {},
 };
 
 export const MovieContext = createContext<IMovieContextType>(initialState);
 
 export const MovieProvider: FC = ({ children }) => {
   const [movie, setMovie] = useState<IMovieDetails | null>(null);
+  const [openedMovieMenuId, setOpenedMovieMenuId] = useState<string | null>(
+    null
+  );
   return (
-    <MovieContext.Provider value={{ movie, setMovie }}>
+    <MovieContext.Provider
+      value={{ movie, setMovie, openedMovieMenuId, setOpenedMovieMenuId }}
+    >
       {children}
     </MovieContext.Provider>
   );

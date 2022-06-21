@@ -12,4 +12,6 @@ export interface IMovieDetails {
 export interface IMovieContextType {
     movie: null | IMovieDetails;
     setMovie: (movie: IMovieDetails | null) => void;
+    openedMovieMenuId: null | string;
+    setOpenedMovieMenuId: (id: string | null) => void;
 }

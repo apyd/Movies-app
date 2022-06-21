@@ -29,10 +29,15 @@ export const MovieCard: FC<IMovieCardProps> = ({
     description,
   };
 
+  const onMovieCardClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+    setMovie(movieDetails);
+  };
+
   return (
-    <li key={id} className="movie-card" onClick={() => setMovie(movieDetails)}>
+    <li key={id} className="movie-card" onClick={(e) => onMovieCardClick(e)}>
       <div className="poster">
         <MovieContextMenu
+          movieId={id}
           toggleDeleteModal={toggleDeleteModal}
           toggleEditModal={toggleEditModal}
         />
