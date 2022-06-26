@@ -11,10 +11,10 @@ export const apiSlice = createApi({
       query: () => `/movies`,
       providesTags: ['Movies'],
     }),
-    getMovieById: builder.query({
-      query: ({ id }) => `/movies/${id}`,
+    getMovieById: builder.query<Movie, number>({
+      query: (id) => `/movies/${id}`,
     }),
-    addMovie: builder.mutation({
+    addMovie: builder.mutation<Movie, Movie>({
       query: (movie) => ({
         url: `/movies`,
         method: 'POST',
