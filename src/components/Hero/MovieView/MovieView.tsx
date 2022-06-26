@@ -4,7 +4,10 @@ import { Button } from "../../UI/Button/Button";
 import { ButtonType } from "../../UI/Button/Button.consts";
 import { IMovieViewProps } from "./MovieView.types";
 import SearchIcon from "../../../assets/search.svg";
+import DefaultPosterPlaceholder from "../../../assets/default-poster-placeholder.jpeg";
 import "./MovieView.scss";
+import { getYearFromDate } from "../../../utils/getYearFromDate";
+import { transformMinutesToHoursAndMinutes } from "../../../utils/transformTime";
 
 export const MovieView: FC<IMovieViewProps> = ({
   title,
@@ -26,7 +29,14 @@ export const MovieView: FC<IMovieViewProps> = ({
       </div>
       <section className="movie-view__content">
         <div className="movie-view__poster">
-          <img src={poster_path} alt="movie poster" />
+          <img
+            src={poster_path}
+            alt="movie poster"
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src = DefaultPosterPlaceholder;
+            }}
+          />
         </div>
         <div className="movie_view__details">
           <header className="movie-view__header">
@@ -37,10 +47,10 @@ export const MovieView: FC<IMovieViewProps> = ({
             {genres && genres.toString()}
           </span>
           <span className="movie-view__info movie-view__info--red movie-view__info--large">
-            {release_date}
+            {getYearFromDate(release_date)}
           </span>
           <span className="movie-view__info movie-view__info--red movie-view__info--large">
-            {runtime}
+            {transformMinutesToHoursAndMinutes(runtime)}
           </span>
           <p className="movie-view__info movie-view__info--alt-grey">
             {overview}

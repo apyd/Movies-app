@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { Movie } from './apiTypes';
 
-const BASE_URL = 'https://localhost:4000/';
+const BASE_URL = 'http://localhost:4000';
 
 export const apiSlice = createApi({
   reducerPath: 'moviesApi',
@@ -12,10 +12,10 @@ export const apiSlice = createApi({
       query: () => `/movies`,
       providesTags: ['Movies'],
     }),
-    getMovieById: builder.query<Movie, number>({
+    getMovieById: builder.query({
       query: (id) => `/movies/${id}`,
     }),
-    addMovie: builder.mutation<Movie, Movie>({
+    addMovie: builder.mutation({
       query: (movie) => ({
         url: `/movies`,
         method: 'POST',
