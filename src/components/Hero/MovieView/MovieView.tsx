@@ -33,7 +33,7 @@ export const MovieView: FC<IMovieViewProps> = ({
             src={poster_path}
             alt="movie poster"
             onError={({ currentTarget }) => {
-              currentTarget.onerror = null; // prevents looping
+              currentTarget.onerror = null;
               currentTarget.src = DefaultPosterPlaceholder;
             }}
           />
