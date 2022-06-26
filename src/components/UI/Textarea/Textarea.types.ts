@@ -1,5 +1,5 @@
 export interface IPropsTextarea {
-  id: number,
+  id: string,
   name: string,
   placeholder: string,
   label: string

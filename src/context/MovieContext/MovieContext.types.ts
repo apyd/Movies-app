@@ -5,13 +5,13 @@ export interface IMovieDetails {
   poster_path: string;
   genres: string[],
   release_date: string;
-  runtime: string;
+  runtime: number;
   overview: string;
 }
 
 export interface IMovieContextType {
   movie: null | IMovieDetails;
   setMovie: (movie: IMovieDetails | null) => void;
-  openedMovieMenuId: null | string;
+  openedMovieMenuId: null | number;
   setOpenedMovieMenuId: (id: number | null) => void;
 }

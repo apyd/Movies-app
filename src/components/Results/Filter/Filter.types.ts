@@ -1,5 +1,5 @@
 export interface IFilterProps {
-  id: number,
+  id: string,
   name: string,
   value: string,
   isChecked: boolean
