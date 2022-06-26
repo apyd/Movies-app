@@ -1,11 +1,10 @@
-export interface IMovieViewProps {
-    id: string,
-    title: string,
-    rating: string,
-    poster_url: string,
-    genres: string[] | string,
-    release_year: string,
-    runtime: string,
-    description: string,
-    onSearchIconPress: () => void
+export interface IMovieViewProps extends Partial<Movie> {
+  title: string,
+  vote_average: number,
+  poster_path: string,
+  genres: string[],
+  release_date: string,
+  runtime: number,
+  overview: string,
+  onSearchIconPress: () => void
 }
