@@ -48,7 +48,7 @@ export const MovieCard: FC<IMovieCardProps> = ({
           alt="movie poster"
           className="poster__img"
           onError={({ currentTarget }) => {
-            currentTarget.onerror = null; // prevents looping
+            currentTarget.onerror = null;
             currentTarget.src = DefaultPosterPlaceholder;
           }}
         />

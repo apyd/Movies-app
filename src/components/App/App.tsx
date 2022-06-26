@@ -11,7 +11,6 @@ import { Results } from "../Results/Results";
 import "./App.scss";
 
 export const App = () => {
-  // console.log(apiSlice);
   return (
     <div className="app">
       <ErrorBoundary>
