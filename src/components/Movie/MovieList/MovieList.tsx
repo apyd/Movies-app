@@ -10,8 +10,6 @@ export const MovieList: FC<IMovieListProps> = (props) => {
   const [isDeleteModalOpened, toggleDeleteModal] = useModal();
   const [isEditModalOpened, toggleEditModal] = useModal();
 
-  const moviesData = Object.values(props);
-
   return (
     <>
       <EditMovie toggleModal={toggleEditModal} isOpened={isEditModalOpened} />
@@ -20,7 +18,7 @@ export const MovieList: FC<IMovieListProps> = (props) => {
         isOpened={isDeleteModalOpened}
       />
       <ul className="movies">
-        {moviesData.map((movieData) => {
+        {props.data.map((movieData) => {
           return (
             <MovieCard
               key={movieData.id}

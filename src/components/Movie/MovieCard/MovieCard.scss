@@ -12,6 +12,15 @@
   &__img {
     @include mixins.size(auto, 100%);
     object-fit: contain;
+
+    // &:before {
+    //   content: " ";
+    //   display: block;
+    //   position: absolute;
+    //   height: 50px;
+    //   width: 50px;
+    //   background-image: url(../../../assets/default-poster-placeholder.jpeg);
+    // }
   }
 }
 

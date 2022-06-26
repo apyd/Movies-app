@@ -1,8 +1,10 @@
 import React, { FC } from "react";
 import { MovieContextMenu } from "../MovieContextMenu/MovieContextMenu";
 import { IMovieCardProps } from "./MovieCard.types";
+import DefaultPosterPlaceholder from "../../../assets/default-poster-placeholder.jpeg";
 import "./MovieCard.scss";
 import useMovie from "../../../context/MovieContext/MovieContext";
+import { getYearFromDate } from "../../../utils/getYearFromDate";
 
 export const MovieCard: FC<IMovieCardProps> = ({
   id,
@@ -41,14 +43,24 @@ export const MovieCard: FC<IMovieCardProps> = ({
           toggleDeleteModal={toggleDeleteModal}
           toggleEditModal={toggleEditModal}
         />
-        <img src={poster_path} alt="movie poster" className="poster__img" />
+        <img
+          src={poster_path}
+          alt="movie poster"
+          className="poster__img"
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null; // prevents looping
+            currentTarget.src = DefaultPosterPlaceholder;
+          }}
+        />
       </div>
       <section className="details">
         <header className="details__header">
           <div className="title__wrapper">
             <h3 className="details__title">{title}</h3>
           </div>
-          <span className="details__production-year">{release_date}</span>
+          <span className="details__production-year">
+            {getYearFromDate(release_date)}
+          </span>
         </header>
         <span className="details__genres">{genres}</span>
       </section>
