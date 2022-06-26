@@ -12,7 +12,7 @@ export const MovieContext = createContext<IMovieContextType>(initialState);
 
 export const MovieProvider: FC = ({ children }) => {
   const [movie, setMovie] = useState<IMovieDetails | null>(null);
-  const [openedMovieMenuId, setOpenedMovieMenuId] = useState<string | null>(
+  const [openedMovieMenuId, setOpenedMovieMenuId] = useState<number | null>(
     null
   );
   return (

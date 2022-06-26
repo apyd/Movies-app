@@ -1,6 +1,6 @@
 export interface IPropsMultiSelect {
   options: {
-    id: number,
+    id: string,
     title: string
   }[],
   selected: Array<string>

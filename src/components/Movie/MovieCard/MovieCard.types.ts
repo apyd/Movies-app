@@ -1,3 +1,5 @@
+import { Movie } from "../../../store/api/apiTypes"
+
 export interface IMovieCardProps extends Partial<Movie> {
   id: number,
   title: string,

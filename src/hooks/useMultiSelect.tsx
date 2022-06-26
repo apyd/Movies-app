@@ -5,7 +5,7 @@ import { IPropsMultiSelect } from "../components/UI/MultiSelect/MultiSelect.type
 export const useMultiSelect = (label: string): IPropsMultiSelect => {
   const [selected, setSelected] = useState<Array<string>>([]);
 
-  const toggleOption = (id: number) => {
+  const toggleOption = (id: string) => {
     setSelected((prevSelected) => {
       const newArray = [...prevSelected];
       if (newArray.includes(id)) {
