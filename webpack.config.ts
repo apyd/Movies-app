@@ -15,7 +15,7 @@ const config: Configuration = {
   devtool: 'source-map',
   devServer: {
     static: './dist',
-    port: 4000,
+    port: 3000,
     hot: true
   },
   plugins: [
