@@ -43,10 +43,10 @@ export const MovieForm: FC<IMovieFormProps> = () => {
             label="date picker"
           />
           <TextInput
-            id="rating"
-            name="rating"
-            placeholder="rating"
-            label="rating"
+            id="vote_average"
+            name="vote_average"
+            placeholder="vote_average"
+            label="vote_average"
           />
           <TextInput
             id="runtime"

@@ -7,12 +7,12 @@ import useMovie from "../../../context/MovieContext/MovieContext";
 export const MovieCard: FC<IMovieCardProps> = ({
   id,
   title,
-  rating,
-  poster_url,
+  vote_average,
+  poster_path,
   genres,
-  release_year,
+  release_date,
   runtime,
-  description,
+  overview,
   toggleEditModal,
   toggleDeleteModal,
 }) => {
@@ -21,12 +21,12 @@ export const MovieCard: FC<IMovieCardProps> = ({
   const movieDetails = {
     id,
     title,
-    rating,
-    poster_url,
+    vote_average,
+    poster_path,
     genres,
-    release_year,
+    release_date,
     runtime,
-    description,
+    overview,
   };
 
   const onMovieCardClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
@@ -41,14 +41,14 @@ export const MovieCard: FC<IMovieCardProps> = ({
           toggleDeleteModal={toggleDeleteModal}
           toggleEditModal={toggleEditModal}
         />
-        <img src={poster_url} alt="movie poster" className="poster__img" />
+        <img src={poster_path} alt="movie poster" className="poster__img" />
       </div>
       <section className="details">
         <header className="details__header">
           <div className="title__wrapper">
             <h3 className="details__title">{title}</h3>
           </div>
-          <span className="details__production-year">{release_year}</span>
+          <span className="details__production-year">{release_date}</span>
         </header>
         <span className="details__genres">{genres}</span>
       </section>
