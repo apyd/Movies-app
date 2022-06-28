@@ -2,18 +2,23 @@ import React, { FC } from "react";
 import { IFilterProps } from "./Filter.types";
 import "./Filter.scss";
 
-const Filter: FC<IFilterProps> = ({ id, value }) => {
+const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
   return (
     <div className="filter">
       <input
-        id={id}
-        className="filter__input"
+        id={name + label}
         type="radio"
-        name={value}
+        name={name}
         value={value}
+        className="filter__input"
       />
-      <label tabIndex={0} className="filter__label" htmlFor={id}>
-        {value}
+      <label
+        tabIndex={0}
+        className="filter__label"
+        onClick={onFilterSelect}
+        htmlFor={name + label}
+      >
+        {label}
       </label>
     </div>
   );

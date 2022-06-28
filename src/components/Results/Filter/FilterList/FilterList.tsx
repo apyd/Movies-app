@@ -3,13 +3,21 @@ import { IFilterListProps } from "./FilterList.types";
 import "./FilterList.scss";
 import Filter from "../Filter";
 
-export const FilterList: FC<IFilterListProps> = props => {
-  const filtersData = Object.values(props);
+export const FilterList: FC<IFilterListProps> = ({
+  options,
+  onFilterSelect,
+}) => {
   return (
     <form className="filters">
-      {filtersData.map((filterData) => {
+      {options.map(({ label, value, name }, index) => {
         return (
-          <Filter key={filterData.id} {...filterData}/>
+          <Filter
+            key={index}
+            name={name}
+            label={label}
+            value={value}
+            onFilterSelect={() => onFilterSelect(value)}
+          />
         );
       })}
     </form>

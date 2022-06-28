@@ -7,11 +7,42 @@ export const SORT_OPTIONS = [
   {
     id: 2,
     label: "Rating",
-    value: "vote_average",
+    value: "average_vote",
   },
 ];
 
-export const RESULTS = [];
+export const FILTER_OPTIONS = [
+  {
+    id: "1",
+    name: "genre",
+    label: "All",
+    value: "",
+  },
+  {
+    id: "2",
+    name: "genre",
+    label: "Documentary",
+    value: "documentary",
+  },
+  {
+    id: "3",
+    name: "genre",
+    label: "Comedy",
+    value: "comedy",
+  },
+  {
+    id: "4",
+    name: "genre",
+    label: "Horror",
+    value: "horror",
+  },
+  {
+    id: "5",
+    name: "genre",
+    label: "Crime",
+    value: "crime",
+  },
+];
 
 export const GENRES = [
   { id: "1", title: "Documentary" },
@@ -19,38 +50,3 @@ export const GENRES = [
   { id: "3", title: "Horror" },
   { id: "4", title: "Crime" },
 ];
-
-export const FILTER_DATA = [
-  {
-    id: "1",
-    name: "Genre",
-    value: "All",
-    isChecked: true,
-  },
-  {
-    id: "2",
-    name: "Genre",
-    value: "Documentary",
-    isChecked: false,
-  },
-  {
-    id: "3",
-    name: "Genre",
-    value: "Comedy",
-    isChecked: false,
-  },
-  {
-    id: "4",
-    name: "Genre",
-    value: "Horror",
-    isChecked: false,
-  },
-  {
-    id: "5",
-    name: "Genre",
-    value: "Crime",
-    isChecked: false,
-  },
-];
-
-export const RESULTS_COUNT = 39;
