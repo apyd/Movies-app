@@ -16,11 +16,10 @@ export const Sort: FC<ISortProps> = ({
         className="sort__input"
         name="sort"
         id="sort"
-        onChange={onOptionChange}
-        defaultValue={0}
+        onChange={(e) => onOptionChange(e.target.value)}
       >
         {options &&
-          options.map(({ id, label, value, isDefault }) => (
+          options.map(({ id, label, value }) => (
             <option key={id} value={value}>
               {label}
             </option>
