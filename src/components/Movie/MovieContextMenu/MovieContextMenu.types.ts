@@ -1,5 +1,5 @@
 export interface IMovieContextMenuProps {
-  movieId: number
-  toggleEditModal: () => {}
-  toggleDeleteModal: () => {}
+  movieId: number,
+  toggleEditModal: any, //FIX
+  toggleDeleteModal: any // FIX
 }

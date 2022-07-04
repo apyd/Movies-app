@@ -1,10 +1,11 @@
 import React, { FC } from "react";
+import classNames from "classnames/bind";
 import { MovieContextMenu } from "../MovieContextMenu/MovieContextMenu";
 import { IMovieCardProps } from "./MovieCard.types";
 import DefaultPosterPlaceholder from "../../../assets/default-poster-placeholder.jpeg";
-import "./MovieCard.scss";
 import useMovie from "../../../context/MovieContext/MovieContext";
 import { getYearFromDate } from "../../../utils/getYearFromDate";
+import styles from "./MovieCard.scss";
 
 export const MovieCard: FC<IMovieCardProps> = ({
   id,
@@ -17,9 +18,10 @@ export const MovieCard: FC<IMovieCardProps> = ({
   overview,
   toggleEditModal,
   toggleDeleteModal,
+  setMovieId,
 }) => {
-  const { setMovie } = useMovie();
-
+  const cx = classNames.bind(styles);
+  const { setHeroMovie } = useMovie();
   const movieDetails = {
     id,
     title,
@@ -31,13 +33,14 @@ export const MovieCard: FC<IMovieCardProps> = ({
     overview,
   };
 
-  const onMovieCardClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    setMovie(movieDetails);
+  const onMovieCardClick = () => {
+    setMovieId(id);
+    setHeroMovie(movieDetails);
   };
 
   return (
-    <li key={id} className="movie-card" onClick={(e) => onMovieCardClick(e)}>
-      <div className="poster">
+    <li key={id} className={cx("movie-card")} onClick={onMovieCardClick}>
+      <div className={cx("poster")}>
         <MovieContextMenu
           movieId={id}
           toggleDeleteModal={toggleDeleteModal}
@@ -46,23 +49,23 @@ export const MovieCard: FC<IMovieCardProps> = ({
         <img
           src={poster_path}
           alt="movie poster"
-          className="poster__img"
+          className={cx("poster__img")}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
             currentTarget.src = DefaultPosterPlaceholder;
           }}
         />
       </div>
-      <section className="details">
-        <header className="details__header">
-          <div className="title__wrapper">
-            <h3 className="details__title">{title}</h3>
+      <section className={cx("details")}>
+        <header className={cx("details__header")}>
+          <div className={cx("title__wrapper")}>
+            <h3 className={cx("details__title")}>{title}</h3>
           </div>
-          <span className="details__production-year">
+          <span className={cx("details__production-year")}>
             {getYearFromDate(release_date)}
           </span>
         </header>
-        <span className="details__genres">{genres}</span>
+        <span className={cx("details__genres")}>{genres}</span>
       </section>
     </li>
   );

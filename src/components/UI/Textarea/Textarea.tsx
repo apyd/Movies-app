@@ -1,6 +1,7 @@
 import React, { FC } from "react";
+import classNames from "classnames/bind";
 import { IPropsTextarea } from "./Textarea.types";
-import "./Textarea.scss";
+import styles from "./Textarea.scss";
 
 export const Textarea: FC<IPropsTextarea> = ({
   id,
@@ -8,9 +9,10 @@ export const Textarea: FC<IPropsTextarea> = ({
   placeholder,
   label,
 }) => {
+  const cx = classNames.bind(styles);
   return (
-    <div className="wrapper--textarea">
-      <label htmlFor={id} className="textarea-label">
+    <div className={cx("wrapper--textarea")}>
+      <label htmlFor={id} className={cx("textarea-label")}>
         {label.toUpperCase()}
       </label>
       <textarea
@@ -18,7 +20,7 @@ export const Textarea: FC<IPropsTextarea> = ({
         name={name}
         placeholder={placeholder}
         rows={2}
-        className="textarea"
+        className={cx("textarea")}
       />
     </div>
   );

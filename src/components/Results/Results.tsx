@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import classNames from "classnames/bind";
 import { FILTER_OPTIONS, SORT_OPTIONS } from "../../api/resultsData";
 import { useGetMoviesQuery } from "../../store/api/apiSlice";
 
@@ -8,7 +9,7 @@ import { MovieList } from "../Movie/MovieList/MovieList";
 import { ResultsCount } from "./ResultsCount/ResultsCount";
 import { LoadingSpinner } from "../UI/LoadingSpinner/LoadingSpinner";
 
-import "./Results.scss";
+import styles from "./Results.scss";
 
 export const Results = () => {
   const [filter, setFilter] = useState(FILTER_OPTIONS[0].value);
@@ -27,10 +28,12 @@ export const Results = () => {
   const { data, isLoading, isFetching, isError } =
     useGetMoviesQuery(queryParams);
 
+  const cx = classNames.bind(styles);
+
   return (
-    <div className="results">
-      <div className="results__inner-container">
-        <div className="results__modifiers">
+    <div className={cx("results")}>
+      <div className={cx("results__inner-container")}>
+        <div className={cx("results__modifiers")}>
           <FilterList options={FILTER_OPTIONS} onFilterSelect={setFilter} />
           <Sort
             options={SORT_OPTIONS}

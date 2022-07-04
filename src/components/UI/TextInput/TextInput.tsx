@@ -1,6 +1,7 @@
 import React, { FC } from "react";
+import classNames from "classnames/bind";
 import { IPropsTextInput } from "./TextInput.types";
-import "./TextInput.scss";
+import styles from "./TextInput.scss";
 
 export const TextInput: FC<IPropsTextInput> = ({
   id,
@@ -9,9 +10,10 @@ export const TextInput: FC<IPropsTextInput> = ({
   label,
   errorText,
 }) => {
+  const cx = classNames.bind(styles);
   return (
     <>
-      <label htmlFor={id} className="text-label">
+      <label htmlFor={id} className={cx("text-label")}>
         {label.toUpperCase()}
       </label>
       <input
@@ -19,9 +21,9 @@ export const TextInput: FC<IPropsTextInput> = ({
         id={id}
         name={name}
         placeholder={placeholder}
-        className="text-input"
+        className={cx("text-input")}
       />
-      <span className="text-input__error">{errorText}</span>
+      <span className={cx("text-input__error")}>{errorText}</span>
     </>
   );
 };

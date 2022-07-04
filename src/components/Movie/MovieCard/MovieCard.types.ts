@@ -9,6 +9,7 @@ export interface IMovieCardProps extends Partial<Movie> {
   overview: string,
   genres: string[],
   runtime: number,
-  toggleEditModal: any // FIX IT
-  toggleDeleteModal: any // FIX IT
+  toggleEditModal: any,
+  toggleDeleteModal: any,
+  setMovieId: any,
 }

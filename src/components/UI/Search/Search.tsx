@@ -1,16 +1,18 @@
 import React, { FC } from "react";
+import classNames from "classnames/bind";
 import { Button } from "../Button/Button";
 import { ISearchProps } from "./Search.types";
-import "./Search.scss";
+import styles from "./Search.scss";
 
 export const Search: FC<ISearchProps> = ({
-  placeholder,
-  searchButtonText,
+  placeholder = "What do you want to watch?",
+  searchButtonText = "Search",
   setQuery,
   onSearch,
 }) => {
+  const cx = classNames.bind(styles);
   return (
-    <form className="search" onSubmit={onSearch}>
+    <form className={cx("search")} onSubmit={onSearch}>
       <label htmlFor="search"></label>
       <input
         type="search"
@@ -22,11 +24,4 @@ export const Search: FC<ISearchProps> = ({
       <Button onClick={() => {}}>{searchButtonText}</Button>
     </form>
   );
-};
-
-Search.defaultProps = {
-  placeholder: "What do you want to watch?",
-  searchButtonText: "Search",
-  setQuery: () => {},
-  onSearch: () => {},
 };
