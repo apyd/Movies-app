@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
+import classNames from 'classnames/bind';
 import { IPropsResultsCount } from './ResultsCount.types';
-import './ResultsCount.scss';
+import styles from './ResultsCount.scss';
 
 export const ResultsCount: FC<IPropsResultsCount> = ({ value }) => {
+  const cx = classNames.bind(styles);
   return (
-    <span className="results-count">
-      <span className="results-count--bold">{value} </span>
+    <span className={cx('results-count')}>
+      <span className={cx('results-count--bold')}>{value} </span>
       movies found
     </span>
   );

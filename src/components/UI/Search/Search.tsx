@@ -1,17 +1,18 @@
 import React, { FC } from 'react';
+import classNames from 'classnames/bind';
 import { Button } from '../Button/Button';
 import { ISearchProps } from './Search.types';
-import './Search.scss';
+import styles from './Search.scss';
 
 export const Search: FC<ISearchProps> = ({
   placeholder = 'What do you want to watch?',
   searchButtonText = 'Search',
-  value,
-  onChange,
+  setQuery,
   onSearch
 }) => {
+  const cx = classNames.bind(styles);
   return (
-    <form className="search" onSubmit={(e) => onSearch(e)}>
+    <form className={cx('search')} onSubmit={onSearch}>
       <label htmlFor="search"></label>
       <input
         type="search"

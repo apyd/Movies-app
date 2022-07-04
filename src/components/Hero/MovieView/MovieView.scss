@@ -37,38 +37,25 @@
     border-radius: 50%;
   }
 
-  &__info {
+  &__genres {
     padding: 0 1rem 0 0;
+    display: block;
+    padding: 0 0 1rem 0;
+    color: colors.$alt-grey;
+    font-size: 0.9rem;
+  }
 
-    &--block {
-      display: block;
-      padding: 0 0 1rem 0;
-    }
+  &__release-date,
+  &__runtime {
+    padding: 0 1rem 0 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: colors.$pastel-red;
+  }
 
-    &--small {
-      font-size: 0.9rem;
-    }
-
-    &--large {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    &--red {
-      color: colors.$pastel-red;
-    }
-
-    &--red {
-      color: colors.$pastel-red;
-    }
-
-    &--alt-grey {
-      color: colors.$alt-grey;
-    }
-
-    &--dark {
-      color: colors.$dark;
-    }
+  &__overview {
+    padding: 0 1rem 0 0;
+    color: colors.$alt-grey;
   }
 
   &__poster {

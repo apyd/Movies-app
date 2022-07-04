@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
+import classNames from 'classnames/bind';
 import { IPropsDatePicker } from './DatePicker.types';
-import './DatePicker.scss';
+import styles from './DatePicker.scss';
 
 export const DatePicker: FC<IPropsDatePicker> = ({ id, name, label }) => {
   const [type, setType] = useState<string>('text');
@@ -8,17 +9,17 @@ export const DatePicker: FC<IPropsDatePicker> = ({ id, name, label }) => {
   const onInputFocus = () => {
     setType('date');
   };
-
+  const cx = classNames.bind(styles);
   return (
     <>
-      <label htmlFor={id} className="date-picker__label">
+      <label htmlFor={id} className={cx('date-picker__label')}>
         {label.toUpperCase()}
       </label>
       <input
         type={type}
         id={id}
         name={name}
-        className="date-picker__input"
+        className={cx('date-picker__input')}
         placeholder="Select date"
         onFocus={onInputFocus}
       />

@@ -1,12 +1,24 @@
 import React, { FC } from 'react';
+import classNames from 'classnames/bind';
 import { IFilterProps } from './Filter.types';
-import './Filter.scss';
+import styles from './Filter.scss';
 
-export const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
+const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
+  const cx = classNames.bind(styles);
   return (
-    <div className="filter">
-      <input id={name + label} type="radio" name={name} value={value} className="filter__input" />
-      <label tabIndex={0} className="filter__label" onClick={onFilterSelect} htmlFor={name + label}>
+    <div className={cx('filter')}>
+      <input
+        id={name + label}
+        type="radio"
+        name={name}
+        value={value}
+        className={cx('filter__input')}
+      />
+      <label
+        tabIndex={0}
+        className={cx('filter__label')}
+        onClick={onFilterSelect}
+        htmlFor={name + label}>
         {label}
       </label>
     </div>

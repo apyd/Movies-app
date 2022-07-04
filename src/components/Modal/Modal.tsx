@@ -1,20 +1,22 @@
 import React, { FC } from 'react';
 import { createPortal } from 'react-dom';
+import classNames from 'classnames/bind';
 import { Button } from '../UI/Button/Button';
 import { IModalProps } from './Modal.types';
-import './Modal.scss';
+import styles from './Modal.scss';
 import { ButtonType } from '../UI/Button/Button.consts';
 
 export const Modal: FC<IModalProps> = ({ title, isOpened, toggleModal, children }) => {
   const portalDiv = document.getElementById('modal') as HTMLElement;
+  const cx = classNames.bind(styles);
 
   return createPortal(
     <>
       {isOpened && (
         <>
-          <div className="overlay"></div>
-          <div className="modal">
-            <div className="modal__header">
+          <div className={cx('overlay')}></div>
+          <div className={cx('modal')}>
+            <div className={cx('modal__header')}>
               <h2>{title.toUpperCase()}</h2>
               <Button variant={ButtonType.ghost} onClick={toggleModal}>
                 x

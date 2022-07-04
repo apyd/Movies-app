@@ -1,15 +1,17 @@
 import React, { FC } from 'react';
+import classNames from 'classnames/bind';
 import { ISortProps } from './Sort.types';
-import './Sort.scss';
+import styles from './Sort.scss';
 
 export const Sort: FC<ISortProps> = ({ options, onOptionChange, sortLabel = 'Sort by' }) => {
+  const cx = classNames.bind(styles);
   return (
-    <div className="sort">
-      <label className="sort__label" htmlFor="sort">
+    <div className={cx('sort')}>
+      <label className={cx('sort__label')} htmlFor="sort">
         {sortLabel}
       </label>
       <select
-        className="sort__input"
+        className={cx('sort__input')}
         name="sort"
         id="sort"
         onChange={(e) => onOptionChange(e.target.value)}>
@@ -22,9 +24,4 @@ export const Sort: FC<ISortProps> = ({ options, onOptionChange, sortLabel = 'Sor
       </select>
     </div>
   );
-};
-
-Sort.defaultProps = {
-  options: [],
-  sortLabel: 'Sort by'
 };
