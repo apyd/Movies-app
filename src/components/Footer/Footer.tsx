@@ -7,6 +7,7 @@ import styles from './Footer.scss';
 const cx = classNames.bind(styles);
 
 export const Footer = () => {
+  const cx = classNames.bind(styles);
   return (
     <footer className={cx(styles.footer)}>
       <Logo size={LogoSize.small} />

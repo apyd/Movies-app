@@ -39,6 +39,8 @@ export const Results = () => {
 
   const memoizedData = useMemo(() => data, [data]);
 
+  const cx = classNames.bind(styles);
+
   return (
     <div className={cx('results')}>
       <div className={cx('results__inner-container')}>

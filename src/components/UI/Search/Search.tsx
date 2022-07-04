@@ -13,6 +13,7 @@ export const Search: FC<ISearchProps> = ({
   searchRef,
   onSearch
 }) => {
+  const cx = classNames.bind(styles);
   return (
     <form className={cx('search')} onSubmit={(e) => onSearch(e)}>
       <label htmlFor="search"></label>

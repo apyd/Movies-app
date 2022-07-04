@@ -15,6 +15,7 @@ export const Button: FC<IButtonProps> = ({
   type = ButtonType.button,
   isDisabled = false
 }) => {
+  const cx = classNames.bind(styles);
   return (
     <button
       disabled={isDisabled}
