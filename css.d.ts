@@ -1,7 +1,8 @@
-declare module '*.scss' {
-  const css: { [key: string]: string };
-  export default css;
+declare module "*.scss" {
+  const styles: { [className: string]: string };
+  export default styles;
 }
+
 declare module '*.sass' {
   const css: { [key: string]: string };
   export default css;
