@@ -11,7 +11,9 @@ export interface IMovieDetails {
 
 export interface IMovieContextType {
   heroMovie: null | IMovieDetails;
+  selectedMovie: null | IMovieDetails;
   setHeroMovie: (movie: IMovieDetails | null) => void;
+  setSelectedMovie: (movie: IMovieDetails | null) => void;
   openedMovieMenuId: null | number;
   setOpenedMovieMenuId: (id: number | null) => void;
 }
