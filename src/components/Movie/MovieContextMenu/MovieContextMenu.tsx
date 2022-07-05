@@ -30,7 +30,7 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
     <>
       <div className={cx("context-menu")}>
         <Button variant="secondary" shape="round" onClick={onMenuButtonClick}>
-          <SvgIcon icon={MenuIcon} />
+          <SvgIcon icon={MenuIcon} isSmall />
         </Button>
         {openedMovieMenuId === movieId && (
           <div className={cx("context-menu__options")}>
