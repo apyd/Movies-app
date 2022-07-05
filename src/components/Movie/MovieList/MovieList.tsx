@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, memo, useState } from "react";
 import classNames from "classnames/bind";
 import {
   useDeleteMovieByIdMutation,
@@ -11,7 +11,7 @@ import { DeleteMovie } from "../../Modal/DeleteMovie/DeleteMovie";
 import { IMovieListProps } from "./MovieList.types";
 import styles from "./MovieList.scss";
 
-export const MovieList: FC<IMovieListProps> = (props) => {
+const MovieList: FC<IMovieListProps> = (props) => {
   const [movieId, setMovieId] = useState(null);
   const [EditModal, toggleEditModal] = useModal("Edit movie", MovieForm);
   const [DeleteModal, toggleDeleteModal] = useModal(
@@ -26,7 +26,7 @@ export const MovieList: FC<IMovieListProps> = (props) => {
     <>
       {/* @ts-ignore - FIX IT*/}
       <EditModal onSubmit={updateMovie} formData={[]} />
-      {/* @ts-ignore FIX-IT*/}
+      {/* @ts-ignore FIX-IT */}
       <DeleteModal onSubmit={deleteMovie} movieId={movieId} />
       <ul className={cx("movies")}>
         {props.data.map((movieData) => {
@@ -44,3 +44,5 @@ export const MovieList: FC<IMovieListProps> = (props) => {
     </>
   );
 };
+
+export const MemoizedMovieList = memo(MovieList);
