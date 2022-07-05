@@ -1,6 +1,7 @@
+@use "../../../../styles/mixins";
+
 .filters {
-  display: flex;
-  align-items: center;
+  @include mixins.flex-position(row, flex-start, center);
   overflow: auto;
   flex-wrap: wrap;
 }

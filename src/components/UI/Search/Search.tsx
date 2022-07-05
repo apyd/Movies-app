@@ -1,9 +1,14 @@
 import React, { FC } from "react";
-import { Button } from "../UI/Button/Button";
+import { Button } from "../Button/Button";
 import { ISearchProps } from "./Search.types";
 import "./Search.scss";
 
-export const Search: FC<ISearchProps> = ({ placeholder, searchButtonText, setQuery, onSearch }) => {
+export const Search: FC<ISearchProps> = ({
+  placeholder,
+  searchButtonText,
+  setQuery,
+  onSearch,
+}) => {
   return (
     <form className="search" onSubmit={onSearch}>
       <label htmlFor="search"></label>
@@ -21,7 +26,7 @@ export const Search: FC<ISearchProps> = ({ placeholder, searchButtonText, setQue
 
 Search.defaultProps = {
   placeholder: "What do you want to watch?",
-  searchButtonText: 'Search',
-  setQuery: () => { },
-  onSearch: () => { }
+  searchButtonText: "Search",
+  setQuery: () => {},
+  onSearch: () => {},
 };

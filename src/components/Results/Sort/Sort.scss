@@ -1,19 +1,16 @@
 @use "../../../styles/colors";
+@use "../../../styles/mixins";
 
 .sort {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  font-size: inherit;
-  text-transform: uppercase;
+  @include mixins.flex-position(row, flex-start, center);
   gap: 0 1rem;
   position: relative;
+  text-transform: uppercase;
   font-size: 0.9rem;
 
   &::after {
+    @include mixins.position(absolute, $right: -1rem);
     content: "\25BC";
-    position: absolute;
-    right: -1rem;
     color: colors.$pastel-red;
   }
 
@@ -24,15 +21,14 @@
   }
 
   &__input {
-    background: transparent;
-    border: none;
-    -webkit-appearance: none;
     appearance: none;
+    border: none;
+    background: transparent;
     color: colors.$white;
     font-size: inherit;
     font-family: inherit;
     font-weight: 700;
-    letter-spacing: 0.1ch;
     text-transform: uppercase;
+    letter-spacing: 0.1ch;
   }
 }

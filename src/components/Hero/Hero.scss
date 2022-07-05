@@ -1,4 +1,5 @@
 @use "../../styles/variables";
+@use "../../styles/mixins";
 
 .hero {
   display: flex;
@@ -12,27 +13,23 @@
     flex-direction: column;
     width: 100%;
     max-width: variables.$section-max-width;
-    margin: 0 auto;
+    margin: variables.$margin-center-vertically;
     padding: variables.$section-padding;
   }
 
   &__top-banner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include mixins.flex-position(row, space-between, center);
   }
 }
 
 .search__wrapper {
-  display: flex;
-  flex-direction: column;
+  @include mixins.flex-position(column, center, stretch);
   gap: 0.5rem 0;
+  flex: 1;
   max-width: 1024px;
   width: 100%;
-  margin: 0 auto;
+  margin: variables.$margin-center-vertically;
   padding: variables.$section-padding;
-  flex: 1;
-  justify-content: center;
 
   &__heading {
     font-weight: 400;

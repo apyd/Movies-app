@@ -1,7 +1,6 @@
+@use "../../styles/mixins";
+
 .app {
+  @include mixins.flex-position(column, stretch, stretch);
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  align-items: stretch;
 }

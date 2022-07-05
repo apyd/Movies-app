@@ -1,23 +1,30 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { IErrorProps, IErrorState } from "./ErrorBoundary.types";
 
-export class ErrorBoundary extends React.Component<
-  { children: ReactNode },
-  { hasError: boolean }
-> {
-  constructor(props: { children: ReactNode }) {
+export class ErrorBoundary extends React.Component<IErrorProps, IErrorState> {
+  constructor(props: IErrorProps) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, error: { name: "", message: "" } };
   }
 
   static getDerivedStateFromError(error: Error) {
-    return { hasError: true };
+    return {
+      hasError: true,
+      error,
+    };
   }
 
   render() {
-    return this.state.hasError ? (
-      <p>Something went wrong, we are working on it</p>
-    ) : (
-      this.props.children
-    );
+    const { hasError, error } = this.state;
+
+    if (hasError) {
+      return (
+        <div>
+          <p>Something went wrong, we are working on it</p>
+          {error?.message && <span>Error: {error?.message}</span>}
+        </div>
+      );
+    }
+    return this.props.children;
   }
 }

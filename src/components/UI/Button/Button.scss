@@ -1,14 +1,13 @@
-@use "./../../../styles/colors";
+@use "../../../styles/colors";
+@use "../../../styles/mixins";
 
 .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.flex-position(row, center, center);
+  border: none;
+  border-radius: 3px;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 700;
-  border-radius: 3px;
-  border: none;
   cursor: pointer;
 
   &--primary {
