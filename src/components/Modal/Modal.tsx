@@ -12,7 +12,7 @@ export const Modal: FC<IModalProps> = ({
   toggleModal,
   children,
 }) => {
-  const portalDiv = document.getElementById("modal") as HTMLElement;
+  const portalDiv = document.getElementById("modalRoot") as HTMLElement;
   const cx = classNames.bind(styles);
 
   return createPortal(
