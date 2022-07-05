@@ -9,6 +9,7 @@ import DefaultPosterPlaceholder from "../../../assets/default-poster-placeholder
 import { getYearFromDate } from "../../../utils/getYearFromDate";
 import { transformMinutesToHoursAndMinutes } from "../../../utils/transformTime";
 import styles from "./MovieView.scss";
+import { SvgIcon } from "../../UI/Icon/SvgIcon";
 
 export const MovieView: FC<IMovieViewProps> = ({
   title,
@@ -27,7 +28,7 @@ export const MovieView: FC<IMovieViewProps> = ({
       <div className={cx("movie-view__top-banner")}>
         <Logo />
         <Button variant={ButtonType.ghost} onClick={onSearchIconPress}>
-          <SearchIcon className="icon" />
+          <SvgIcon icon={SearchIcon} />
         </Button>
       </div>
       <section className={cx("movie-view__content")}>

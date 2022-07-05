@@ -1,13 +1,8 @@
 @use "../../../../styles/colors";
 @use "../../../../styles/mixins";
+@use "../../../../styles/variables";
 
 .status-modal {
   @include mixins.flex-position(column, center, center);
   font-size: 1.5rem;
-}
-
-.icon {
-  width: 3rem;
-  height: auto;
-  fill: colors.$pastel-red;
 }
