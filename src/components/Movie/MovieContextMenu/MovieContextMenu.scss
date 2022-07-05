@@ -14,5 +14,7 @@
     position: absolute;
     background-color: colors.$light-grey;
     z-index: 10;
+    left: -30%;
+    transform: translateX(-30%);
   }
 }

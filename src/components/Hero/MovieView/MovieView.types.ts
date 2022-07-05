@@ -1,4 +1,4 @@
-export interface IMovieCardProps {
+export interface IMovieViewProps {
     id: string,
     title: string,
     rating: string,
@@ -7,6 +7,5 @@ export interface IMovieCardProps {
     release_year: string,
     runtime: string,
     description: string,
-    toggleEditModal: any // FIX IT
-    toggleDeleteModal: any // FIX IT
+    onSearchIconPress: () => void
 }

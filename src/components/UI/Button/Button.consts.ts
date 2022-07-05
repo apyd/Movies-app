@@ -1,6 +1,8 @@
 export const ButtonType = {
     primary: "primary",
     secondary: "secondary",
+    ghost: 'ghost',
+    outline: 'outline'
 };
 
 export const ButtonSize = {

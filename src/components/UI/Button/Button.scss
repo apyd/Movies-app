@@ -13,11 +13,54 @@
   &--primary {
     background-color: colors.$pastel-red;
     color: colors.$white;
+
+    &:hover {
+      background-color: colors.$pastel-red-bg-hover;
+    }
+
+    &:active {
+      background-color: colors.$pastel-red-bg-active;
+    }
   }
 
   &--secondary {
     background-color: colors.$light-grey;
     color: colors.$pastel-red;
+
+    &:hover {
+      background-color: colors.$light-grey-bg-hover;
+    }
+
+    &:active {
+      background-color: colors.$light-grey-bg-active;
+    }
+  }
+
+  &--ghost {
+    color: colors.$pastel-red;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      background-color: colors.$light-grey-bg-hover;
+    }
+
+    &:active {
+      background-color: colors.$light-grey;
+    }
+  }
+
+  &--outline {
+    color: colors.$pastel-red;
+    background-color: transparent;
+
+    &:hover {
+      background-color: colors.$light-grey-bg-hover;
+    }
+
+    &:active {
+      background-color: colors.$light-grey;
+    }
   }
 
   &--small {
