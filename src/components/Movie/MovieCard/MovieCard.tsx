@@ -18,10 +18,9 @@ export const MovieCard: FC<IMovieCardProps> = ({
   overview,
   toggleEditModal,
   toggleDeleteModal,
-  setMovieId,
+  onMovieCardClick,
 }) => {
   const cx = classNames.bind(styles);
-  const { setHeroMovie } = useMovie();
   const movieDetails = {
     id,
     title,
@@ -33,13 +32,12 @@ export const MovieCard: FC<IMovieCardProps> = ({
     overview,
   };
 
-  const onMovieCardClick = () => {
-    setMovieId(id);
-    setHeroMovie(movieDetails);
-  };
-
   return (
-    <li key={id} className={cx("movie-card")} onClick={onMovieCardClick}>
+    <li
+      key={id}
+      className={cx("movie-card")}
+      onClick={() => onMovieCardClick(id, movieDetails)}
+    >
       <div className={cx("poster")}>
         <MovieContextMenu
           movieId={id}

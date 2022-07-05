@@ -10,6 +10,8 @@ import { MovieCard } from "../MovieCard/MovieCard";
 import { DeleteMovie } from "../../Modal/DeleteMovie/DeleteMovie";
 import { IMovieListProps } from "./MovieList.types";
 import styles from "./MovieList.scss";
+import useMovie from "../../../context/MovieContext/MovieContext";
+import { Movie } from "../../../store/api/apiTypes";
 
 const MovieList: FC<IMovieListProps> = (props) => {
   const [movieId, setMovieId] = useState(null);
@@ -20,6 +22,14 @@ const MovieList: FC<IMovieListProps> = (props) => {
   );
   const [updateMovie] = useUpdateMovieByIdMutation();
   const [deleteMovie] = useDeleteMovieByIdMutation();
+
+  const { setHeroMovie } = useMovie();
+
+  const onMovieCardClick = (id: number, movieDetails: Movie) => {
+    setMovieId(id);
+    setHeroMovie(movieDetails);
+  };
+
   const cx = classNames.bind(styles);
 
   return (
@@ -36,7 +46,7 @@ const MovieList: FC<IMovieListProps> = (props) => {
               {...movieData}
               toggleEditModal={toggleEditModal}
               toggleDeleteModal={toggleDeleteModal}
-              setMovieId={setMovieId}
+              onMovieCardClick={onMovieCardClick}
             />
           );
         })}
