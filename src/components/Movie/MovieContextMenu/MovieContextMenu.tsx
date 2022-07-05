@@ -1,12 +1,12 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames/bind';
-import { Button } from '../../UI/Button/Button';
-import { IMovieContextMenuProps } from './MovieContextMenu.types';
-import MenuIcon from '../../../assets/threedots.svg';
-import styles from './MovieContextMenu.scss';
 import useMovie from '../../../context/MovieContext/MovieContext';
-import { ButtonType } from '../../UI/Button/Button.consts';
+import { Button } from '../../UI/Button/Button';
 import { SvgIcon } from '../../UI/Icon/SvgIcon';
+import MenuIcon from '../../../assets/threedots.svg';
+import { ButtonType } from '../../UI/Button/Button.consts';
+import { IMovieContextMenuProps } from './MovieContextMenu.types';
+import styles from './MovieContextMenu.scss';
 
 export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
   movieId,

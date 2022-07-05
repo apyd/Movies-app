@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { FILTER_OPTIONS, SORT_OPTIONS } from '../../api/resultsData';
 import { useGetMoviesQuery } from '../../store/api/apiSlice';
-
 import { FilterList } from './Filter/FilterList/FilterList';
 import { Sort } from './Sort/Sort';
 import { MemoizedMovieList } from '../Movie/MovieList/MovieList';
 import { ResultsCount } from './ResultsCount/ResultsCount';
 import { LoadingSpinner } from '../UI/LoadingSpinner/LoadingSpinner';
-
 import styles from './Results.scss';
 
 export const Results = () => {

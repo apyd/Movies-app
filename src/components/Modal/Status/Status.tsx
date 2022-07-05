@@ -1,11 +1,11 @@
 import React, { FC, ReactNode } from "react";
 import classNames from "classnames/bind";
 import { Button } from "../../UI/Button/Button";
+import { SvgIcon } from "../../UI/Icon/SvgIcon";
 import Success from "../../../assets/success.svg";
 import Error from "../../../assets/error.svg";
 import { IStatusModalContentProps } from "./Status.types";
 import styles from "./Status.scss";
-import { SvgIcon } from "../../UI/Icon/SvgIcon";
 
 export const status_icon: { [key: string]: ReactNode } = {
   SUCCESS: <SvgIcon icon={Success} />,

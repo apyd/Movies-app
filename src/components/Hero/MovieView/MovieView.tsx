@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import { Logo } from '../../Logo/Logo';
-import { Button } from '../../UI/Button/Button';
-import { ButtonType } from '../../UI/Button/Button.consts';
-import { IMovieViewProps } from './MovieView.types';
-import SearchIcon from '../../../assets/search.svg';
-import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder.jpeg';
 import { getYearFromDate } from '../../../utils/getYearFromDate';
 import { transformMinutesToHoursAndMinutes } from '../../../utils/transformTime';
-import styles from './MovieView.scss';
+import { Button } from '../../UI/Button/Button';
 import { SvgIcon } from '../../UI/Icon/SvgIcon';
+import SearchIcon from '../../../assets/search.svg';
+import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder.jpeg';
+import { ButtonType } from '../../UI/Button/Button.consts';
+import { IMovieViewProps } from './MovieView.types';
+import styles from './MovieView.scss';
 
 export const MovieView: FC<IMovieViewProps> = ({
   title,
@@ -40,7 +40,7 @@ export const MovieView: FC<IMovieViewProps> = ({
               currentTarget.onerror = null;
               currentTarget.src = DefaultPosterPlaceholder;
             }}
-            className={cx("movie-view__img")}
+            className={cx('movie-view__img')}
           />
         </div>
         <div className={cx('movie_view__details')}>

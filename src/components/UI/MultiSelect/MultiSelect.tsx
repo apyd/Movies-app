@@ -1,9 +1,9 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames/bind';
-import { IPropsMultiSelect } from './MultiSelect.types';
 import DropdownIcon from '../../../assets/chevron-down.svg';
-import styles from './MultiSelect.scss';
 import { SvgIcon } from '../Icon/SvgIcon';
+import { IPropsMultiSelect } from './MultiSelect.types';
+import styles from './MultiSelect.scss';
 
 export const MultiSelect: FC<IPropsMultiSelect> = ({ options, selected, toggleOption, label }) => {
   const cx = classNames.bind(styles);

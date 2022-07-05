@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { createPortal } from 'react-dom';
 import classNames from 'classnames/bind';
 import { Button } from '../UI/Button/Button';
+import { ButtonType } from '../UI/Button/Button.consts';
 import { IModalProps } from './Modal.types';
 import styles from './Modal.scss';
-import { ButtonType } from '../UI/Button/Button.consts';
 
 export const Modal: FC<IModalProps> = ({ title, isOpened, toggleModal, children }) => {
   const portalDiv = document.getElementById('modalRoot') as HTMLElement;
