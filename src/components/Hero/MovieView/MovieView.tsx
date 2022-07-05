@@ -40,6 +40,7 @@ export const MovieView: FC<IMovieViewProps> = ({
               currentTarget.onerror = null;
               currentTarget.src = DefaultPosterPlaceholder;
             }}
+            className={cx("movie-view__img")}
           />
         </div>
         <div className={cx('movie_view__details')}>

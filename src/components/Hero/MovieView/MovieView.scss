@@ -68,10 +68,10 @@
     @media screen and (max-width: 550px) {
       display: none;
     }
+  }
 
-    > img {
-      height: 100%;
-      object-fit: contain;
-    }
+  &__img {
+    height: 100%;
+    object-fit: contain;
   }
 }
