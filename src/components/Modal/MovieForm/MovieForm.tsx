@@ -57,7 +57,7 @@ export const MovieForm: FC<IMovieFormProps> = ({ onSubmit, formData }) => {
             label={label}
           />
         </div>
-        <div className={cx("form__column form__column--half-size")}>
+        <div className={cx("form__column", "form__column--half-size")}>
           <DatePicker
             id="date-picker"
             name="date-picker"
