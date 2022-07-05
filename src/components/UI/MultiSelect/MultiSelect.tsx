@@ -1,4 +1,4 @@
-import React, { EventHandler, FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames/bind';
 import { IPropsMultiSelect } from './MultiSelect.types';
 import DropdownIcon from '../../../assets/chevron-down.svg';
@@ -8,12 +8,8 @@ import { SvgIcon } from '../Icon/SvgIcon';
 export const MultiSelect: FC<IPropsMultiSelect> = ({ options, selected, toggleOption, label }) => {
   const cx = classNames.bind(styles);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const toggleSelect = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const target = document.getElementById('multi-select');
-    if (event.target === target) {
-      setIsExpanded((isExpanded) => !isExpanded);
-    }
-    return;
+  const toggleSelect = () => {
+    setIsExpanded((isExpanded) => !isExpanded);
   };
 
   return (
@@ -23,7 +19,7 @@ export const MultiSelect: FC<IPropsMultiSelect> = ({ options, selected, toggleOp
         id="multi-select"
         tabIndex={0}
         className={cx('multi-select__selected')}
-        onClick={(e) => toggleSelect(e)}>
+        onClick={toggleSelect}>
         <span className={cx('multi-select__summary')}>{selected.length} selected</span>
         <SvgIcon icon={DropdownIcon} />
       </div>
