@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames/bind";
-import { FILTER_OPTIONS, SORT_OPTIONS } from "../../api/resultsData";
+import { FILTER_OPTIONS, SORT_OPTIONS } from "../../dictionary/dictionary";
 import { useGetMoviesQuery } from "../../store/api/apiSlice";
 import { FilterList } from "./Filter/FilterList/FilterList";
 import { Sort } from "./Sort/Sort";

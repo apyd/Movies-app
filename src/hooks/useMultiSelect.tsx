@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GENRES as options } from "../api/resultsData";
+import { GENRES as options } from "../dictionary/dictionary";
 import { IPropsMultiSelect } from "../components/UI/MultiSelect/MultiSelect.types";
 
 export const useMultiSelect = (label: string): IPropsMultiSelect => {
