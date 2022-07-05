@@ -5,7 +5,7 @@ import { useGetMoviesQuery } from '../../store/api/apiSlice';
 
 import { FilterList } from './Filter/FilterList/FilterList';
 import { Sort } from './Sort/Sort';
-import { MovieList } from '../Movie/MovieList/MovieList';
+import { MemoizedMovieList } from '../Movie/MovieList/MovieList';
 import { ResultsCount } from './ResultsCount/ResultsCount';
 import { LoadingSpinner } from '../UI/LoadingSpinner/LoadingSpinner';
 
@@ -49,7 +49,7 @@ export const Results = () => {
         {data && (
           <>
             <ResultsCount value={data.data.length} />
-            <MovieList {...data} />
+            <MemoizedMovieList {...data} />
           </>
         )}
       </div>
