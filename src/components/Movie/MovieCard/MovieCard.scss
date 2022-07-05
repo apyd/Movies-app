@@ -1,0 +1,48 @@
+@use "../../../styles/colors";
+
+.poster {
+  position: relative;
+
+  &__img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+
+  &__title {
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  &__production-year {
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    border: 1px solid colors.$light-grey;
+  }
+
+  &__genres {
+    color: colors.$alt-grey;
+    font-size: 0.9rem;
+  }
+}
+
+.title__wrapper {
+  max-width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

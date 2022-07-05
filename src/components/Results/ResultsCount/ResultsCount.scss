@@ -1,0 +1,8 @@
+.results-count {
+  display: inline-block;
+  margin: 1rem 0;
+
+  &--bold {
+    font-weight: bold;
+  }
+}

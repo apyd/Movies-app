@@ -1,0 +1,46 @@
+@use "../../styles/variables";
+
+.hero {
+  display: flex;
+  min-height: clamp(200px, 45vh, 400px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.6)),
+    url("../../assets/hero-bg.jpeg");
+  background-size: cover;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: variables.$section-max-width;
+    margin: 0 auto;
+    padding: variables.$section-padding;
+  }
+
+  &__top-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.search__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem 0;
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  padding: variables.$section-padding;
+  flex: 1;
+  justify-content: center;
+
+  &__heading {
+    font-weight: 400;
+    letter-spacing: 0.1ch;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 0 1rem;
+  }
+}

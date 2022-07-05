@@ -1,0 +1,33 @@
+@use "../../styles/variables";
+@use "../../styles/colors";
+
+.results {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  padding: 0 1rem;
+
+  &__inner-container {
+    display: flex;
+    flex-direction: column;
+    max-width: variables.$section-max-width;
+  }
+
+  &__modifiers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem 0.8rem 0;
+    position: relative;
+
+    &::after {
+      content: "";
+      height: 0.1rem;
+      background-color: colors.$light-grey;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.2rem;
+    }
+  }
+}
