@@ -7,7 +7,7 @@ import styles from './Modal.scss';
 import { ButtonType } from '../UI/Button/Button.consts';
 
 export const Modal: FC<IModalProps> = ({ title, isOpened, toggleModal, children }) => {
-  const portalDiv = document.getElementById('modal') as HTMLElement;
+  const portalDiv = document.getElementById('modalRoot') as HTMLElement;
   const cx = classNames.bind(styles);
 
   return createPortal(
