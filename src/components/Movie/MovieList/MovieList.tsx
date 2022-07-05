@@ -4,14 +4,14 @@ import {
   useDeleteMovieByIdMutation,
   useUpdateMovieByIdMutation,
 } from "../../../store/api/apiSlice";
+import useMovie from "../../../context/MovieContext/MovieContext";
 import { useModal } from "../../../hooks/useModal";
 import { MovieForm } from "../../Modal/MovieForm/MovieForm";
 import { MovieCard } from "../MovieCard/MovieCard";
 import { DeleteMovie } from "../../Modal/DeleteMovie/DeleteMovie";
+import { Movie } from "../../../store/api/apiTypes";
 import { IMovieListProps } from "./MovieList.types";
 import styles from "./MovieList.scss";
-import useMovie from "../../../context/MovieContext/MovieContext";
-import { Movie } from "../../../store/api/apiTypes";
 
 const MovieList: FC<IMovieListProps> = (props) => {
   const [movieId, setMovieId] = useState(null);

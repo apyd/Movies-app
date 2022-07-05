@@ -1,10 +1,9 @@
 import React, { FC } from "react";
 import classNames from "classnames/bind";
-import { MovieContextMenu } from "../MovieContextMenu/MovieContextMenu";
-import { IMovieCardProps } from "./MovieCard.types";
-import DefaultPosterPlaceholder from "../../../assets/default-poster-placeholder.jpeg";
-import useMovie from "../../../context/MovieContext/MovieContext";
 import { getYearFromDate } from "../../../utils/getYearFromDate";
+import { MovieContextMenu } from "../MovieContextMenu/MovieContextMenu";
+import DefaultPosterPlaceholder from "../../../assets/default-poster-placeholder.jpeg";
+import { IMovieCardProps } from "./MovieCard.types";
 import styles from "./MovieCard.scss";
 
 export const MovieCard: FC<IMovieCardProps> = ({

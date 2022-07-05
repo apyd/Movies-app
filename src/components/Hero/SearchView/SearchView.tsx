@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import classNames from "classnames/bind";
 import { Logo } from "../../Logo/Logo";
 import { Button } from "../../UI/Button/Button";
-import { ButtonType } from "../../UI/Button/Button.consts";
 import { Search } from "../../UI/Search/Search";
+import { ButtonType } from "../../UI/Button/Button.consts";
 import { ISearchViewProps } from "./SearchView.types";
 import styles from "./SearchView.scss";
 
