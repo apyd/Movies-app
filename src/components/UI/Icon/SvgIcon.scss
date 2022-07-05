@@ -1,0 +1,7 @@
+@use "../../../styles/colors";
+@use "../../../styles/variables";
+
+.icon {
+  width: variables.$icon-width;
+  fill: colors.$pastel-red;
+}

@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { IPropsMultiSelect } from './MultiSelect.types';
 import DropdownIcon from '../../../assets/chevron-down.svg';
 import styles from './MultiSelect.scss';
+import { SvgIcon } from '../Icon/SvgIcon';
 
 export const MultiSelect: FC<IPropsMultiSelect> = ({ options, selected, toggleOption, label }) => {
   const cx = classNames.bind(styles);
@@ -24,7 +25,7 @@ export const MultiSelect: FC<IPropsMultiSelect> = ({ options, selected, toggleOp
         className={cx('multi-select__selected')}
         onClick={(e) => toggleSelect(e)}>
         <span className={cx('multi-select__summary')}>{selected.length} selected</span>
-        <DropdownIcon className={cx('icon icon--rotated')} />
+        <SvgIcon icon={DropdownIcon} />
       </div>
       {isExpanded && (
         <ul className={cx('multi-select__options')}>

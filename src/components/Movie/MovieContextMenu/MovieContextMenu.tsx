@@ -6,6 +6,7 @@ import MenuIcon from '../../../assets/threedots.svg';
 import styles from './MovieContextMenu.scss';
 import useMovie from '../../../context/MovieContext/MovieContext';
 import { ButtonType } from '../../UI/Button/Button.consts';
+import { SvgIcon } from '../../UI/Icon/SvgIcon';
 
 export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
   movieId,
@@ -29,7 +30,7 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
     <>
       <div className={cx('context-menu')}>
         <Button variant="secondary" shape="round" onClick={onMenuButtonClick}>
-          <MenuIcon className={cx('context-menu__icon')} />
+          <SvgIcon icon={MenuIcon} />
         </Button>
         {openedMovieMenuId === movieId && (
           <div className={cx('context-menu__options')}>
