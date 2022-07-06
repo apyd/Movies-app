@@ -47,8 +47,6 @@ export const Results = () => {
     dispatch(updateSort(selectedSort));
   };
 
-  const cx = classNames.bind(styles);
-
   return (
     <div className={cx('results')}>
       <div className={cx('results__inner-container')}>
