@@ -16,10 +16,12 @@ export const Button: FC<IButtonProps> = ({
   variant = ButtonVariant.primary,
   shape = ButtonShape.rectangle,
   type = ButtonType.button,
+  isDisabled = false,
 }) => {
   const cx = classNames.bind(styles);
   return (
     <button
+      disabled={isDisabled}
       type={type}
       className={cx(styles.btn, [
         styles[`btn--${variant}`],

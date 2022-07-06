@@ -11,7 +11,7 @@ export const Input: FC<IPropsInput> = ({
   placeholder,
   type = "text",
   label,
-  errorText,
+  error,
 }) => {
   const cx = classNames.bind(styles);
   return (
@@ -24,11 +24,11 @@ export const Input: FC<IPropsInput> = ({
         id={id}
         name={name}
         placeholder={placeholder}
-        className={cx("input")}
+        className={cx("input", { "input--invalid": error })}
         value={value}
         onChange={onChange}
       />
-      <span className={cx("input__error")}>{errorText}</span>
+      {error && <span className={cx("input-error")}>{error}</span>}
     </>
   );
 };

@@ -1,6 +1,13 @@
 @use "../../../styles/colors";
 @use "../../../styles/mixins";
 
+.multi-select__selected {
+  &--invalid {
+    color: colors.$pastel-red;
+    border: 1px solid colors.$pastel-red;
+  }
+}
+
 .input {
   appearance: none;
   @include mixins.size(30px, 100%);
@@ -24,7 +31,7 @@
   font-weight: bold;
 }
 
-.error {
+.input-error {
   color: colors.$pastel-red;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }

@@ -7,4 +7,5 @@ export interface IButtonProps {
   size?: string,
   variant?: string,
   shape?: string,
+  isDisabled?: boolean,
 }

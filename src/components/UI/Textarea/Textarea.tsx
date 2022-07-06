@@ -10,6 +10,7 @@ export const Textarea: FC<IPropsTextarea> = ({
   onChange,
   placeholder,
   label,
+  error,
 }) => {
   const cx = classNames.bind(styles);
   return (
@@ -24,8 +25,9 @@ export const Textarea: FC<IPropsTextarea> = ({
         value={value}
         onChange={onChange}
         rows={2}
-        className={cx("textarea")}
+        className={cx("textarea", { "textarea--invalid": error })}
       />
+      {error && <span className={cx("input-error")}>{error}</span>}
     </div>
   );
 };

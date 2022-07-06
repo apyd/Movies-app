@@ -5,19 +5,18 @@ import { SvgIcon } from "../Icon/SvgIcon";
 import { IPropsMultiSelect } from "./MultiSelect.types";
 import styles from "./MultiSelect.scss";
 
-export const MultiSelect: FC<IPropsMultiSelect> = ({
+export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
   options,
+  isExpanded,
   selected,
   value,
   onChange,
   toggleOption,
+  toggleSelect,
   label,
+  error,
 }) => {
   const cx = classNames.bind(styles);
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const toggleSelect = () => {
-    setIsExpanded((isExpanded) => !isExpanded);
-  };
 
   return (
     <div className={cx("multi-select")}>
@@ -25,27 +24,38 @@ export const MultiSelect: FC<IPropsMultiSelect> = ({
       <div
         id="multi-select"
         tabIndex={0}
-        className={cx("multi-select__selected")}
+        className={cx("multi-select__selected", {
+          "multi-select__selected--invalid": error,
+        })}
         onClick={toggleSelect}
       >
-        <span className={cx("multi-select__summary")}>
+        <span
+          className={cx("multi-select__summary", { "input--invalid": error })}
+        >
           {selected.length} selected
         </span>
         <SvgIcon icon={DropdownIcon} />
       </div>
       {isExpanded && (
-        <ul className={cx("multi-select__options")}>
+        <ul
+          className={cx("multi-select__options", { "input--invalid": error })}
+        >
           {options.map(({ id, title }) => {
             return (
               <li
                 key={id}
-                className={cx("multi-select__option")}
-                onClick={() => toggleOption(id)}
+                className={cx("multi-select__option", {
+                  "input--invalid": error,
+                })}
+                onClick={() => toggleOption(title)}
+                onChange={onChange}
               >
                 <input
-                  checked={selected.includes(id)}
+                  checked={selected.includes(title)}
                   type="checkbox"
-                  className={cx("multi-select__checkbox")}
+                  className={cx("multi-select__checkbox", {
+                    "input--invalid": error,
+                  })}
                 />
                 <span>{title}</span>
               </li>
@@ -53,6 +63,7 @@ export const MultiSelect: FC<IPropsMultiSelect> = ({
           })}
         </ul>
       )}
+      {error && <span className={cx("input-error")}>{error}</span>}
     </div>
   );
 };

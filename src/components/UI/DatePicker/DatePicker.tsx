@@ -9,6 +9,7 @@ export const DatePicker: FC<IPropsDatePicker> = ({
   label,
   value,
   onChange,
+  error,
 }) => {
   const [type, setType] = useState<string>("text");
 
@@ -25,12 +26,15 @@ export const DatePicker: FC<IPropsDatePicker> = ({
         type={type}
         id={id}
         name={name}
-        className={cx("date-picker__input")}
+        className={cx("date-picker__input", {
+          "date-picker__input--invalid": error,
+        })}
         placeholder="Select date"
         onFocus={onInputFocus}
         value={value}
         onChange={onChange}
       />
+      {error && <span className={cx("input-error")}>{error}</span>}
     </>
   );
 };
