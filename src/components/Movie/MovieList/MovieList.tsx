@@ -23,7 +23,7 @@ const MovieList: FC<IMovieListProps> = (props) => {
   const [updateMovie] = useUpdateMovieByIdMutation();
   const [deleteMovie] = useDeleteMovieByIdMutation();
 
-  const { setHeroMovie } = useMovie();
+  const { heroMovie, setHeroMovie } = useMovie();
 
   const onMovieCardClick = (id: number, movieDetails: Movie) => {
     setMovieId(id);
@@ -37,7 +37,7 @@ const MovieList: FC<IMovieListProps> = (props) => {
   return (
     <>
       {/* @ts-ignore - FIX IT*/}
-      <EditModal onSubmit={updateMovie} formData={[]} />
+      <EditModal onSubmit={updateMovie} formData={heroMovie} />
       {/* @ts-ignore FIX-IT */}
       <DeleteModal onSubmit={deleteMovie} movieId={movieId} />
       <ul className={cx("movies")}>
