@@ -1,7 +1,7 @@
 @use "../../../styles/colors";
 @use "../../../styles/mixins";
 
-.text-input {
+.input {
   appearance: none;
   @include mixins.size(30px, 100%);
   min-width: 100px;

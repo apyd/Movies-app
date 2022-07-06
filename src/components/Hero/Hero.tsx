@@ -47,7 +47,7 @@ export const Hero = () => {
         )}
       </div>
       {/* @ts-ignore - FIX IT */}
-      <AddMovieModal onSubmit={addMovie} />
+      <AddMovieModal onFormSubmit={addMovie} />
     </div>
   );
 };

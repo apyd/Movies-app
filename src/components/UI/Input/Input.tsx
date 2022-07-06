@@ -1,14 +1,15 @@
 import React, { FC } from "react";
 import classNames from "classnames/bind";
-import { IPropsTextInput } from "./TextInput.types";
-import styles from "./TextInput.scss";
+import { IPropsInput } from "./Input.types";
+import styles from "./Input.scss";
 
-export const TextInput: FC<IPropsTextInput> = ({
+export const Input: FC<IPropsInput> = ({
   id,
   name,
   value,
   onChange,
   placeholder,
+  type = "text",
   label,
   errorText,
 }) => {
@@ -19,15 +20,15 @@ export const TextInput: FC<IPropsTextInput> = ({
         {label.toUpperCase()}
       </label>
       <input
-        type="text"
+        type={type}
         id={id}
         name={name}
         placeholder={placeholder}
-        className={cx("text-input")}
+        className={cx("input")}
         value={value}
         onChange={onChange}
       />
-      <span className={cx("text-input__error")}>{errorText}</span>
+      <span className={cx("input__error")}>{errorText}</span>
     </>
   );
 };
