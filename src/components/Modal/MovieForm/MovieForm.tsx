@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 import classNames from "classnames/bind";
 import * as Yup from "yup";
-import { FormikConfig, FormikValues, useFormik } from "formik";
+import { useFormik } from "formik";
 import { MovieFormData } from "./MovieForm.types";
-
-import { Modal } from "../Modal";
 import { Button } from "../../UI/Button/Button";
 import { DatePicker } from "../../UI/DatePicker/DatePicker";
 import { MultiSelect } from "../../UI/MultiSelect/MultiSelect";
@@ -15,27 +13,27 @@ import { IMovieFormProps } from "./MovieForm.types";
 import { ButtonType } from "../../UI/Button/Button.consts";
 import styles from "./MovieForm.scss";
 
-export const MovieForm: FC<IMovieFormProps> = ({ onSubmit, formData }) => {
+export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
   const cx = classNames.bind(styles);
   const { selected, toggleOption, options, label } = useMultiSelect("Genres");
-  // const initialValues: MovieFormData = {
-  //   id: formData?.id || 0, // TODO
-  //   title: formData?.title || "",
-  //   posterPath: formData?.posterPath || "",
-  //   genres: formData?.genres || [],
-  //   release_date: formData?.release_date || String(new Date()),
-  //   vote_average: formData?.vote_average || 0,
-  //   runtime: formData?.runtime || 0,
-  //   overview: formData?.overview || "",
-  // };
+  const initialValues: MovieFormData = {
+    id: formData?.id || 0,
+    title: formData?.title || "",
+    poster_path: formData?.poster_path || "",
+    genres: formData?.genres || [],
+    release_date: formData?.release_date || String(new Date()),
+    vote_average: formData?.vote_average || 0,
+    runtime: formData?.runtime || 0,
+    overview: formData?.overview || "",
+  };
 
-  // const formik = useFormik<FormikConfig<FormikValues>>({
-  //   initialValues: initialValues,
-  //   onSubmit: onSubmit,
-  // });
+  const { values, handleSubmit, handleChange } = useFormik({
+    initialValues: initialValues,
+    onSubmit: onFormSubmit,
+  });
 
   return (
-    <form className={cx("form")}>
+    <form className={cx("form")} onSubmit={handleSubmit}>
       <div className={cx("inputs--wrapper")}>
         <div className={cx("form__column")}>
           <TextInput
@@ -43,38 +41,50 @@ export const MovieForm: FC<IMovieFormProps> = ({ onSubmit, formData }) => {
             name="title"
             placeholder="title"
             label="title"
+            value={values.title}
+            onChange={handleChange}
           />
           <TextInput
-            id="movie-url"
-            name="movieUrl"
-            placeholder="movie url"
-            label="movie url"
+            id="poster_path"
+            name="poster_path"
+            placeholder="poster path url"
+            label="poster path"
+            value={values["poster_path"]}
+            onChange={handleChange}
           />
           <MultiSelect
             selected={selected}
             toggleOption={toggleOption}
             options={options}
             label={label}
+            value={values.genres}
+            onChange={handleChange}
           />
         </div>
         <div className={cx("form__column", "form__column--half-size")}>
           <DatePicker
-            id="date-picker"
-            name="date-picker"
+            id="release_date"
+            name="release_date"
             placeholder="date picker"
             label="date picker"
+            value={values["release_date"]}
+            onChange={handleChange}
           />
           <TextInput
             id="vote_average"
             name="vote_average"
             placeholder="vote_average"
             label="vote_average"
+            value={values["vote_average"]}
+            onChange={handleChange}
           />
           <TextInput
             id="runtime"
             name="runtime"
             placeholder="runtime"
             label="runtime"
+            value={values.runtime}
+            onChange={handleChange}
           />
         </div>
       </div>
@@ -83,6 +93,8 @@ export const MovieForm: FC<IMovieFormProps> = ({ onSubmit, formData }) => {
         name="overview"
         placeholder="overview"
         label="overview"
+        value={values.overview}
+        onChange={handleChange}
       />
       <div className={cx("form__actions")}>
         <Button variant={ButtonType.secondary} onClick={() => {}}>

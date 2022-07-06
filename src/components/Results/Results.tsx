@@ -30,8 +30,6 @@ export const Results = () => {
     setQueryParams(query);
   }, [searchText, filter, sort]);
 
-  console.log(queryParams);
-
   const { data, isLoading, isFetching, isError } =
     useGetMoviesQuery(queryParams);
 

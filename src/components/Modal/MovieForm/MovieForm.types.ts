@@ -1,5 +1,5 @@
 export interface IMovieFormProps {
-  onSubmit: any, //FIX IT
+  onFormSubmit: any, //FIX IT
   formData: MovieFormData,
   toggleModal: any //FIX: TODO
 }
@@ -8,7 +8,7 @@ export interface IMovieFormProps {
 export interface MovieFormData {
   id: number,
   title: string,
-  posterPath: string,
+  poster_path: string,
   genres: string[],
   release_date: string,
   vote_average: number,

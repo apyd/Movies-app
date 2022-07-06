@@ -6,6 +6,8 @@ import styles from "./Textarea.scss";
 export const Textarea: FC<IPropsTextarea> = ({
   id,
   name,
+  value,
+  onChange,
   placeholder,
   label,
 }) => {
@@ -19,6 +21,8 @@ export const Textarea: FC<IPropsTextarea> = ({
         id={id}
         name={name}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
         rows={2}
         className={cx("textarea")}
       />

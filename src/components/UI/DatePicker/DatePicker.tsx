@@ -3,7 +3,13 @@ import classNames from "classnames/bind";
 import { IPropsDatePicker } from "./DatePicker.types";
 import styles from "./DatePicker.scss";
 
-export const DatePicker: FC<IPropsDatePicker> = ({ id, name, label }) => {
+export const DatePicker: FC<IPropsDatePicker> = ({
+  id,
+  name,
+  label,
+  value,
+  onChange,
+}) => {
   const [type, setType] = useState<string>("text");
 
   const onInputFocus = () => {
@@ -22,6 +28,8 @@ export const DatePicker: FC<IPropsDatePicker> = ({ id, name, label }) => {
         className={cx("date-picker__input")}
         placeholder="Select date"
         onFocus={onInputFocus}
+        value={value}
+        onChange={onChange}
       />
     </>
   );

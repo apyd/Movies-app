@@ -8,6 +8,8 @@ import styles from "./MultiSelect.scss";
 export const MultiSelect: FC<IPropsMultiSelect> = ({
   options,
   selected,
+  value,
+  onChange,
   toggleOption,
   label,
 }) => {
