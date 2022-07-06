@@ -27,8 +27,6 @@ const MovieList: FC<IMovieListProps> = (props) => {
     setHeroMovie(movieDetails);
   };
 
-  console.log(movieId);
-
   const cx = classNames.bind(styles);
 
   const onMovieCardClick = (id: number, movieDetails: any) => {
