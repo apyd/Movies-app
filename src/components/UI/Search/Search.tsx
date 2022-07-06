@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { Button } from '../Button/Button';
 import { ISearchProps } from './Search.types';
 import styles from './Search.scss';
+import { ButtonType } from '../Button/Button.consts';
 
 export const Search: FC<ISearchProps> = ({
   placeholder = 'What do you want to watch?',
@@ -23,7 +24,9 @@ export const Search: FC<ISearchProps> = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-      <Button onClick={() => {}}>{searchButtonText}</Button>
+      <Button type={ButtonType.submit} onClick={() => {}}>
+        {searchButtonText}
+      </Button>
     </form>
   );
 };
