@@ -32,9 +32,8 @@ export const apiSlice = createApi({
     }),
     deleteMovieById: builder.mutation({
       query: (id) => ({
-        url: `/movies`,
+        url: `/movies/${id}`,
         method: 'DELETE',
-        body: { id: id },
       }),
       invalidatesTags: ['Movies'],
     }),

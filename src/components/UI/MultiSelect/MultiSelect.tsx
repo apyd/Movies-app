@@ -53,6 +53,8 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
                   checked={selected.includes(title)}
                   type="checkbox"
                   className={cx("multi-select__checkbox")}
+                  value={value}
+                  onChange={onChange}
                 />
                 <span>{title}</span>
               </li>
