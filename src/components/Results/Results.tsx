@@ -39,6 +39,14 @@ export const Results = () => {
 
   const memoizedData = useMemo(() => data, [data]);
 
+  const onFilterChange = (selectedFilter: string) => {
+    dispatch(updateFilter(selectedFilter));
+  };
+
+  const onSortChange = (selectedSort: string) => {
+    dispatch(updateSort(selectedSort));
+  };
+
   const cx = classNames.bind(styles);
 
   return (

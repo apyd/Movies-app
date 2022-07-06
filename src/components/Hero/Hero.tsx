@@ -23,6 +23,7 @@ export const Hero = () => {
   const dispatch = useDispatch();
 
   const { heroMovie, setHeroMovie } = useMovie();
+  const [searchValue, setSearchValue] = useState('');
 
   const inputRef = useRef<HTMLInputElement>(null);
 
