@@ -28,6 +28,10 @@
   &__summary {
     font-size: 0.8rem;
     font-family: inherit;
+
+    &--invalid {
+      color: colors.$pastel-red;
+    }
   }
 
   &__selected {
@@ -35,6 +39,10 @@
     height: 30px;
     padding: 0 1rem;
     background-color: colors.$dark-grey;
+
+    &--invalid {
+      border: 1px solid colors.$pastel-red;
+    }
   }
 
   &__options {

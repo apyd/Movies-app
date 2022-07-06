@@ -1,13 +1,6 @@
 @use "../../../styles/colors";
 @use "../../../styles/mixins";
 
-.multi-select__selected {
-  &--invalid {
-    color: colors.$pastel-red;
-    border: 1px solid colors.$pastel-red;
-  }
-}
-
 .input {
   appearance: none;
   @include mixins.size(30px, 100%);
@@ -20,6 +13,15 @@
   &::placeholder {
     color: colors.$white;
     text-transform: capitalize;
+  }
+
+  &--invalid {
+    color: colors.$pastel-red;
+    border: 1px solid colors.$pastel-red;
+
+    &::placeholder {
+      color: colors.$pastel-red;
+    }
   }
 }
 

@@ -30,7 +30,9 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
         onClick={toggleSelect}
       >
         <span
-          className={cx("multi-select__summary", { "input--invalid": error })}
+          className={cx("multi-select__summary", {
+            "multi-select__summary--invalid": error,
+          })}
         >
           {selected.length} selected
         </span>
