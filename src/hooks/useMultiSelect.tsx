@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { GENRES as options } from '../dictionary/dictionary';
 import { IPropsMultiSelect } from '../components/UI/MultiSelect/MultiSelect.types';
 
-export const useMultiSelect = (label: string): IPropsMultiSelect => {
-  const [selected, setSelected] = useState<Array<string>>([]);
+export const useMultiSelect = (label: string): Partial<IPropsMultiSelect> => {
+  const [selected, setSelected] = useState<string[]>([]);
 
   const toggleOption = (id: string) => {
     setSelected((prevSelected) => {

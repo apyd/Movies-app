@@ -3,7 +3,15 @@ import classNames from 'classnames/bind';
 import { IPropsTextInput } from './TextInput.types';
 import styles from './TextInput.scss';
 
-export const TextInput: FC<IPropsTextInput> = ({ id, name, placeholder, label, errorText }) => {
+export const TextInput: FC<IPropsTextInput> = ({
+  id,
+  name,
+  value,
+  onChange,
+  placeholder,
+  label,
+  errorText
+}) => {
   const cx = classNames.bind(styles);
   return (
     <>
@@ -16,6 +24,8 @@ export const TextInput: FC<IPropsTextInput> = ({ id, name, placeholder, label, e
         name={name}
         placeholder={placeholder}
         className={cx('text-input')}
+        value={value}
+        onChange={onChange}
       />
       <span className={cx('text-input__error')}>{errorText}</span>
     </>

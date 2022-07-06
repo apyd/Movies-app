@@ -5,7 +5,14 @@ import { SvgIcon } from '../Icon/SvgIcon';
 import { IPropsMultiSelect } from './MultiSelect.types';
 import styles from './MultiSelect.scss';
 
-export const MultiSelect: FC<IPropsMultiSelect> = ({ options, selected, toggleOption, label }) => {
+export const MultiSelect: FC<IPropsMultiSelect> = ({
+  options,
+  selected,
+  value,
+  onChange,
+  toggleOption,
+  label
+}) => {
   const cx = classNames.bind(styles);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const toggleSelect = () => {
