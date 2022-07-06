@@ -10,6 +10,17 @@
   font-weight: 700;
   cursor: pointer;
 
+  &:disabled {
+    background-color: colors.$white;
+    color: colors.$alt-grey;
+
+    &:hover {
+      background-color: colors.$white;
+      color: colors.$alt-grey;
+      cursor: not-allowed;
+    }
+  }
+
   &--primary {
     background-color: colors.$pastel-red;
     color: colors.$white;

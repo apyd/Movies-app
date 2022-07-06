@@ -8,5 +8,5 @@ export interface IPropsInput {
   onChange: any, // FIX IT
   placeholder: string,
   label: string,
-  errorText?: string
+  error: any, //FIX IT
 }

@@ -5,4 +5,5 @@ export interface IPropsDatePicker {
   onChange: any,
   placeholder: string,
   label: string
+  error: any,
 }
