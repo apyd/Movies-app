@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import { useDispatch, useSelector } from 'react-redux';
-import querySlice from '../../store/api/querySlice';
 import { querySelector } from '../../store/store';
 import { updateSearch } from '../../store/api/querySlice';
 import { useAddMovieMutation } from '../../store/api/apiSlice';
@@ -18,12 +17,14 @@ export const Hero = () => {
   const { searchText } = useSelector(querySelector);
   const dispatch = useDispatch();
   const { heroMovie, setHeroMovie } = useMovie();
+  const [searchValue, setSearchValue] = useState('');
 
-  const onSearchChange = (text: string) => {
-    if (text === searchText) {
+  const onSearchChange = (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+    if (searchValue === searchText) {
       return;
     }
-    dispatch(updateSearch(text));
+    dispatch(updateSearch(searchValue));
   };
 
   const cx = classNames.bind(styles);
@@ -36,12 +37,13 @@ export const Hero = () => {
         ) : (
           <SearchView
             toggleModal={toggleModal}
-            value={searchText}
-            onSearchChange={onSearchChange}
+            value={searchValue}
+            onChange={setSearchValue}
+            onSearch={onSearchChange}
           />
         )}
       </div>
-      {/* @ts-ignore - FIX IT*/}
+      {/* @ts-ignore - FIX IT */}
       <AddMovieModal onSubmit={addMovie} />
     </div>
   );

@@ -7,12 +7,13 @@ import styles from './Search.scss';
 export const Search: FC<ISearchProps> = ({
   placeholder = 'What do you want to watch?',
   searchButtonText = 'Search',
-  setQuery,
+  value,
+  onChange,
   onSearch
 }) => {
   const cx = classNames.bind(styles);
   return (
-    <form className={cx('search')} onSubmit={onSearch}>
+    <form className={cx('search')} onSubmit={(e) => onSearch(e)}>
       <label htmlFor="search"></label>
       <input
         type="search"

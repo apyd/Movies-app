@@ -7,7 +7,7 @@ import { ButtonType } from '../../UI/Button/Button.consts';
 import { ISearchViewProps } from './SearchView.types';
 import styles from './SearchView.scss';
 
-export const SearchView: FC<ISearchViewProps> = ({ toggleModal }) => {
+export const SearchView: FC<ISearchViewProps> = ({ toggleModal, value, onChange, onSearch }) => {
   const cx = classNames.bind(styles);
 
   return (
@@ -20,7 +20,7 @@ export const SearchView: FC<ISearchViewProps> = ({ toggleModal }) => {
       </div>
       <section className={cx('search-view__content')}>
         <h1 className={cx('search__heading')}>FIND YOUR MOVIE</h1>
-        <Search setQuery={() => {}} onSearch={() => {}} />
+        <Search value={value} onChange={onChange} onSearch={onSearch} />
       </section>
     </div>
   );
