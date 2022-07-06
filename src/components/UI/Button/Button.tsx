@@ -1,19 +1,21 @@
 import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import { IButtonProps } from './Button.types';
-import { ButtonType, ButtonSize, ButtonShape } from './Button.consts';
+import { ButtonType, ButtonSize, ButtonShape, ButtonVariant } from './Button.consts';
 import styles from './Button.scss';
 
 export const Button: FC<IButtonProps> = ({
   children,
   onClick,
   size = ButtonSize.medium,
-  variant = ButtonType.primary,
-  shape = ButtonShape.rectangle
+  variant = ButtonVariant.primary,
+  shape = ButtonShape.rectangle,
+  type = ButtonType.button
 }) => {
   const cx = classNames.bind(styles);
   return (
     <button
+      type={type}
       className={cx(styles.btn, [
         styles[`btn--${variant}`],
         styles[`btn--${size}`],
