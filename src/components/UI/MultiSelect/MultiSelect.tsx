@@ -18,6 +18,8 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
 }) => {
   const cx = classNames.bind(styles);
 
+  value = selected;
+
   return (
     <div className={cx("multi-select")}>
       <span className={cx("multi-select__label")}>{label}</span>
@@ -39,25 +41,18 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
         <SvgIcon icon={DropdownIcon} />
       </div>
       {isExpanded && (
-        <ul
-          className={cx("multi-select__options", { "input--invalid": error })}
-        >
+        <ul className={cx("multi-select__options")}>
           {options.map(({ id, title }) => {
             return (
               <li
                 key={id}
-                className={cx("multi-select__option", {
-                  "input--invalid": error,
-                })}
+                className={cx("multi-select__option")}
                 onClick={() => toggleOption(title)}
-                onChange={onChange}
               >
                 <input
                   checked={selected.includes(title)}
                   type="checkbox"
-                  className={cx("multi-select__checkbox", {
-                    "input--invalid": error,
-                  })}
+                  className={cx("multi-select__checkbox")}
                 />
                 <span>{title}</span>
               </li>

@@ -25,10 +25,12 @@ export const Results = () => {
         : "";
     const sortQuery = `sortBy=${sort}&sortOrder=asc`;
     const filterQuery =
-      filter === FILTER_OPTIONS[0].value ? "" : `&filter=${filter}`;
+      filter === FILTER_OPTIONS[0].value ? "" : `filter=${filter}&`;
     const query = `?${searchQuery}${filterQuery}${sortQuery}`;
     setQueryParams(query);
   }, [searchText, filter, sort]);
+
+  console.log(queryParams);
 
   const { data, isLoading, isFetching, isError } =
     useGetMoviesQuery(queryParams);
