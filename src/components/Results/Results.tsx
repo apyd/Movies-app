@@ -19,22 +19,29 @@ export const Results = () => {
   const [queryParams, setQueryParams] = useState(defaultQueryParams);
 
   useEffect(() => {
-    if (filter !== FILTER_OPTIONS[0].value && searchText.trim().length > 0) {
-      setQueryParams(
-        `?search=${searchText}&filter=${filter}&sortBy=${sort}&sortOrder=asc`
-      );
-    } else if (
-      filter !== FILTER_OPTIONS[0].value &&
-      searchText.trim().length === 0
-    ) {
-      setQueryParams(`?filter=${filter}&sortBy=${sort}&sortOrder=asc`);
-    } else {
-      setQueryParams(`?sortBy=${sort}&sortOrder=asc`);
-    }
-  }, [filter, sort]);
+    const searchQuery =
+      searchText.trim().length > 0
+        ? `search=${searchText}&searchBy=title&`
+        : "";
+    const sortQuery = `sortBy=${sort}&sortOrder=asc`;
+    const filterQuery =
+      filter === FILTER_OPTIONS[0].value ? "" : `&filter=${filter}`;
+    const query = `?${searchQuery}${filterQuery}${sortQuery}`;
+    setQueryParams(query);
+  }, [searchText, filter, sort]);
+
+  console.log(queryParams);
 
   const { data, isLoading, isFetching, isError } =
     useGetMoviesQuery(queryParams);
+
+  const onFilterChange = (selectedFilter: string) => {
+    dispatch(updateFilter(selectedFilter));
+  };
+
+  const onSortChange = (selectedSort: string) => {
+    dispatch(updateSort(selectedSort));
+  };
 
   const cx = classNames.bind(styles);
 
@@ -42,10 +49,13 @@ export const Results = () => {
     <div className={cx("results")}>
       <div className={cx("results__inner-container")}>
         <div className={cx("results__modifiers")}>
-          <FilterList options={FILTER_OPTIONS} onFilterSelect={updateFilter} />
+          <FilterList
+            options={FILTER_OPTIONS}
+            onFilterSelect={onFilterChange}
+          />
           <Sort
             options={SORT_OPTIONS}
-            onOptionChange={updateSort}
+            onOptionChange={onSortChange}
             sortLabel="Sort by"
           />
         </div>
