@@ -1,38 +1,48 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import classNames from 'classnames/bind';
+import { useDispatch, useSelector } from 'react-redux';
+import querySlice from '../../store/api/querySlice';
+import { querySelector } from '../../store/store';
 import { updateSearch } from '../../store/api/querySlice';
+import { useAddMovieMutation } from '../../store/api/apiSlice';
 import { useModal } from '../../hooks/useModal';
-import { AddMovie } from '../Modal/MovieForm/AddMovie/AddMovie';
+import useMovie from '../../context/MovieContext/MovieContext';
+import { MovieForm } from '../Modal/MovieForm/MovieForm';
 import { SearchView } from './SearchView/SearchView';
 import { MovieView } from './MovieView/MovieView';
-import './Hero.scss';
-import useMovie from '../../context/MovieContext/MovieContext';
+import styles from './Hero.scss';
 
 export const Hero = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const [isOpened, toggleModal] = useModal();
-  const { heroMovie, setHeroMovie } = useMovie();
+  const [addMovie] = useAddMovieMutation();
+  const [AddMovieModal, toggleModal] = useModal('Add movie', MovieForm);
+  const { searchText } = useSelector(querySelector);
   const dispatch = useDispatch();
+  const { heroMovie, setHeroMovie } = useMovie();
 
-  const onSearchChange = (e: React.FormEvent<HTMLElement>) => {
-    e.preventDefault();
-    dispatch(updateSearch(searchValue));
+  const onSearchChange = (text: string) => {
+    if (text === searchText) {
+      return;
+    }
+    dispatch(updateSearch(text));
   };
 
+  const cx = classNames.bind(styles);
+
   return (
-    <div className={`hero ${!heroMovie ? 'hero--search' : ''}`}>
-      <div className="hero__inner">
-        {!heroMovie && (
+    <div className={cx(styles.hero, { 'hero--search': !heroMovie })}>
+      <div className={cx('hero__inner')}>
+        {heroMovie ? (
+          <MovieView onSearchIconPress={() => setHeroMovie(null)} {...heroMovie} />
+        ) : (
           <SearchView
-            value={searchValue}
-            onChange={setSearchValue}
-            onSearch={onSearchChange}
             toggleModal={toggleModal}
+            value={searchText}
+            onSearchChange={onSearchChange}
           />
         )}
-        {heroMovie && <MovieView onSearchIconPress={() => setHeroMovie(null)} {...heroMovie} />}
       </div>
-      <AddMovie isOpened={isOpened} toggleModal={toggleModal} />
+      {/* @ts-ignore - FIX IT*/}
+      <AddMovieModal onSubmit={addMovie} />
     </div>
   );
 };
