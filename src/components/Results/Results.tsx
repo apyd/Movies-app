@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames/bind";
+import { querySelector } from "../../store/store";
+import { updateSort, updateFilter } from "../../store/api/querySlice";
 import { FILTER_OPTIONS, SORT_OPTIONS } from "../../dictionary/dictionary";
 import { useGetMoviesQuery } from "../../store/api/apiSlice";
 import { FilterList } from "./Filter/FilterList/FilterList";
@@ -10,13 +13,20 @@ import { LoadingSpinner } from "../UI/LoadingSpinner/LoadingSpinner";
 import styles from "./Results.scss";
 
 export const Results = () => {
-  const [filter, setFilter] = useState(FILTER_OPTIONS[0].value);
-  const [sort, setSort] = useState(SORT_OPTIONS[0].value);
+  const { searchText, filter, sort } = useSelector(querySelector);
+  const dispatch = useDispatch();
   let defaultQueryParams = `?sortBy=${sort}&sortOrder=asc`;
   const [queryParams, setQueryParams] = useState(defaultQueryParams);
 
   useEffect(() => {
-    if (filter !== FILTER_OPTIONS[0].value) {
+    if (filter !== FILTER_OPTIONS[0].value && searchText.trim().length > 0) {
+      setQueryParams(
+        `?search=${searchText}&filter=${filter}&sortBy=${sort}&sortOrder=asc`
+      );
+    } else if (
+      filter !== FILTER_OPTIONS[0].value &&
+      searchText.trim().length === 0
+    ) {
       setQueryParams(`?filter=${filter}&sortBy=${sort}&sortOrder=asc`);
     } else {
       setQueryParams(`?sortBy=${sort}&sortOrder=asc`);
@@ -32,10 +42,10 @@ export const Results = () => {
     <div className={cx("results")}>
       <div className={cx("results__inner-container")}>
         <div className={cx("results__modifiers")}>
-          <FilterList options={FILTER_OPTIONS} onFilterSelect={setFilter} />
+          <FilterList options={FILTER_OPTIONS} onFilterSelect={updateFilter} />
           <Sort
             options={SORT_OPTIONS}
-            onOptionChange={setSort}
+            onOptionChange={updateSort}
             sortLabel="Sort by"
           />
         </div>
