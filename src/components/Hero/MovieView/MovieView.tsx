@@ -7,7 +7,7 @@ import { Button } from "../../UI/Button/Button";
 import { SvgIcon } from "../../UI/Icon/SvgIcon";
 import SearchIcon from "../../../assets/search.svg";
 import DefaultPosterPlaceholder from "../../../assets/default-poster-placeholder.jpeg";
-import { ButtonType } from "../../UI/Button/Button.consts";
+import { ButtonVariant } from "../../UI/Button/Button.consts";
 import { IMovieViewProps } from "./MovieView.types";
 import styles from "./MovieView.scss";
 
@@ -27,7 +27,7 @@ export const MovieView: FC<IMovieViewProps> = ({
     <div className={cx("movie-view")}>
       <div className={cx("movie-view__top-banner")}>
         <Logo />
-        <Button variant={ButtonType.ghost} onClick={onSearchIconPress}>
+        <Button variant={ButtonVariant.ghost} onClick={onSearchIconPress}>
           <SvgIcon icon={SearchIcon} />
         </Button>
       </div>

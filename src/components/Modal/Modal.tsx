@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { createPortal } from "react-dom";
 import classNames from "classnames/bind";
 import { Button } from "../UI/Button/Button";
-import { ButtonType } from "../UI/Button/Button.consts";
+import { ButtonVariant } from "../UI/Button/Button.consts";
 import { IModalProps } from "./Modal.types";
 import styles from "./Modal.scss";
 
@@ -23,7 +23,7 @@ export const Modal: FC<IModalProps> = ({
           <div className={cx("modal")}>
             <div className={cx("modal__header")}>
               <h2>{title.toUpperCase()}</h2>
-              <Button variant={ButtonType.ghost} onClick={toggleModal}>
+              <Button variant={ButtonVariant.ghost} onClick={toggleModal}>
                 x
               </Button>
             </div>

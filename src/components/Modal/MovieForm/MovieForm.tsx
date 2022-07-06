@@ -10,7 +10,7 @@ import { Textarea } from "../../UI/Textarea/Textarea";
 import { TextInput } from "../../UI/TextInput/TextInput";
 import { useMultiSelect } from "../../../hooks/useMultiSelect";
 import { IMovieFormProps } from "./MovieForm.types";
-import { ButtonType } from "../../UI/Button/Button.consts";
+import { ButtonType, ButtonVariant } from "../../UI/Button/Button.consts";
 import styles from "./MovieForm.scss";
 
 export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
@@ -97,10 +97,16 @@ export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
         onChange={handleChange}
       />
       <div className={cx("form__actions")}>
-        <Button variant={ButtonType.secondary} onClick={() => {}}>
+        <Button
+          type={ButtonType.reset}
+          variant={ButtonVariant.secondary}
+          onClick={() => {}}
+        >
           Reset
         </Button>
-        <Button onClick={() => {}}>Submit</Button>
+        <Button type={ButtonType.submit} onClick={() => {}}>
+          Submit
+        </Button>
       </div>
     </form>
   );
