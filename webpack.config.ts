@@ -16,7 +16,8 @@ const config: Configuration = {
   devServer: {
     static: './dist',
     port: 3000,
-    hot: true
+    hot: true,
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -76,7 +77,8 @@ const config: Configuration = {
     filename: '[chunkhash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: "images/[hash][ext][query]",
-    clean: true
+    clean: true,
+    publicPath: '/',
   },
 }
 
