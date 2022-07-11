@@ -9,7 +9,7 @@ import { useModal } from '../../../hooks/useModal';
 import { MovieForm } from '../../Modal/MovieForm/MovieForm';
 import { MovieCard } from '../MovieCard/MovieCard';
 import { DeleteMovie } from '../../Modal/DeleteMovie/DeleteMovie';
-import { Movie } from '../../../store/api/apiTypes';
+import { Movie } from '../../../store/api/movie.interface';
 import { IMovieListProps } from './MovieList.types';
 import styles from './MovieList.scss';
 
