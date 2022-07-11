@@ -7,14 +7,14 @@ import { ButtonVariant } from "../../UI/Button/Button.consts";
 import { ISearchViewProps } from "./SearchView.types";
 import styles from "./SearchView.scss";
 
+const cx = classNames.bind(styles);
+
 export const SearchView: FC<ISearchViewProps> = ({
   toggleModal,
   value,
   onChange,
   onSearch,
 }) => {
-  const cx = classNames.bind(styles);
-
   return (
     <div className={cx("search-view")}>
       <div className={cx("search-view__top-banner")}>

@@ -3,6 +3,8 @@ import classNames from "classnames/bind";
 import { IPropsDatePicker } from "./DatePicker.types";
 import styles from "./DatePicker.scss";
 
+const cx = classNames.bind(styles);
+
 export const DatePicker: FC<IPropsDatePicker> = ({
   id,
   name,
@@ -16,7 +18,6 @@ export const DatePicker: FC<IPropsDatePicker> = ({
   const onInputFocus = () => {
     setType("date");
   };
-  const cx = classNames.bind(styles);
   return (
     <>
       <label htmlFor={id} className={cx("date-picker__label")}>

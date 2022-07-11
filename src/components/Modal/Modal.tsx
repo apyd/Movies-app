@@ -6,6 +6,8 @@ import { ButtonVariant } from "../UI/Button/Button.consts";
 import { IModalProps } from "./Modal.types";
 import styles from "./Modal.scss";
 
+const cx = classNames.bind(styles);
+
 export const Modal: FC<IModalProps> = ({
   title,
   isOpened,
@@ -13,7 +15,6 @@ export const Modal: FC<IModalProps> = ({
   children,
 }) => {
   const portalDiv = document.getElementById("modalRoot") as HTMLElement;
-  const cx = classNames.bind(styles);
 
   return createPortal(
     <>

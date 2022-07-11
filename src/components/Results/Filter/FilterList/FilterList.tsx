@@ -4,12 +4,12 @@ import Filter from "../Filter";
 import { IFilterListProps } from "./FilterList.types";
 import styles from "./FilterList.scss";
 
+const cx = classNames.bind(styles);
+
 export const FilterList: FC<IFilterListProps> = ({
   options,
   onFilterSelect,
 }) => {
-  const cx = classNames.bind(styles);
-
   return (
     <form className={cx("filters")}>
       {options.map(({ label, value, name }, index) => {

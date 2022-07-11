@@ -13,6 +13,8 @@ import { Movie } from "../../../store/api/apiTypes";
 import { IMovieListProps } from "./MovieList.types";
 import styles from "./MovieList.scss";
 
+const cx = classNames.bind(styles);
+
 const MovieList: FC<IMovieListProps> = (props) => {
   const [movieId, setMovieId] = useState(null);
   const [EditModal, toggleEditModal] = useModal("Edit movie", MovieForm);
@@ -29,8 +31,6 @@ const MovieList: FC<IMovieListProps> = (props) => {
     setMovieId(id);
     setHeroMovie(movieDetails);
   };
-
-  const cx = classNames.bind(styles);
 
   return (
     <>
