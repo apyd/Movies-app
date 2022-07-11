@@ -1,10 +1,12 @@
 import React, { FC, useState } from "react";
-import { Button } from "../../UI/Button/Button";
-import { IMovieContextMenuProps } from "./MovieContextMenu.types";
-import MenuIcon from "../../../assets/threedots.svg";
-import "./MovieContextMenu.scss";
+import classNames from "classnames/bind";
 import useMovie from "../../../context/MovieContext/MovieContext";
-import { ButtonType } from "../../UI/Button/Button.consts";
+import { Button } from "../../UI/Button/Button";
+import { SvgIcon } from "../../UI/Icon/SvgIcon";
+import MenuIcon from "../../../assets/threedots.svg";
+import { ButtonVariant } from "../../UI/Button/Button.consts";
+import { IMovieContextMenuProps } from "./MovieContextMenu.types";
+import styles from "./MovieContextMenu.scss";
 
 export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
   movieId,
@@ -22,19 +24,23 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
       setOpenedMovieMenuId(movieId);
     }
   };
+  const cx = classNames.bind(styles);
 
   return (
     <>
-      <div className="context-menu">
+      <div className={cx("context-menu")}>
         <Button variant="secondary" shape="round" onClick={onMenuButtonClick}>
-          <MenuIcon className="context-menu__icon" />
+          <SvgIcon icon={MenuIcon} isSmall />
         </Button>
         {openedMovieMenuId === movieId && (
-          <div className="context-menu__options">
-            <Button variant={ButtonType.secondary} onClick={toggleEditModal}>
+          <div className={cx("context-menu__options")}>
+            <Button variant={ButtonVariant.secondary} onClick={toggleEditModal}>
               Edit
             </Button>
-            <Button variant={ButtonType.secondary} onClick={toggleDeleteModal}>
+            <Button
+              variant={ButtonVariant.secondary}
+              onClick={toggleDeleteModal}
+            >
               Delete
             </Button>
           </div>

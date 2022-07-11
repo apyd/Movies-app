@@ -1,21 +1,33 @@
 import { useState } from "react";
-import { GENRES as options } from "../api/resultsData";
+import { GENRES as options } from "../dictionary/dictionary";
 import { IPropsMultiSelect } from "../components/UI/MultiSelect/MultiSelect.types";
 
-export const useMultiSelect = (label: string): IPropsMultiSelect => {
-  const [selected, setSelected] = useState<Array<string>>([]);
+export const useMultiSelect = (label: string): Partial<IPropsMultiSelect> => {
+  const [selected, setSelected] = useState<string[]>([]);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
-  const toggleOption = (id: string) => {
+  const toggleSelect = () => {
+    setIsExpanded((isExpanded) => !isExpanded);
+  };
+
+  const toggleOption = (name: string) => {
     setSelected((prevSelected) => {
       const newArray = [...prevSelected];
-      if (newArray.includes(id)) {
-        return newArray.filter((item) => item != id);
+      if (newArray.includes(name)) {
+        return newArray.filter((item) => item != name);
       } else {
-        newArray.push(id);
+        newArray.push(name);
         return newArray;
       }
     });
   };
 
-  return { selected, toggleOption, options, label };
+  return {
+    options,
+    selected,
+    label,
+    toggleOption,
+    isExpanded,
+    toggleSelect,
+  };
 };

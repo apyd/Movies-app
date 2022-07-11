@@ -1,6 +1,9 @@
 export interface IPropsDatePicker {
-    id: string,
-    name: string,
-    placeholder: string,
-    label: string
+  id: string,
+  name: string,
+  value: string | number | readonly string[],
+  onChange: any,
+  placeholder: string,
+  label: string
+  error: any,
 }

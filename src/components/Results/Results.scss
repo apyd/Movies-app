@@ -3,14 +3,18 @@
 @use "../../styles/mixins";
 
 .results {
-  @include mixins.flex-position(row, center);
-  flex: 1;
+  height: 100%;
   padding: 0 1rem;
   margin: 1rem 0 3rem 0;
+
+  @media screen and (max-width: 550px) {
+    height: unset;
+  }
 
   &__inner-container {
     @include mixins.flex-position(column);
     max-width: variables.$section-max-width;
+    margin: 0 auto;
   }
 
   &__modifiers {

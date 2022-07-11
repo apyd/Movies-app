@@ -1,32 +1,54 @@
-import React, { FC } from "react";
+import React, { FC, memo, useState } from "react";
+import classNames from "classnames/bind";
+import {
+  useDeleteMovieByIdMutation,
+  useUpdateMovieByIdMutation,
+} from "../../../store/api/apiSlice";
+import useMovie from "../../../context/MovieContext/MovieContext";
 import { useModal } from "../../../hooks/useModal";
+import { MovieForm } from "../../Modal/MovieForm/MovieForm";
 import { MovieCard } from "../MovieCard/MovieCard";
-import { EditMovie } from "../../Modal/MovieForm/EditMovie/EditMovie";
-import { DeleteMovie } from "../../Modal/Confirmation/DeleteMovie/DeleteMovie";
+import { DeleteMovie } from "../../Modal/DeleteMovie/DeleteMovie";
+import { Movie } from "../../../store/api/apiTypes";
 import { IMovieListProps } from "./MovieList.types";
-import "./MovieList.scss";
+import styles from "./MovieList.scss";
 
-export const MovieList: FC<IMovieListProps> = (props) => {
-  const [isDeleteModalOpened, toggleDeleteModal] = useModal();
-  const [isEditModalOpened, toggleEditModal] = useModal();
+const MovieList: FC<IMovieListProps> = (props) => {
+  const [movieId, setMovieId] = useState(null);
+  const [EditModal, toggleEditModal] = useModal("Edit movie", MovieForm);
+  const [DeleteModal, toggleDeleteModal] = useModal(
+    "Delete movie",
+    DeleteMovie
+  );
+  const [updateMovie] = useUpdateMovieByIdMutation();
+  const [deleteMovie] = useDeleteMovieByIdMutation();
 
-  const moviesData = Object.values(props);
+  const { heroMovie, setHeroMovie } = useMovie();
+  const { onCardClick } = props;
+
+  const onMovieCardClick = (id: number, movieDetails: Movie) => {
+    setMovieId(id);
+    setHeroMovie(movieDetails);
+    onCardClick(movieDetails);
+  };
+
+  const cx = classNames.bind(styles);
 
   return (
     <>
-      <EditMovie toggleModal={toggleEditModal} isOpened={isEditModalOpened} />
-      <DeleteMovie
-        toggleModal={toggleDeleteModal}
-        isOpened={isDeleteModalOpened}
-      />
-      <ul className="movies">
-        {moviesData.map((movieData) => {
+      {/* @ts-ignore - FIX IT*/}
+      <EditModal onSubmit={updateMovie} formData={heroMovie} />
+      {/* @ts-ignore FIX-IT */}
+      <DeleteModal onSubmit={deleteMovie} movieId={movieId} />
+      <ul className={cx("movies")}>
+        {props.data.map((movieData) => {
           return (
             <MovieCard
               key={movieData.id}
               {...movieData}
               toggleEditModal={toggleEditModal}
               toggleDeleteModal={toggleDeleteModal}
+              onMovieCardClick={onMovieCardClick}
             />
           );
         })}
@@ -34,3 +56,5 @@ export const MovieList: FC<IMovieListProps> = (props) => {
     </>
   );
 };
+
+export const MemoizedMovieList = memo(MovieList);

@@ -1,6 +1,9 @@
+import { Dispatch, SetStateAction } from "react"
+
 export interface IFilterProps {
-      id: string,
-      name: string,
-      value: string,
-      isChecked: boolean
+  name: string,
+  label: string,
+  value: string,
+  selected: string | string[],
+  onFilterSelect: any //TODO
 }

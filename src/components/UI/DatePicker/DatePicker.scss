@@ -19,6 +19,15 @@
     &::-webkit-calendar-picker-indicator {
       background-image: url("../../../assets/calendar-symbol.svg");
     }
+
+    &--invalid {
+      color: colors.$pastel-red;
+      border: 1px solid colors.$pastel-red;
+
+      &::placeholder {
+        color: colors.$pastel-red;
+      }
+    }
   }
 
   &__label {
@@ -30,7 +39,7 @@
   }
 }
 
-.error {
+.input-error {
   color: colors.$pastel-red;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }

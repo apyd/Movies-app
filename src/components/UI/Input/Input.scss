@@ -1,7 +1,7 @@
 @use "../../../styles/colors";
 @use "../../../styles/mixins";
 
-.text-input {
+.input {
   appearance: none;
   @include mixins.size(30px, 100%);
   min-width: 100px;
@@ -14,6 +14,15 @@
     color: colors.$white;
     text-transform: capitalize;
   }
+
+  &--invalid {
+    color: colors.$pastel-red;
+    border: 1px solid colors.$pastel-red;
+
+    &::placeholder {
+      color: colors.$pastel-red;
+    }
+  }
 }
 
 .text-label {
@@ -24,7 +33,7 @@
   font-weight: bold;
 }
 
-.error {
+.input-error {
   color: colors.$pastel-red;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }

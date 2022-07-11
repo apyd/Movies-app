@@ -1,24 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
+import classNames from "classnames/bind";
+import { useAddMovieMutation } from "../../store/api/apiSlice";
 import { useModal } from "../../hooks/useModal";
-import { AddMovie } from "../Modal/MovieForm/AddMovie/AddMovie";
+import useMovie from "../../context/MovieContext/MovieContext";
+import { MovieForm } from "../Modal/MovieForm/MovieForm";
 import { SearchView } from "./SearchView/SearchView";
 import { MovieView } from "./MovieView/MovieView";
-import "./Hero.scss";
-import useMovie from "../../context/MovieContext/MovieContext";
+import {
+  useNavigate,
+  useLocation,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
+import styles from "./Hero.scss";
+
+export interface CustomizedState {
+  searchQuery: string | null;
+  movieId: number | null;
+  genre: string | null;
+  sort: string | null;
+}
 
 export const Hero = () => {
-  const [isOpened, toggleModal] = useModal();
-  const { movie, setMovie } = useMovie();
+  const [addMovie] = useAddMovieMutation();
+  const [AddMovieModal, toggleModal] = useModal("Add movie", MovieForm);
+  const { heroMovie, setHeroMovie } = useMovie();
+  const location = useLocation();
+  const state = location.state as CustomizedState;
+  const navigate = useNavigate();
+  const { searchQuery } = useParams();
+  const [params, setQueryParams] = useSearchParams();
+  const movieId = params.get("movieId");
+
+  const [query, setQuery] = useState(searchQuery || "");
+
+  const onSearch = (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+    navigate(`../search/${query}`, {
+      replace: true,
+      state: { searchQuery: query },
+    });
+  };
+
+  const switchToSearchView = () => {
+    setQueryParams({}, { replace: false });
+  };
+
+  const cx = classNames.bind(styles);
 
   return (
-    <div className={`hero ${!movie ? "hero--search" : ""}`}>
-      <div className="hero__inner">
-        {!movie && <SearchView toggleModal={toggleModal} />}
-        {movie && (
-          <MovieView onSearchIconPress={() => setMovie(null)} {...movie} />
+    <div className={cx(styles.hero, { "hero--search": !movieId })}>
+      <div className={cx("hero__inner")}>
+        {movieId ? (
+          <MovieView onSearchIconPress={switchToSearchView} {...heroMovie} />
+        ) : (
+          <SearchView
+            toggleModal={toggleModal}
+            value={query}
+            onChange={setQuery}
+            onSearch={onSearch}
+          />
         )}
       </div>
-      <AddMovie isOpened={isOpened} toggleModal={toggleModal} />
+      {/* @ts-ignore - FIX IT */}
+      <AddMovieModal onFormSubmit={addMovie} />
     </div>
   );
 };
