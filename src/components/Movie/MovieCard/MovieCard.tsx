@@ -33,7 +33,7 @@ export const MovieCard: FC<IMovieCardProps> = ({
   };
 
   return (
-    <li key={id} className={cx('movie-card')} onClick={() => onMovieCardClick(id, movieDetails)}>
+    <li key={id} className={cx('movie-card')}>
       <div className={cx('poster')}>
         <MovieContextMenu
           movieId={id}
@@ -48,9 +48,10 @@ export const MovieCard: FC<IMovieCardProps> = ({
             currentTarget.onerror = null;
             currentTarget.src = DefaultPosterPlaceholder;
           }}
+          onClick={() => onMovieCardClick(id, movieDetails)}
         />
       </div>
-      <section className={cx('details')}>
+      <section className={cx('details')} onClick={() => onMovieCardClick(id, movieDetails)}>
         <header className={cx('details__header')}>
           <div className={cx('title__wrapper')}>
             <h3 className={cx('details__title')}>{title}</h3>
