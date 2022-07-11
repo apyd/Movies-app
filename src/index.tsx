@@ -11,6 +11,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<Navigate to="/search" replace />} />
         <Route path="/search" element={<App />} />
+        <Route path="/search/:searchQuery" element={<App />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

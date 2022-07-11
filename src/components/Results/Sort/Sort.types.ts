@@ -6,5 +6,6 @@ export interface ISortProps {
     isDefault?: boolean
   }>,
   onOptionChange: (value: string) => void
-  sortLabel: string
+  sortLabel: string,
+  selected: string | string[],
 }

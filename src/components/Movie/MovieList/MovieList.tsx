@@ -24,10 +24,12 @@ const MovieList: FC<IMovieListProps> = (props) => {
   const [deleteMovie] = useDeleteMovieByIdMutation();
 
   const { heroMovie, setHeroMovie } = useMovie();
+  const { onCardClick } = props;
 
   const onMovieCardClick = (id: number, movieDetails: Movie) => {
     setMovieId(id);
     setHeroMovie(movieDetails);
+    onCardClick(movieDetails);
   };
 
   const cx = classNames.bind(styles);

@@ -5,6 +5,7 @@ import styles from "./Sort.scss";
 
 export const Sort: FC<ISortProps> = ({
   options,
+  selected,
   onOptionChange,
   sortLabel = "Sort by",
 }) => {
@@ -18,6 +19,7 @@ export const Sort: FC<ISortProps> = ({
         className={cx("sort__input")}
         name="sort"
         id="sort"
+        value={selected}
         onChange={(e) => onOptionChange(e.target.value)}
       >
         {options &&

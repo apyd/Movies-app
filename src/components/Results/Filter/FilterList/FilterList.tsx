@@ -6,6 +6,7 @@ import styles from "./FilterList.scss";
 
 export const FilterList: FC<IFilterListProps> = ({
   options,
+  selected,
   onFilterSelect,
 }) => {
   const cx = classNames.bind(styles);
@@ -19,6 +20,7 @@ export const FilterList: FC<IFilterListProps> = ({
             name={name}
             label={label}
             value={value}
+            selected={selected}
             onFilterSelect={() => onFilterSelect(value)}
           />
         );

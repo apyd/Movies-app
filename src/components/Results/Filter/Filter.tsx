@@ -3,7 +3,13 @@ import classNames from "classnames/bind";
 import { IFilterProps } from "./Filter.types";
 import styles from "./Filter.scss";
 
-const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
+const Filter: FC<IFilterProps> = ({
+  name,
+  label,
+  value,
+  selected,
+  onFilterSelect,
+}) => {
   const cx = classNames.bind(styles);
   return (
     <div className={cx("filter")}>
@@ -13,6 +19,7 @@ const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
         name={name}
         value={value}
         className={cx("filter__input")}
+        checked={value === selected}
       />
       <label
         tabIndex={0}

@@ -1,13 +1,13 @@
 export const SORT_OPTIONS = [
   {
     id: 1,
-    label: "Release date",
-    value: "release_date",
+    label: "Rating",
+    value: "average_vote",
   },
   {
     id: 2,
-    label: "Rating",
-    value: "average_vote",
+    label: "Release date",
+    value: "release_date",
   },
 ];
 

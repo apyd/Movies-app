@@ -1,6 +1,5 @@
 // import { Dispatch } from "@reduxjs/toolkit"
 import { Dispatch, SetStateAction } from "react"
-import { IFilterProps } from "../Filter.types"
 
 export interface IFilterListProps {
   options: {
@@ -8,5 +7,6 @@ export interface IFilterListProps {
     label: string,
     value: string
   }[],
+  selected: string | string[]
   onFilterSelect: Dispatch<SetStateAction<string>>
 }
