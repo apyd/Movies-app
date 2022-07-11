@@ -1,12 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import { apiSlice } from './api/apiSlice';
-import querySliceReducer, { QueryState } from './api/querySlice';
+import { apiSlice } from './api/apiSlice'
 
 const reducer = combineReducers({
   [apiSlice.reducerPath]: apiSlice.reducer,
-  querySlice: querySliceReducer
-});
+})
 
 export const store = configureStore({
   reducer,
@@ -14,8 +12,5 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV !== 'development' ? false : true
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-export const searchTextSelector = (state: { querySlice: QueryState }) => state.querySlice.searchText;
-export const filterSelector = (state: { querySlice: QueryState }) => state.querySlice.filter;
-export const sortSelector = (state: { querySlice: QueryState }) => state.querySlice.sort;
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

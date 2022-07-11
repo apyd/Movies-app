@@ -1,6 +1,7 @@
 export interface IFilterProps {
-  name: string;
-  label: string;
-  value: string;
-  onFilterSelect: any;
+  name: string,
+  label: string,
+  value: string,
+  selected: string | string[],
+  onFilterSelect: any //TODO
 }

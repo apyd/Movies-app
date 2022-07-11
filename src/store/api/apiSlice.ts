@@ -8,8 +8,8 @@ export const apiSlice = createApi({
   tagTypes: ['Movies'],
   endpoints: (builder) => ({
     getMovies: builder.query({
-      query: (queryParams) => `/movies/${queryParams}`,
-      providesTags: ['Movies']
+      query: (queryParams) => `/movies?${queryParams}`,
+      providesTags: ['Movies'],
     }),
     getMovieById: builder.query({
       query: (id) => `/movies/${id}`
