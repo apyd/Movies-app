@@ -11,6 +11,8 @@ import { ButtonVariant } from '../../UI/Button/Button.consts';
 import { IMovieViewProps } from './MovieView.types';
 import styles from './MovieView.scss';
 
+const cx = classNames.bind(styles);
+
 export const MovieView: FC<IMovieViewProps> = ({
   title,
   vote_average,
@@ -21,8 +23,6 @@ export const MovieView: FC<IMovieViewProps> = ({
   overview,
   onSearchIconPress
 }) => {
-  const cx = classNames.bind(styles);
-
   return (
     <div className={cx('movie-view')}>
       <div className={cx('movie-view__top-banner')}>

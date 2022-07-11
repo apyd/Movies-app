@@ -6,6 +6,8 @@ import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder
 import { IMovieCardProps } from './MovieCard.types';
 import styles from './MovieCard.scss';
 
+const cx = classNames.bind(styles);
+
 export const MovieCard: FC<IMovieCardProps> = ({
   id,
   title,
@@ -19,7 +21,6 @@ export const MovieCard: FC<IMovieCardProps> = ({
   toggleDeleteModal,
   onMovieCardClick
 }) => {
-  const cx = classNames.bind(styles);
   const movieDetails = {
     id,
     title,

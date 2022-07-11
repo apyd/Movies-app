@@ -5,6 +5,8 @@ import { ISearchProps } from './Search.types';
 import styles from './Search.scss';
 import { ButtonType } from '../Button/Button.consts';
 
+const cx = classNames.bind(styles);
+
 export const Search: FC<ISearchProps> = ({
   placeholder = 'What do you want to watch?',
   searchButtonText = 'Search',
@@ -12,7 +14,6 @@ export const Search: FC<ISearchProps> = ({
   onChange,
   onSearch
 }) => {
-  const cx = classNames.bind(styles);
   return (
     <form className={cx('search')} onSubmit={(e) => onSearch(e)}>
       <label htmlFor="search"></label>

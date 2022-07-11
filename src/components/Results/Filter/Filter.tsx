@@ -3,8 +3,9 @@ import classNames from 'classnames/bind';
 import { IFilterProps } from './Filter.types';
 import styles from './Filter.scss';
 
+const cx = classNames.bind(styles);
+
 const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
-  const cx = classNames.bind(styles);
   return (
     <div className={cx('filter')}>
       <input

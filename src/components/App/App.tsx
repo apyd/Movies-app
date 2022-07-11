@@ -11,8 +11,9 @@ import styles from './App.scss';
 import { Provider } from 'react-redux';
 import { store } from '../../store/store';
 
+const cx = classNames.bind(styles);
+
 export const App = () => {
-  const cx = classNames.bind(styles);
   return (
     <div className={cx(styles.app)}>
       <ErrorBoundary>

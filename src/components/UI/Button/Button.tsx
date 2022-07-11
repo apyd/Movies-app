@@ -4,6 +4,8 @@ import { IButtonProps } from './Button.types';
 import { ButtonType, ButtonSize, ButtonShape, ButtonVariant } from './Button.consts';
 import styles from './Button.scss';
 
+const cx = classNames.bind(styles);
+
 export const Button: FC<IButtonProps> = ({
   children,
   onClick,
@@ -13,7 +15,6 @@ export const Button: FC<IButtonProps> = ({
   type = ButtonType.button,
   isDisabled = false
 }) => {
-  const cx = classNames.bind(styles);
   return (
     <button
       disabled={isDisabled}

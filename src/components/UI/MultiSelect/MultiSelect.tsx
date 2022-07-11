@@ -1,9 +1,11 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import DropdownIcon from '../../../assets/chevron-down.svg';
 import { SvgIcon } from '../Icon/SvgIcon';
 import { IPropsMultiSelect } from './MultiSelect.types';
 import styles from './MultiSelect.scss';
+
+const cx = classNames.bind(styles);
 
 export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
   options,
@@ -16,8 +18,6 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
   label,
   error
 }) => {
-  const cx = classNames.bind(styles);
-
   value = selected;
 
   return (

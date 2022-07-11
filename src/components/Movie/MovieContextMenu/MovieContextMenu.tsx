@@ -8,6 +8,8 @@ import { ButtonVariant } from '../../UI/Button/Button.consts';
 import { IMovieContextMenuProps } from './MovieContextMenu.types';
 import styles from './MovieContextMenu.scss';
 
+const cx = classNames.bind(styles);
+
 export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
   movieId,
   toggleEditModal,
@@ -24,7 +26,6 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
       setOpenedMovieMenuId(movieId);
     }
   };
-  const cx = classNames.bind(styles);
 
   return (
     <>

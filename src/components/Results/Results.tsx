@@ -12,6 +12,8 @@ import { ResultsCount } from './ResultsCount/ResultsCount';
 import { LoadingSpinner } from '../UI/LoadingSpinner/LoadingSpinner';
 import styles from './Results.scss';
 
+const cx = classNames.bind(styles);
+
 export const Results = () => {
   const { searchText, filter, sort } = useSelector(querySelector);
   const dispatch = useDispatch();
@@ -35,8 +37,6 @@ export const Results = () => {
   const onSortChange = (selectedSort: string) => {
     dispatch(updateSort(selectedSort));
   };
-
-  const cx = classNames.bind(styles);
 
   return (
     <div className={cx('results')}>

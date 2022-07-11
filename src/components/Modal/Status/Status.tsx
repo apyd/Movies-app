@@ -17,11 +17,12 @@ export const status_text: { [key: string]: string } = {
   ERROR: "Action cannot be performed. Please contact administrator.",
 };
 
+const cx = classNames.bind(styles);
+
 export const Status: FC<IStatusModalContentProps> = ({
   status,
   toggleModal,
 }) => {
-  const cx = classNames.bind(styles);
   const Icon = status_icon[status];
   return (
     <div className={cx("status-modal")}>

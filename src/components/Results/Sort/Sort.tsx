@@ -3,8 +3,9 @@ import classNames from 'classnames/bind';
 import { ISortProps } from './Sort.types';
 import styles from './Sort.scss';
 
+const cx = classNames.bind(styles);
+
 export const Sort: FC<ISortProps> = ({ options, onOptionChange, sortLabel = 'Sort by' }) => {
-  const cx = classNames.bind(styles);
   return (
     <div className={cx('sort')}>
       <label className={cx('sort__label')} htmlFor="sort">

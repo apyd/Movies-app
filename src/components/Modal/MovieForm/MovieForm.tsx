@@ -13,9 +13,9 @@ import { IMovieFormProps } from './MovieForm.types';
 import { ButtonType, ButtonVariant } from '../../UI/Button/Button.consts';
 import styles from './MovieForm.scss';
 
-export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
-  const cx = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
+export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
   const { selected, toggleOption, options, label, isExpanded, toggleSelect } =
     useMultiSelect('Genres*');
 

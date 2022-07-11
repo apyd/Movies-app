@@ -3,6 +3,8 @@ import classNames from 'classnames/bind';
 import { IPropsTextarea } from './Textarea.types';
 import styles from './Textarea.scss';
 
+const cx = classNames.bind(styles);
+
 export const Textarea: FC<IPropsTextarea> = ({
   id,
   name,
@@ -12,7 +14,6 @@ export const Textarea: FC<IPropsTextarea> = ({
   label,
   error
 }) => {
-  const cx = classNames.bind(styles);
   return (
     <div className={cx('wrapper--textarea')}>
       <label htmlFor={id} className={cx('textarea-label')}>

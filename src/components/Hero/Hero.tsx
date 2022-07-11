@@ -11,6 +11,8 @@ import { SearchView } from './SearchView/SearchView';
 import { MovieView } from './MovieView/MovieView';
 import styles from './Hero.scss';
 
+const cx = classNames.bind(styles);
+
 export const Hero = () => {
   const [addMovie] = useAddMovieMutation();
   const [AddMovieModal, toggleModal] = useModal('Add movie', MovieForm);
@@ -26,8 +28,6 @@ export const Hero = () => {
     }
     dispatch(updateSearch(searchValue));
   };
-
-  const cx = classNames.bind(styles);
 
   return (
     <div className={cx(styles.hero, { 'hero--search': !heroMovie })}>

@@ -3,6 +3,8 @@ import classNames from 'classnames/bind';
 import { IPropsInput } from './Input.types';
 import styles from './Input.scss';
 
+const cx = classNames.bind(styles);
+
 export const Input: FC<IPropsInput> = ({
   id,
   name,
@@ -13,7 +15,6 @@ export const Input: FC<IPropsInput> = ({
   label,
   error
 }) => {
-  const cx = classNames.bind(styles);
   return (
     <>
       <label htmlFor={id} className={cx('text-label')}>
