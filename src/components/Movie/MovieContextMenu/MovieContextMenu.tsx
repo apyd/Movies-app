@@ -15,7 +15,7 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
   toggleEditModal,
   toggleDeleteModal,
 }) => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const { openedMovieMenuId, setOpenedMovieMenuId } = useMovie();
   const onMenuButtonClick = () => {
     if (!isCollapsed) {
