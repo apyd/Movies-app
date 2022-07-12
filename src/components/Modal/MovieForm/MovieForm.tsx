@@ -29,14 +29,18 @@ export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
     overview: formData?.overview || ''
   };
 
-  const { isValid, values, errors, handleSubmit, handleChange } = useFormik({
-    initialValues: initialValues,
-    onSubmit: (values) => {
-      const data = JSON.stringify(values, null, 2);
-      onFormSubmit(data);
-    },
-    validationSchema: FormSchema
-  });
+  const { isValid, values, errors, touched, handleSubmit, handleChange, handleBlur, resetForm } =
+    useFormik({
+      initialValues: initialValues,
+      onSubmit: (values) => {
+        const data = JSON.stringify(values, null, 2);
+        onFormSubmit(data);
+      },
+      validationSchema: FormSchema
+    });
+
+  console.log(values);
+  console.log('touched:', touched);
 
   return (
     <form className={cx('form')} onSubmit={handleSubmit}>
@@ -49,6 +53,8 @@ export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
             placeholder="title"
             label="Movie title*"
             value={values.title}
+            touched={touched.title}
+            onBlur={handleBlur}
             onChange={handleChange}
             error={errors.title}
           />
@@ -59,6 +65,8 @@ export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
             placeholder="poster path url"
             label="Poster path (URL)*"
             value={values['poster_path']}
+            touched={touched['poster_path']}
+            onBlur={handleBlur}
             onChange={handleChange}
             error={errors.poster_path}
           />
@@ -68,6 +76,8 @@ export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
             options={options}
             label={label}
             value={values.genres}
+            onBlur={handleBlur}
+            touched={touched.genres}
             onChange={handleChange}
             toggleSelect={toggleSelect}
             isExpanded={isExpanded}
@@ -81,6 +91,8 @@ export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
             placeholder="date picker"
             label="Release date*"
             value={values['release_date']}
+            touched={touched['release_date']}
+            onBlur={handleBlur}
             onChange={handleChange}
             error={errors.release_date}
           />
@@ -91,6 +103,8 @@ export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
             placeholder="vote_average"
             label="Average votes"
             value={values['vote_average']}
+            touched={touched['vote_average']}
+            onBlur={handleBlur}
             onChange={handleChange}
             error={errors.vote_average}
           />
@@ -101,6 +115,8 @@ export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
             placeholder="runtime"
             label="Runtime*"
             value={values.runtime}
+            touched={touched.runtime}
+            onBlur={handleBlur}
             onChange={handleChange}
             error={errors.runtime}
           />
@@ -112,11 +128,13 @@ export const MovieForm: FC<IMovieFormProps> = ({ onFormSubmit, formData }) => {
         placeholder="overview"
         label="Overview*"
         value={values.overview}
+        touched={touched.overview}
+        onBlur={handleBlur}
         onChange={handleChange}
         error={errors.overview}
       />
       <div className={cx('form__actions')}>
-        <Button type={ButtonType.reset} variant={ButtonVariant.secondary} onClick={() => {}}>
+        <Button type={ButtonType.reset} variant={ButtonVariant.secondary} onClick={resetForm}>
           Reset
         </Button>
         <Button type={ButtonType.submit} onClick={() => {}} isDisabled={!isValid}>

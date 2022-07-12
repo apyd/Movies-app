@@ -6,7 +6,9 @@ export interface IPropsMultiSelect {
   setIsExpanded: any,
   isExpanded: boolean,
   value: string[],
+  touched: boolean,
   onChange: any, //FIX IT
+  onBlur: any, //FIX IT
   selected: string[],
   label: string,
   toggleOption: any, //FIX IT

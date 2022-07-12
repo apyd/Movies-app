@@ -5,12 +5,25 @@ import styles from './DatePicker.scss';
 
 const cx = classNames.bind(styles);
 
-export const DatePicker: FC<IPropsDatePicker> = ({ id, name, label, value, onChange, error }) => {
+export const DatePicker: FC<IPropsDatePicker> = ({
+  id,
+  name,
+  label,
+  value,
+  touched,
+  onBlur,
+  onChange,
+  error
+}) => {
   const [type, setType] = useState<string>('text');
 
   const onInputFocus = () => {
     setType('date');
   };
+
+  const isInvalid = !!error && touched;
+  console.log(isInvalid);
+
   return (
     <>
       <label htmlFor={id} className={cx('date-picker__label')}>
@@ -21,14 +34,15 @@ export const DatePicker: FC<IPropsDatePicker> = ({ id, name, label, value, onCha
         id={id}
         name={name}
         className={cx('date-picker__input', {
-          'date-picker__input--invalid': error
+          'date-picker__input--invalid': isInvalid
         })}
         placeholder="Select date"
         onFocus={onInputFocus}
         value={value}
+        onBlur={onBlur}
         onChange={onChange}
       />
-      {error && <span className={cx('input-error')}>{error}</span>}
+      {isInvalid && <span className={cx('input-error')}>{error}</span>}
     </>
   );
 };

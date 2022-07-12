@@ -12,13 +12,18 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
   isExpanded,
   selected,
   value,
+  touched,
   onChange,
+  onBlur,
   toggleOption,
   toggleSelect,
   label,
   error
 }) => {
-  value = selected;
+  // console.log("multiselect value: ", value);
+  console.log('value:', value, 'selected:', selected);
+
+  const isInvalid = !!error && touched;
 
   return (
     <div className={cx('multi-select')}>
@@ -27,12 +32,12 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
         id="multi-select"
         tabIndex={0}
         className={cx('multi-select__selected', {
-          'multi-select__selected--invalid': error
+          'multi-select__selected--invalid': isInvalid
         })}
         onClick={toggleSelect}>
         <span
           className={cx('multi-select__summary', {
-            'multi-select__summary--invalid': error
+            'multi-select__summary--invalid': isInvalid
           })}>
           {selected.length} selected
         </span>
@@ -47,11 +52,13 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
                 className={cx('multi-select__option')}
                 onClick={() => toggleOption(title)}>
                 <input
+                  name="genres"
                   checked={selected.includes(title)}
                   type="checkbox"
                   className={cx('multi-select__checkbox')}
                   value={value}
-                  onChange={onChange}
+                  onBlur={onBlur}
+                  onChange={() => onChange()}
                 />
                 <span>{title}</span>
               </li>
@@ -59,7 +66,7 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
           })}
         </ul>
       )}
-      {error && <span className={cx('input-error')}>{error}</span>}
+      {isInvalid && <span className={cx('input-error')}>{error}</span>}
     </div>
   );
 };

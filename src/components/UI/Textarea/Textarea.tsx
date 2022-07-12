@@ -9,11 +9,15 @@ export const Textarea: FC<IPropsTextarea> = ({
   id,
   name,
   value,
+  touched,
+  onBlur,
   onChange,
   placeholder,
   label,
   error
 }) => {
+  const isInvalid = !!error && touched;
+
   return (
     <div className={cx('wrapper--textarea')}>
       <label htmlFor={id} className={cx('textarea-label')}>
@@ -24,11 +28,12 @@ export const Textarea: FC<IPropsTextarea> = ({
         name={name}
         placeholder={placeholder}
         value={value}
+        onBlur={onBlur}
         onChange={onChange}
         rows={2}
-        className={cx('textarea', { 'textarea--invalid': error })}
+        className={cx('textarea', { 'textarea--invalid': isInvalid })}
       />
-      {error && <span className={cx('input-error')}>{error}</span>}
+      {isInvalid && <span className={cx('input-error')}>{error}</span>}
     </div>
   );
 };
