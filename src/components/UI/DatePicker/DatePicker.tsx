@@ -10,6 +10,8 @@ export const DatePicker: FC<IPropsDatePicker> = ({
   name,
   label,
   value,
+  touched,
+  onBlur,
   onChange,
   error,
 }) => {
@@ -18,6 +20,10 @@ export const DatePicker: FC<IPropsDatePicker> = ({
   const onInputFocus = () => {
     setType("date");
   };
+
+  const isInvalid = !!error && touched;
+  console.log(isInvalid);
+
   return (
     <>
       <label htmlFor={id} className={cx("date-picker__label")}>
@@ -28,14 +34,15 @@ export const DatePicker: FC<IPropsDatePicker> = ({
         id={id}
         name={name}
         className={cx("date-picker__input", {
-          "date-picker__input--invalid": error,
+          "date-picker__input--invalid": isInvalid,
         })}
         placeholder="Select date"
         onFocus={onInputFocus}
         value={value}
+        onBlur={onBlur}
         onChange={onChange}
       />
-      {error && <span className={cx("input-error")}>{error}</span>}
+      {isInvalid && <span className={cx("input-error")}>{error}</span>}
     </>
   );
 };

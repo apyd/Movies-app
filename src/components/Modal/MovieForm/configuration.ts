@@ -7,7 +7,7 @@ export const FormSchema = Yup.object().shape({
     .required("This field is required"),
   poster_path: Yup.string()
     .matches(
-      /((https?):\/\/)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/,
       "Enter correct url! Remember to start with https://"
     )
     .required("This field is required"),

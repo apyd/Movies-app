@@ -5,6 +5,8 @@ export interface IPropsInput {
   name: string,
   type: string,
   value: string | number,
+  touched: boolean,
+  onBlur: any, //FIX IT
   onChange: any, // FIX IT
   placeholder: string,
   label: string,

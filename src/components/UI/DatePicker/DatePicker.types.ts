@@ -2,8 +2,10 @@ export interface IPropsDatePicker {
   id: string,
   name: string,
   value: string | number | readonly string[],
-  onChange: any,
+  touched: boolean,
+  onBlur: any, //FIX IT
+  onChange: any, //FIX IT
   placeholder: string,
   label: string
-  error: any,
+  error: any, //FIX IT
 }
