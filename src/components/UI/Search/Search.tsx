@@ -14,7 +14,11 @@ export const Search: FC<ISearchProps> = ({
 }) => {
   const cx = classNames.bind(styles);
   return (
-    <form className={cx("search")} onSubmit={(e) => onSearch(e)}>
+    <form
+      id="searchForm"
+      className={cx("search")}
+      onSubmit={(e) => onSearch(e)}
+    >
       <label htmlFor="search"></label>
       <input
         type="search"

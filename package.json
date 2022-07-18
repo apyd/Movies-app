@@ -6,6 +6,7 @@
     "build": "cross-env NODE_ENV=production webpack",
     "build-dev": "webpack",
     "test": "jest",
+    "cypress:open": "cypress open",
     "clean": "rm -rf ./dist"
   },
   "dependencies": {

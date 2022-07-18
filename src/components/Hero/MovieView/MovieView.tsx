@@ -24,7 +24,7 @@ export const MovieView: FC<IMovieViewProps> = ({
   const cx = classNames.bind(styles);
 
   return (
-    <div className={cx("movie-view")}>
+    <div id="movieView" className={cx("movie-view")}>
       <div className={cx("movie-view__top-banner")}>
         <Logo />
         <Button variant={ButtonVariant.ghost} onClick={onSearchIconPress}>
@@ -45,7 +45,9 @@ export const MovieView: FC<IMovieViewProps> = ({
         </div>
         <div className={cx("movie_view__details")}>
           <header className={cx("movie-view__header")}>
-            <h1 className={cx("movie-view__heading")}>{title}</h1>
+            <h1 id="movieTitle" className={cx("movie-view__heading")}>
+              {title}
+            </h1>
             <span className={cx("movie-view__vote-average")}>
               {vote_average}
             </span>

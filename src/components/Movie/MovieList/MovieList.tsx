@@ -40,7 +40,7 @@ const MovieList: FC<IMovieListProps> = (props) => {
       <EditModal onSubmit={updateMovie} formData={heroMovie} />
       {/* @ts-ignore FIX-IT */}
       <DeleteModal onSubmit={deleteMovie} movieId={movieId} />
-      <ul className={cx("movies")}>
+      <ul id="resultsList" className={cx("movies")}>
         {props.data.map((movieData) => {
           return (
             <MovieCard
