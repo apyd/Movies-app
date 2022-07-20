@@ -1,20 +1,28 @@
 import React from "react";
+import classNames from "classnames/bind";
 import { MovieProvider } from "../../context/MovieContext/MovieContext";
 import { ErrorBoundary } from "../../hoc/ErrorBoundary/ErrorBoundary";
-import { Footer } from "../Footer/Footer";
+
 import { Hero } from "../Hero/Hero";
 import { Results } from "../Results/Results";
-import "./App.scss";
+import { Footer } from "../Footer/Footer";
+
+import styles from "./App.scss";
+import { Provider } from "react-redux";
+import { store } from "../../store/store";
 
 export const App = () => {
+  const cx = classNames.bind(styles);
   return (
-    <div className="app">
+    <div className={cx(styles.app)}>
       <ErrorBoundary>
-        <MovieProvider>
-          <Hero />
-          <Results />
-          <Footer />
-        </MovieProvider>
+        <Provider store={store}>
+          <MovieProvider>
+            <Hero />
+            <Results />
+            <Footer />
+          </MovieProvider>
+        </Provider>
       </ErrorBoundary>
     </div>
   );

@@ -1,17 +1,19 @@
 export interface IMovieDetails {
-    id: string;
-    title: string;
-    rating: string;
-    poster_url: string;
-    genres: string[] | string,
-    release_year: string;
-    runtime: string;
-    description: string;
+  id: number;
+  title: string;
+  vote_average: number;
+  poster_path: string;
+  genres: string[],
+  release_date: string;
+  runtime: number;
+  overview: string;
 }
 
 export interface IMovieContextType {
-    movie: null | IMovieDetails;
-    setMovie: (movie: IMovieDetails | null) => void;
-    openedMovieMenuId: null | string;
-    setOpenedMovieMenuId: (id: string | null) => void;
+  heroMovie: null | IMovieDetails;
+  selectedMovie: null | IMovieDetails;
+  setHeroMovie: (movie: IMovieDetails | null) => void;
+  setSelectedMovie: (movie: IMovieDetails | null) => void;
+  openedMovieMenuId: null | number;
+  setOpenedMovieMenuId: (id: number | null) => void;
 }

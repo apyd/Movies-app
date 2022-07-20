@@ -1,53 +1,60 @@
-import React, { EventHandler, FC, useState } from "react";
-import { IPropsMultiSelect } from "./MultiSelect.types";
+import React, { FC, useState } from "react";
+import classNames from "classnames/bind";
 import DropdownIcon from "../../../assets/chevron-down.svg";
-import "./MultiSelect.scss";
+import { SvgIcon } from "../Icon/SvgIcon";
+import { IPropsMultiSelect } from "./MultiSelect.types";
+import styles from "./MultiSelect.scss";
 
-export const MultiSelect: FC<IPropsMultiSelect> = ({
+export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
   options,
+  isExpanded,
   selected,
+  value,
+  onChange,
   toggleOption,
+  toggleSelect,
   label,
+  error,
 }) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const cx = classNames.bind(styles);
 
-  const toggleSelect = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    const target = document.getElementById("multi-select");
-    if (event.target === target) {
-      setIsExpanded((isExpanded) => !isExpanded);
-    }
-    return;
-  };
+  value = selected;
 
   return (
-    <div className="multi-select">
-      <span className="multi-select__label">{label}</span>
+    <div className={cx("multi-select")}>
+      <span className={cx("multi-select__label")}>{label}</span>
       <div
         id="multi-select"
         tabIndex={0}
-        className="multi-select__selected"
-        onClick={(e) => toggleSelect(e)}
+        className={cx("multi-select__selected", {
+          "multi-select__selected--invalid": error,
+        })}
+        onClick={toggleSelect}
       >
-        <span className="multi-select__summary">
+        <span
+          className={cx("multi-select__summary", {
+            "multi-select__summary--invalid": error,
+          })}
+        >
           {selected.length} selected
         </span>
-        <DropdownIcon className="icon icon--rotated" />
+        <SvgIcon icon={DropdownIcon} />
       </div>
       {isExpanded && (
-        <ul className="multi-select__options">
+        <ul className={cx("multi-select__options")}>
           {options.map(({ id, title }) => {
             return (
               <li
                 key={id}
-                className="multi-select__option"
-                onClick={() => toggleOption(id)}
+                className={cx("multi-select__option")}
+                onClick={() => toggleOption(title)}
               >
                 <input
-                  checked={selected.includes(id)}
+                  checked={selected.includes(title)}
                   type="checkbox"
-                  className="multi-select__checkbox"
+                  className={cx("multi-select__checkbox")}
+                  value={value}
+                  onChange={onChange}
                 />
                 <span>{title}</span>
               </li>
@@ -55,6 +62,7 @@ export const MultiSelect: FC<IPropsMultiSelect> = ({
           })}
         </ul>
       )}
+      {error && <span className={cx("input-error")}>{error}</span>}
     </div>
   );
 };

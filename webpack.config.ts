@@ -15,8 +15,9 @@ const config: Configuration = {
   devtool: 'source-map',
   devServer: {
     static: './dist',
-    port: 4000,
-    hot: true
+    port: 3000,
+    hot: true,
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -37,8 +38,22 @@ const config: Configuration = {
         exclude: [/node_modules/]
       },
       {
-        test: /\.(s[a|c]|c)ss$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: "[name]-[local]__[hash:base64:5]",
+              },
+              sourceMap: true
+            }
+          },
+          'sass-loader'
+        ]
       },
       {
         test: /\.svg$/i,
@@ -62,7 +77,8 @@ const config: Configuration = {
     filename: '[chunkhash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: "images/[hash][ext][query]",
-    clean: true
+    clean: true,
+    publicPath: '/',
   },
 }
 
