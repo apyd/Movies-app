@@ -1,3 +1,5 @@
+import cypress from 'cypress'
+
 describe("Search panel", () => {
   it("should search for Test123123 and return no results", () => {
     cy.visit("http://localhost:3000");
@@ -23,6 +25,6 @@ describe("Search panel", () => {
     cy.wait(500);
     cy.get("#resultsList").children().first().click();
     cy.get("#movieView");
-    cy.get("#movieTitle").contains('FIFTY SHADES FREED', { matchCase: false });
+    cy.get("#movieTitle").contains('fifty shades freed', { matchCase: false });
   })
 })
