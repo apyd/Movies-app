@@ -2,8 +2,8 @@ import React, { createContext, FC, useContext, useState } from 'react';
 import { IMovieContextType, IMovieDetails } from './MovieContext.types';
 
 const initialState: IMovieContextType = {
-  movie: null,
-  setMovie: () => {},
+  heroMovie: null,
+  setHeroMovie: () => {},
   openedMovieMenuId: null,
   setOpenedMovieMenuId: () => {}
 };
@@ -11,10 +11,11 @@ const initialState: IMovieContextType = {
 export const MovieContext = createContext<IMovieContextType>(initialState);
 
 export const MovieProvider: FC = ({ children }) => {
-  const [movie, setMovie] = useState<IMovieDetails | null>(null);
+  const [heroMovie, setHeroMovie] = useState<IMovieDetails | null>(null);
   const [openedMovieMenuId, setOpenedMovieMenuId] = useState<number | null>(null);
   return (
-    <MovieContext.Provider value={{ movie, setMovie, openedMovieMenuId, setOpenedMovieMenuId }}>
+    <MovieContext.Provider
+      value={{ heroMovie, setHeroMovie, openedMovieMenuId, setOpenedMovieMenuId }}>
       {children}
     </MovieContext.Provider>
   );

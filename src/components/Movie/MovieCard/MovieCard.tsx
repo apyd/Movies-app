@@ -2,9 +2,8 @@ import React, { FC } from 'react';
 import { MovieContextMenu } from '../MovieContextMenu/MovieContextMenu';
 import { IMovieCardProps } from './MovieCard.types';
 import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder.jpeg';
-import './MovieCard.scss';
-import useMovie from '../../../context/MovieContext/MovieContext';
 import { getYearFromDate } from '../../../utils/getYearFromDate';
+import './MovieCard.scss';
 
 export const MovieCard: FC<IMovieCardProps> = ({
   id,
@@ -16,10 +15,9 @@ export const MovieCard: FC<IMovieCardProps> = ({
   runtime,
   overview,
   toggleEditModal,
-  toggleDeleteModal
+  toggleDeleteModal,
+  onMovieCardClick
 }) => {
-  const { setMovie } = useMovie();
-
   const movieDetails = {
     id,
     title,
@@ -31,12 +29,8 @@ export const MovieCard: FC<IMovieCardProps> = ({
     overview
   };
 
-  const onMovieCardClick = () => {
-    setMovie(movieDetails);
-  };
-
   return (
-    <li key={id} className="movie-card" onClick={onMovieCardClick}>
+    <li key={id} className="movie-card">
       <div className="poster">
         <MovieContextMenu
           movieId={id}
@@ -47,13 +41,14 @@ export const MovieCard: FC<IMovieCardProps> = ({
           src={poster_path}
           alt="movie poster"
           className="poster__img"
+          onClick={() => onMovieCardClick(id, movieDetails)}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
             currentTarget.src = DefaultPosterPlaceholder;
           }}
         />
       </div>
-      <section className="details">
+      <section className="details" onClick={() => onMovieCardClick(id, movieDetails)}>
         <header className="details__header">
           <div className="title__wrapper">
             <h3 className="details__title">{title}</h3>

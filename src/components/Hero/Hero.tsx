@@ -11,7 +11,7 @@ import useMovie from '../../context/MovieContext/MovieContext';
 export const Hero = () => {
   const [searchValue, setSearchValue] = useState('');
   const [isOpened, toggleModal] = useModal();
-  const { movie, setMovie } = useMovie();
+  const { heroMovie, setHeroMovie } = useMovie();
   const dispatch = useDispatch();
 
   const onSearchChange = (e: React.FormEvent<HTMLElement>) => {
@@ -20,9 +20,9 @@ export const Hero = () => {
   };
 
   return (
-    <div className={`hero ${!movie ? 'hero--search' : ''}`}>
+    <div className={`hero ${!heroMovie ? 'hero--search' : ''}`}>
       <div className="hero__inner">
-        {!movie && (
+        {!heroMovie && (
           <SearchView
             value={searchValue}
             onChange={setSearchValue}
@@ -30,7 +30,7 @@ export const Hero = () => {
             toggleModal={toggleModal}
           />
         )}
-        {movie && <MovieView onSearchIconPress={() => setMovie(null)} {...movie} />}
+        {heroMovie && <MovieView onSearchIconPress={() => setHeroMovie(null)} {...heroMovie} />}
       </div>
       <AddMovie isOpened={isOpened} toggleModal={toggleModal} />
     </div>
