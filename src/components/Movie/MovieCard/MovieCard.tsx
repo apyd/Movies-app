@@ -36,7 +36,7 @@ export const MovieCard: FC<IMovieCardProps> = ({
   };
 
   return (
-    <li key={id} className="movie-card" onClick={(e) => onMovieCardClick(e)}>
+    <li key={id} className="movie-card" onClick={onMovieCardClick}>
       <div className="poster">
         <MovieContextMenu
           movieId={id}
