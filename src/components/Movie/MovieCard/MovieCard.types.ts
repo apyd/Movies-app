@@ -1,12 +1,15 @@
-export interface IMovieCardProps {
-    id: string,
-    title: string,
-    rating: string,
-    poster_url: string,
-    genres: string[] | string,
-    release_year: string,
-    runtime: string,
-    description: string,
-    toggleEditModal: any // FIX IT
-    toggleDeleteModal: any // FIX IT
+import { Movie } from "../../../store/api/movie.interface"
+
+export interface IMovieCardProps extends Partial<Movie> {
+  id: number,
+  title: string,
+  vote_average: number,
+  release_date: string,
+  poster_path: string,
+  overview: string,
+  genres: string[],
+  runtime: number,
+  toggleEditModal: any,
+  toggleDeleteModal: any,
+  onMovieCardClick: (id: number, movieDetails: Partial<Movie>) => void;
 }

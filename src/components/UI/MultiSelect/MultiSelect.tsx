@@ -1,53 +1,67 @@
-import React, { EventHandler, FC, useState } from "react";
-import { IPropsMultiSelect } from "./MultiSelect.types";
+import React, { FC } from "react";
+import classNames from "classnames/bind";
 import DropdownIcon from "../../../assets/chevron-down.svg";
-import "./MultiSelect.scss";
+import { SvgIcon } from "../Icon/SvgIcon";
+import { IPropsMultiSelect } from "./MultiSelect.types";
+import styles from "./MultiSelect.scss";
 
-export const MultiSelect: FC<IPropsMultiSelect> = ({
+const cx = classNames.bind(styles);
+
+export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
   options,
+  isExpanded,
   selected,
+  value,
+  touched,
+  onChange,
+  onBlur,
   toggleOption,
+  toggleSelect,
   label,
+  error,
 }) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  // console.log("multiselect value: ", value);
+  console.log("value:", value, "selected:", selected);
 
-  const toggleSelect = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    const target = document.getElementById("multi-select");
-    if (event.target === target) {
-      setIsExpanded((isExpanded) => !isExpanded);
-    }
-    return;
-  };
+  const isInvalid = !!error && touched;
 
   return (
-    <div className="multi-select">
-      <span className="multi-select__label">{label}</span>
+    <div className={cx("multi-select")}>
+      <span className={cx("multi-select__label")}>{label}</span>
       <div
         id="multi-select"
         tabIndex={0}
-        className="multi-select__selected"
-        onClick={(e) => toggleSelect(e)}
+        className={cx("multi-select__selected", {
+          "multi-select__selected--invalid": isInvalid,
+        })}
+        onClick={toggleSelect}
       >
-        <span className="multi-select__summary">
+        <span
+          className={cx("multi-select__summary", {
+            "multi-select__summary--invalid": isInvalid,
+          })}
+        >
           {selected.length} selected
         </span>
-        <DropdownIcon className="icon icon--rotated" />
+        <SvgIcon icon={DropdownIcon} />
       </div>
       {isExpanded && (
-        <ul className="multi-select__options">
+        <ul className={cx("multi-select__options")}>
           {options.map(({ id, title }) => {
             return (
               <li
                 key={id}
-                className="multi-select__option"
-                onClick={() => toggleOption(id)}
+                className={cx("multi-select__option")}
+                onClick={() => toggleOption(title)}
               >
                 <input
-                  checked={selected.includes(id)}
+                  name="genres"
+                  checked={selected.includes(title)}
                   type="checkbox"
-                  className="multi-select__checkbox"
+                  className={cx("multi-select__checkbox")}
+                  value={value}
+                  onBlur={onBlur}
+                  onChange={() => onChange()}
                 />
                 <span>{title}</span>
               </li>
@@ -55,6 +69,7 @@ export const MultiSelect: FC<IPropsMultiSelect> = ({
           })}
         </ul>
       )}
+      {isInvalid && <span className={cx("input-error")}>{error}</span>}
     </div>
   );
 };

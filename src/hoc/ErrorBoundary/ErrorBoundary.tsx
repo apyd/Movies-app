@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { IErrorProps, IErrorState } from "./ErrorBoundary.types";
 
-export class ErrorBoundary extends React.Component<IErrorProps, IErrorState> {
+export class ErrorBoundary extends Component<IErrorProps, IErrorState> {
   constructor(props: IErrorProps) {
     super(props);
     this.state = { hasError: false, error: { name: "", message: "" } };

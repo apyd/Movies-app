@@ -15,7 +15,7 @@ const config: Configuration = {
   devtool: 'source-map',
   devServer: {
     static: './dist',
-    port: 4000,
+    port: 3000,
     hot: true
   },
   plugins: [
@@ -37,8 +37,22 @@ const config: Configuration = {
         exclude: [/node_modules/]
       },
       {
-        test: /\.(s[a|c]|c)ss$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: "[name]-[local]__[hash:base64:5]",
+              },
+              sourceMap: true
+            }
+          },
+          'sass-loader'
+        ]
       },
       {
         test: /\.svg$/i,

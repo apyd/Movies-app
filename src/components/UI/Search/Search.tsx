@@ -1,32 +1,33 @@
 import React, { FC } from "react";
+import classNames from "classnames/bind";
 import { Button } from "../Button/Button";
 import { ISearchProps } from "./Search.types";
-import "./Search.scss";
+import styles from "./Search.scss";
+import { ButtonType } from "../Button/Button.consts";
+
+const cx = classNames.bind(styles);
 
 export const Search: FC<ISearchProps> = ({
-  placeholder,
-  searchButtonText,
-  setQuery,
+  placeholder = "What do you want to watch?",
+  searchButtonText = "Search",
+  value,
+  onChange,
   onSearch,
 }) => {
   return (
-    <form className="search" onSubmit={onSearch}>
+    <form className={cx("search")} onSubmit={(e) => onSearch(e)}>
       <label htmlFor="search"></label>
       <input
         type="search"
         id="search"
         name="search"
         placeholder={placeholder}
-        onChange={setQuery}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
       />
-      <Button onClick={() => {}}>{searchButtonText}</Button>
+      <Button type={ButtonType.submit} onClick={() => {}}>
+        {searchButtonText}
+      </Button>
     </form>
   );
-};
-
-Search.defaultProps = {
-  placeholder: "What do you want to watch?",
-  searchButtonText: "Search",
-  setQuery: () => {},
-  onSearch: () => {},
 };
