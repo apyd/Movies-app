@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { IFilterProps } from './Filter.types';
 import './Filter.scss';
 
-const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
+export const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
   return (
     <div className="filter">
       <input id={name + label} type="radio" name={name} value={value} className="filter__input" />
@@ -12,5 +12,3 @@ const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
     </div>
   );
 };
-
-export default Filter;

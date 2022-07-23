@@ -1,8 +1,8 @@
-import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
 import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../../store/store';
 import { MovieProvider } from '../../context/MovieContext/MovieContext';
 import { ErrorBoundary } from '../../hoc/ErrorBoundary/ErrorBoundary';
-import { apiSlice } from '../../store/api/apiSlice';
 import { Footer } from '../Footer/Footer';
 import { Hero } from '../Hero/Hero';
 import { Results } from '../Results/Results';
@@ -10,15 +10,15 @@ import './App.scss';
 
 export const App = () => {
   return (
-    <div className="app">
+    <div className="app ">
       <ErrorBoundary>
-        <ApiProvider api={apiSlice}>
+        <Provider store={store}>
           <MovieProvider>
             <Hero />
             <Results />
             <Footer />
           </MovieProvider>
-        </ApiProvider>
+        </Provider>
       </ErrorBoundary>
     </div>
   );

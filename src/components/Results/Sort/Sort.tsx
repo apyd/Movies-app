@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { ISortProps } from './Sort.types';
 import './Sort.scss';
 
-export const Sort: FC<ISortProps> = ({ options, onOptionChange, sortLabel }) => {
+export const Sort: FC<ISortProps> = ({ options, onOptionChange, sortLabel = 'Sort by' }) => {
   return (
     <div className="sort">
       <label className="sort__label" htmlFor="sort">

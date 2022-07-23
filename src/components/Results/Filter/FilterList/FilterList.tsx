@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import { Filter } from '../Filter';
 import { IFilterListProps } from './FilterList.types';
 import './FilterList.scss';
-import Filter from '../Filter';
 
 export const FilterList: FC<IFilterListProps> = ({ options, onFilterSelect }) => {
   return (
