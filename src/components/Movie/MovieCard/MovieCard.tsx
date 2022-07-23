@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import { MovieContextMenu } from "../MovieContextMenu/MovieContextMenu";
-import { IMovieCardProps } from "./MovieCard.types";
-import DefaultPosterPlaceholder from "../../../assets/default-poster-placeholder.jpeg";
-import "./MovieCard.scss";
-import useMovie from "../../../context/MovieContext/MovieContext";
-import { getYearFromDate } from "../../../utils/getYearFromDate";
+import React, { FC } from 'react';
+import { MovieContextMenu } from '../MovieContextMenu/MovieContextMenu';
+import { IMovieCardProps } from './MovieCard.types';
+import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder.jpeg';
+import './MovieCard.scss';
+import useMovie from '../../../context/MovieContext/MovieContext';
+import { getYearFromDate } from '../../../utils/getYearFromDate';
 
 export const MovieCard: FC<IMovieCardProps> = ({
   id,
@@ -16,7 +16,7 @@ export const MovieCard: FC<IMovieCardProps> = ({
   runtime,
   overview,
   toggleEditModal,
-  toggleDeleteModal,
+  toggleDeleteModal
 }) => {
   const { setMovie } = useMovie();
 
@@ -28,10 +28,10 @@ export const MovieCard: FC<IMovieCardProps> = ({
     genres,
     release_date,
     runtime,
-    overview,
+    overview
   };
 
-  const onMovieCardClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+  const onMovieCardClick = () => {
     setMovie(movieDetails);
   };
 
@@ -58,9 +58,7 @@ export const MovieCard: FC<IMovieCardProps> = ({
           <div className="title__wrapper">
             <h3 className="details__title">{title}</h3>
           </div>
-          <span className="details__production-year">
-            {getYearFromDate(release_date)}
-          </span>
+          <span className="details__production-year">{getYearFromDate(release_date)}</span>
         </header>
         <span className="details__genres">{genres}</span>
       </section>

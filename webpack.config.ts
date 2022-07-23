@@ -1,12 +1,13 @@
-import path from 'path'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { Configuration } from 'webpack'
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { Configuration } from 'webpack';
 //To resolve typescript issues when using devServer we need to import webpack-dev-server
 import 'webpack-dev-server';
 
-const mode: Configuration["mode"] = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const mode: Configuration['mode'] =
+  process.env.NODE_ENV === 'production' ? 'production' : 'development';
 // fix for HMR when using postcss and browserlist
-const target = mode === 'production' ? 'browserslist' : 'web'
+const target = mode === 'production' ? 'browserslist' : 'web';
 
 const config: Configuration = {
   mode,
@@ -43,11 +44,11 @@ const config: Configuration = {
       {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
-        use: ['@svgr/webpack'],
+        use: ['@svgr/webpack']
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,
-        type: 'asset/resource',
+        type: 'asset/resource'
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -56,14 +57,14 @@ const config: Configuration = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js', '.tsx', '.jsx'],
+    extensions: ['.ts', '.js', '.tsx', '.jsx']
   },
   output: {
     filename: '[chunkhash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: "images/[hash][ext][query]",
+    assetModuleFilename: 'images/[hash][ext][query]',
     clean: true
-  },
-}
+  }
+};
 
 export default config;

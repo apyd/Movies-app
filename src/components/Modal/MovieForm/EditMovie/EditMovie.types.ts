@@ -1,5 +1,5 @@
 export interface IEditMovieProps {
-    isOpened: any,
-    toggleModal: any
+  isOpened: any;
+  toggleModal: any;
 }
- // TODO
+// TODO

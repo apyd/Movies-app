@@ -1,3 +1,3 @@
 export interface ISearchViewProps {
-    toggleModal: any
+  toggleModal: any;
 }

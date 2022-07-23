@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { LogoSize } from "./Logo.const";
-import { ILogoProps } from "./Logo.types";
-import "./Logo.scss";
+import React, { FC } from 'react';
+import { LogoSize } from './Logo.const';
+import { ILogoProps } from './Logo.types';
+import './Logo.scss';
 
 export const Logo: FC<ILogoProps> = ({ size }) => {
   return (
@@ -12,5 +12,5 @@ export const Logo: FC<ILogoProps> = ({ size }) => {
 };
 
 Logo.defaultProps = {
-  size: LogoSize.medium,
+  size: LogoSize.medium
 };

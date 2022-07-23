@@ -1,17 +1,12 @@
-import React, { FC } from "react";
-import { createPortal } from "react-dom";
-import { Button } from "../UI/Button/Button";
-import { IModalProps } from "./Modal.types";
-import "./Modal.scss";
-import { ButtonType } from "../UI/Button/Button.consts";
+import React, { FC } from 'react';
+import { createPortal } from 'react-dom';
+import { Button } from '../UI/Button/Button';
+import { IModalProps } from './Modal.types';
+import './Modal.scss';
+import { ButtonType } from '../UI/Button/Button.consts';
 
-export const Modal: FC<IModalProps> = ({
-  title,
-  isOpened,
-  toggleModal,
-  children,
-}) => {
-  const portalDiv = document.getElementById("modal") as HTMLElement;
+export const Modal: FC<IModalProps> = ({ title, isOpened, toggleModal, children }) => {
+  const portalDiv = document.getElementById('modal') as HTMLElement;
 
   return createPortal(
     <>

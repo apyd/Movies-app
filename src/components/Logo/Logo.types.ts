@@ -1,3 +1,3 @@
 export interface ILogoProps {
-    size?: string
+  size?: string;
 }

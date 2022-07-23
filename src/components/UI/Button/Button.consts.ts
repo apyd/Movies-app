@@ -1,17 +1,17 @@
 export const ButtonType = {
-    primary: "primary",
-    secondary: "secondary",
-    ghost: 'ghost',
-    outline: 'outline'
+  primary: 'primary',
+  secondary: 'secondary',
+  ghost: 'ghost',
+  outline: 'outline'
 };
 
 export const ButtonSize = {
-    small: "small",
-    medium: "medium",
-    large: 'large'
+  small: 'small',
+  medium: 'medium',
+  large: 'large'
 };
 
 export const ButtonShape = {
-    rectangle: "rectangle",
-    round: "round"
+  rectangle: 'rectangle',
+  round: 'round'
 };

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { GENRES as options } from "../api/resultsData";
-import { IPropsMultiSelect } from "../components/UI/MultiSelect/MultiSelect.types";
+import { useState } from 'react';
+import { GENRES as options } from '../api/resultsData';
+import { IPropsMultiSelect } from '../components/UI/MultiSelect/MultiSelect.types';
 
 export const useMultiSelect = (label: string): IPropsMultiSelect => {
   const [selected, setSelected] = useState<Array<string>>([]);

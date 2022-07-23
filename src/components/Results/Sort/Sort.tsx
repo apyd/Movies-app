@@ -1,12 +1,8 @@
-import React, { FC } from "react";
-import { ISortProps } from "./Sort.types";
-import "./Sort.scss";
+import React, { FC } from 'react';
+import { ISortProps } from './Sort.types';
+import './Sort.scss';
 
-export const Sort: FC<ISortProps> = ({
-  options,
-  onOptionChange,
-  sortLabel,
-}) => {
+export const Sort: FC<ISortProps> = ({ options, onOptionChange, sortLabel }) => {
   return (
     <div className="sort">
       <label className="sort__label" htmlFor="sort">
@@ -16,8 +12,7 @@ export const Sort: FC<ISortProps> = ({
         className="sort__input"
         name="sort"
         id="sort"
-        onChange={(e) => onOptionChange(e.target.value)}
-      >
+        onChange={(e) => onOptionChange(e.target.value)}>
         {options &&
           options.map(({ id, label, value }) => (
             <option key={id} value={value}>
@@ -31,6 +26,5 @@ export const Sort: FC<ISortProps> = ({
 
 Sort.defaultProps = {
   options: [],
-  onOptionChange: () => {},
-  sortLabel: "Sort by",
+  sortLabel: 'Sort by'
 };

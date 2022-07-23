@@ -1,6 +1,5 @@
-
-import { Movie } from "../../../store/api/apiTypes";
+import { Movie } from '../../../store/api/apiTypes';
 
 export interface IMovieListProps {
-  data: Movie[]
-};
+  data: Movie[];
+}

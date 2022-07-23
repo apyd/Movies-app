@@ -1,3 +1,3 @@
 export interface IPropsResultsCount {
-  value: number
+  value: number;
 }

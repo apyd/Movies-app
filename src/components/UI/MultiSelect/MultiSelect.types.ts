@@ -1,9 +1,9 @@
 export interface IPropsMultiSelect {
   options: {
-    id: string,
-    title: string
-  }[],
-  selected: Array<string>
-  toggleOption: any //FIX IT
-  label: string
+    id: string;
+    title: string;
+  }[];
+  selected: Array<string>;
+  toggleOption: any;
+  label: string;
 }
