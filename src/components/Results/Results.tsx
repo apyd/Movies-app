@@ -21,12 +21,14 @@ export const Results = () => {
   useEffect(() => {
     const searchQuery = searchText.trim().length > 0 ? `search=${searchText}&searchBy=title&` : '';
     const sortQuery = `sortBy=${sort}&sortOrder=asc`;
-    const filterQuery = filter === FILTER_OPTIONS[0].value ? '' : `&filter=${filter}`;
+    const filterQuery = filter === FILTER_OPTIONS[0].value ? '' : `&filter=${filter}&`;
     const query = `?${searchQuery}${filterQuery}${sortQuery}`;
     setQueryParams(query);
   }, [searchText, filter, sort]);
 
   const { data, isLoading, isFetching, isError } = useGetMoviesQuery(queryParams);
+
+  console.log(queryParams);
 
   const onFilterChange = (selectedFilter: string) => {
     dispatch(updateFilter(selectedFilter));
