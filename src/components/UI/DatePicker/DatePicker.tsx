@@ -1,12 +1,12 @@
-import React, { FC, useState } from "react";
-import { IPropsDatePicker } from "./DatePicker.types";
-import "./DatePicker.scss";
+import React, { FC, useState } from 'react';
+import { IPropsDatePicker } from './DatePicker.types';
+import './DatePicker.scss';
 
 export const DatePicker: FC<IPropsDatePicker> = ({ id, name, label }) => {
-  const [type, setType] = useState<string>("text");
+  const [type, setType] = useState<string>('text');
 
   const onInputFocus = () => {
-    setType("date");
+    setType('date');
   };
 
   return (

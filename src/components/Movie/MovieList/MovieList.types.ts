@@ -1,12 +1,5 @@
-import { IMovieCardProps } from "../MovieCard/MovieCard.types";
+import { Movie } from '../../../store/api/apiTypes';
 
-export interface IMovieListProps extends Array<{
-    id: string,
-    title: string,
-    rating: string,
-    poster_url: string,
-    genres: string[] | string,
-    release_year: string,
-    runtime: string,
-    description: string,
-}> { }
+export interface IMovieListProps {
+  data: Movie[];
+}

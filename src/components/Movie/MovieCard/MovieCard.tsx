@@ -1,54 +1,59 @@
-import React, { FC } from "react";
-import { MovieContextMenu } from "../MovieContextMenu/MovieContextMenu";
-import { IMovieCardProps } from "./MovieCard.types";
-import "./MovieCard.scss";
-import useMovie from "../../../context/MovieContext/MovieContext";
+import React, { FC } from 'react';
+import { MovieContextMenu } from '../MovieContextMenu/MovieContextMenu';
+import { IMovieCardProps } from './MovieCard.types';
+import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder.jpeg';
+import { getYearFromDate } from '../../../utils/getYearFromDate';
+import './MovieCard.scss';
 
 export const MovieCard: FC<IMovieCardProps> = ({
   id,
   title,
-  rating,
-  poster_url,
+  vote_average,
+  poster_path,
   genres,
-  release_year,
+  release_date,
   runtime,
-  description,
+  overview,
   toggleEditModal,
   toggleDeleteModal,
+  onMovieCardClick
 }) => {
-  const { setMovie } = useMovie();
-
   const movieDetails = {
     id,
     title,
-    rating,
-    poster_url,
+    vote_average,
+    poster_path,
     genres,
-    release_year,
+    release_date,
     runtime,
-    description,
-  };
-
-  const onMovieCardClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    setMovie(movieDetails);
+    overview
   };
 
   return (
-    <li key={id} className="movie-card" onClick={(e) => onMovieCardClick(e)}>
+    <li key={id} className="movie-card">
       <div className="poster">
         <MovieContextMenu
           movieId={id}
           toggleDeleteModal={toggleDeleteModal}
           toggleEditModal={toggleEditModal}
         />
-        <img src={poster_url} alt="movie poster" className="poster__img" />
+        <img
+          src={poster_path}
+          alt="movie poster"
+          className="poster__img"
+          onClick={() => onMovieCardClick(id, movieDetails)}
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null;
+            currentTarget.src = DefaultPosterPlaceholder;
+          }}
+        />
       </div>
-      <section className="details">
+      <section className="details" onClick={() => onMovieCardClick(id, movieDetails)}>
         <header className="details__header">
           <div className="title__wrapper">
             <h3 className="details__title">{title}</h3>
           </div>
-          <span className="details__production-year">{release_year}</span>
+          <span className="details__production-year">{getYearFromDate(release_date)}</span>
         </header>
         <span className="details__genres">{genres}</span>
       </section>

@@ -1,5 +1,5 @@
 export interface IDeleteMovieProps {
-    isOpened: any,
-    toggleModal: any
+  isOpened: any;
+  toggleModal: any;
 }
- // TODO
+// TODO

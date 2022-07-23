@@ -1,10 +1,10 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react';
 
 export interface IErrorProps {
-    children: ReactNode
+  children: ReactNode;
 }
 
 export interface IErrorState {
-    hasError: boolean,
-    error: Error
+  hasError: boolean;
+  error: Error;
 }

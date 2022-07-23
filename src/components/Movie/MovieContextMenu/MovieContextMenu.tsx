@@ -1,17 +1,17 @@
-import React, { FC, useState } from "react";
-import { Button } from "../../UI/Button/Button";
-import { IMovieContextMenuProps } from "./MovieContextMenu.types";
-import MenuIcon from "../../../assets/threedots.svg";
-import "./MovieContextMenu.scss";
-import useMovie from "../../../context/MovieContext/MovieContext";
-import { ButtonType } from "../../UI/Button/Button.consts";
+import React, { FC, useState } from 'react';
+import { Button } from '../../UI/Button/Button';
+import { IMovieContextMenuProps } from './MovieContextMenu.types';
+import MenuIcon from '../../../assets/threedots.svg';
+import './MovieContextMenu.scss';
+import useMovie from '../../../context/MovieContext/MovieContext';
+import { ButtonType } from '../../UI/Button/Button.consts';
 
 export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
   movieId,
   toggleEditModal,
-  toggleDeleteModal,
+  toggleDeleteModal
 }) => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const { openedMovieMenuId, setOpenedMovieMenuId } = useMovie();
   const onMenuButtonClick = () => {
     if (!isCollapsed) {

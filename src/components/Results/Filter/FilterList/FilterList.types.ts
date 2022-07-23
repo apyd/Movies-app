@@ -1,3 +1,10 @@
-import { IFilterProps } from "../Filter.types"
+import { Dispatch, SetStateAction } from 'react';
 
-export interface IFilterListProps extends Array<IFilterProps> {}
+export interface IFilterListProps {
+  options: {
+    name: string;
+    label: string;
+    value: string;
+  }[];
+  onFilterSelect: (selectedFilter: string) => void;
+}

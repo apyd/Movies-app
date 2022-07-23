@@ -1,5 +1,5 @@
 export const LogoSize = {
-    small: 'small',
-    medium: 'medium',
-    large: 'large'
-}
+  small: 'small',
+  medium: 'medium',
+  large: 'large'
+};

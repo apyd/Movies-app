@@ -1,5 +1,5 @@
 export interface IStatusModalProps {
-    status: string
-    isOpened: boolean,
-    toggleModal: () => void
+  status: string;
+  isOpened: boolean;
+  toggleModal: () => void;
 }
