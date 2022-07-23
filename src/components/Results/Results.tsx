@@ -15,7 +15,7 @@ import './Results.scss';
 export const Results = () => {
   const { searchText, filter, sort } = useSelector(querySelector);
   const dispatch = useDispatch();
-  let defaultQueryParams = `?sortBy=${sort}&sortOrder=asc`;
+  const defaultQueryParams = `?sortBy=${sort}&sortOrder=asc`;
   const [queryParams, setQueryParams] = useState(defaultQueryParams);
 
   useEffect(() => {
