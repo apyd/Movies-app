@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import { Logo } from '../Logo/Logo';
-import { LogoSize } from '../Logo/Logo.const';
+import { Logo } from '../UI/Logo/Logo';
+import { LogoSize } from '../UI/Logo/Logo.const';
 import styles from './Footer.scss';
 
 const cx = classNames.bind(styles);

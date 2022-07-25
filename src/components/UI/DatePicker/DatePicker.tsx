@@ -22,7 +22,6 @@ export const DatePicker: FC<IPropsDatePicker> = ({
   };
 
   const isInvalid = !!error && touched;
-  console.log(isInvalid);
 
   return (
     <>

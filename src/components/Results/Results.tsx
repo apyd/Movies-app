@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import { querySelector } from '../../store/store';
 import { updateSort, updateFilter } from '../../store/api/querySlice';
-import { FILTER_OPTIONS, SORT_OPTIONS } from '../../dictionary/dictionary';
 import { useGetMoviesQuery } from '../../store/api/apiSlice';
-import { FilterList } from './Filter/FilterList/FilterList';
-import { Sort } from './Sort/Sort';
-import { MemoizedMovieList } from '../Movie/MovieList/MovieList';
+import { FILTER_OPTIONS, SORT_OPTIONS } from '../../dictionary/dictionary';
+import { FilterList } from '../UI/Filter/FilterList/FilterList';
+import { Sort } from '../UI/Sort/Sort';
+import { MovieList } from '../Movie/MovieList/MovieList';
 import { ResultsCount } from './ResultsCount/ResultsCount';
 import { LoadingSpinner } from '../UI/LoadingSpinner/LoadingSpinner';
 import styles from './Results.scss';
@@ -22,7 +22,7 @@ export const Results = () => {
 
   useEffect(() => {
     const searchQuery = searchText.trim().length > 0 ? `search=${searchText}&searchBy=title&` : '';
-    const sortQuery = `sortBy=${sort}&sortOrder=asc`;
+    const sortQuery = `sortBy=${sort}&sortOrder=desc`;
     const filterQuery = filter === FILTER_OPTIONS[0].value ? '' : `filter=${filter}&`;
     const query = `?${searchQuery}${filterQuery}${sortQuery}`;
     setQueryParams(query);
@@ -38,6 +38,14 @@ export const Results = () => {
     dispatch(updateSort(selectedSort));
   };
 
+  const moviesData = useMemo(
+    () => ({
+      movies: data?.data,
+      count: data?.data.length
+    }),
+    []
+  );
+
   return (
     <div className={cx('results')}>
       <div className={cx('results__inner-container')}>
@@ -47,10 +55,10 @@ export const Results = () => {
         </div>
         {isLoading || (isFetching && <LoadingSpinner />)}
         {isError && <p>Data can't be loaded, please contact administrator</p>}
-        {data && (
+        {data?.movies?.length > 0 && (
           <>
-            <ResultsCount value={data.data.length} />
-            <MemoizedMovieList {...data} />
+            <ResultsCount value={moviesData.count} />
+            <MovieList movies={moviesData.movies} />
           </>
         )}
       </div>

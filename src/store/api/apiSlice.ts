@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const BASE_URL = 'http://localhost:4000';
 
@@ -24,7 +24,7 @@ export const apiSlice = createApi({
     }),
     updateMovieById: builder.mutation({
       query: (movie) => ({
-        url: `/movies/${movie.id}`,
+        url: `/movies`,
         method: 'PUT',
         body: movie
       }),
@@ -33,7 +33,7 @@ export const apiSlice = createApi({
     deleteMovieById: builder.mutation({
       query: (id) => ({
         url: `/movies/${id}`,
-        method: 'DELETE',
+        method: 'DELETE'
       }),
       invalidatesTags: ['Movies']
     })

@@ -10,21 +10,13 @@ const cx = classNames.bind(styles);
 export const Search: FC<ISearchProps> = ({
   placeholder = 'What do you want to watch?',
   searchButtonText = 'Search',
-  value,
-  onChange,
+  searchRef,
   onSearch
 }) => {
   return (
     <form className={cx('search')} onSubmit={(e) => onSearch(e)}>
       <label htmlFor="search"></label>
-      <input
-        type="search"
-        id="search"
-        name="search"
-        placeholder={placeholder}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      />
+      <input type="search" id="search" name="search" placeholder={placeholder} ref={searchRef} />
       <Button type={ButtonType.submit} onClick={() => {}}>
         {searchButtonText}
       </Button>

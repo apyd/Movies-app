@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
 import {
   useDeleteMovieByIdMutation,
@@ -6,7 +6,7 @@ import {
 } from '../../../store/api/apiSlice';
 import useMovie from '../../../context/MovieContext/MovieContext';
 import { useModal } from '../../../hooks/useModal';
-import { MovieForm } from '../../Modal/MovieForm/MovieForm';
+import { EditMovie } from '../../Modal/EditMovie/EditMovie';
 import { MovieCard } from '../MovieCard/MovieCard';
 import { DeleteMovie } from '../../Modal/DeleteMovie/DeleteMovie';
 import { Movie } from '../../../store/api/movie.interface';
@@ -15,41 +15,74 @@ import styles from './MovieList.scss';
 
 const cx = classNames.bind(styles);
 
-const MovieList: FC<IMovieListProps> = (props) => {
+export const MovieList: FC<IMovieListProps> = ({ movies }) => {
   const [movieId, setMovieId] = useState(null);
-  const [EditModal, toggleEditModal] = useModal('Edit movie', MovieForm);
-  const [DeleteModal, toggleDeleteModal] = useModal('Delete movie', DeleteMovie);
-  const [updateMovie] = useUpdateMovieByIdMutation();
-  const [deleteMovie] = useDeleteMovieByIdMutation();
+  const [updateMovie, updateRequestStatus] = useUpdateMovieByIdMutation();
+  const [deleteMovie, deleteRequestStatus] = useDeleteMovieByIdMutation();
 
-  const { heroMovie, setHeroMovie } = useMovie();
+  const {
+    isSuccess: isUpdateSuccess,
+    isError: isUpdateError,
+    isLoading: isUpdateLoading,
+    reset: resetUpdate
+  } = updateRequestStatus;
+  const {
+    isSuccess: isDeleteSuccess,
+    isError: isDeleteError,
+    isLoading: isDeleteLoading,
+    reset: resetDelete
+  } = deleteRequestStatus;
 
-  const onMovieCardClick = (id: number, movieDetails: Movie) => {
-    setMovieId(id);
+  const [EditModal, toggleEditModal] = useModal('Edit movie', EditMovie, resetUpdate);
+  const [DeleteModal, toggleDeleteModal] = useModal('Delete movie', DeleteMovie, resetDelete);
+
+  const { setHeroMovie, selectedMovie, setSelectedMovie } = useMovie();
+
+  const onMovieCardClick = (movieDetails: Movie) => {
     setHeroMovie(movieDetails);
   };
+
+  const onContextMenuClick = (movieDetails: Movie) => {
+    setSelectedMovie(movieDetails);
+    setMovieId(movieDetails.id);
+  };
+
+  // const data: any = useMemo(() => movies []);
 
   return (
     <>
       {/* @ts-ignore - FIX IT*/}
-      <EditModal onSubmit={updateMovie} formData={heroMovie} />
+      <EditModal
+        onFormSubmit={updateMovie}
+        formData={selectedMovie}
+        isError={isUpdateError}
+        isSuccess={isUpdateSuccess}
+        isLoading={isUpdateLoading}
+      />
       {/* @ts-ignore FIX-IT */}
-      <DeleteModal onSubmit={deleteMovie} movieId={movieId} />
+      <DeleteModal
+        onSubmit={deleteMovie}
+        movieId={movieId}
+        isError={isDeleteError}
+        isSuccess={isDeleteSuccess}
+        isLoading={isDeleteLoading}
+      />
       <ul className={cx('movies')}>
-        {props.data.map((movieData) => {
+        {movies.map((movie: any) => {
           return (
-            <MovieCard
-              key={movieData.id}
-              {...movieData}
-              toggleEditModal={toggleEditModal}
-              toggleDeleteModal={toggleDeleteModal}
-              onMovieCardClick={onMovieCardClick}
-            />
+            <li key={movie.id}>
+              <MovieCard
+                key={movie.id}
+                {...movie}
+                toggleEditModal={toggleEditModal}
+                toggleDeleteModal={toggleDeleteModal}
+                onMovieCardClick={onMovieCardClick}
+                onContextMenuClick={onContextMenuClick}
+              />
+            </li>
           );
         })}
       </ul>
     </>
   );
 };
-
-export const MemoizedMovieList = memo(MovieList);

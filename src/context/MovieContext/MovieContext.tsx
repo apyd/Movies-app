@@ -1,4 +1,4 @@
-import React, { createContext, FC, useContext, useState } from 'react';
+import React, { createContext, FC, useContext, useMemo, useState } from 'react';
 import { IMovieContextType, IMovieDetails } from './MovieContext.types';
 
 const initialState: IMovieContextType = {
@@ -17,19 +17,23 @@ export const MovieProvider: FC = ({ children }) => {
   const [selectedMovie, setSelectedMovie] = useState<IMovieDetails | null>(null);
   const [openedMovieMenuId, setOpenedMovieMenuId] = useState<number | null>(null);
 
-  return (
-    <MovieContext.Provider
-      value={{
-        heroMovie,
-        setHeroMovie,
-        selectedMovie,
-        setSelectedMovie,
-        openedMovieMenuId,
-        setOpenedMovieMenuId
-      }}>
-      {children}
-    </MovieContext.Provider>
+  const value = useMemo(
+    () => ({
+      heroMovie,
+      setHeroMovie,
+      selectedMovie,
+      setSelectedMovie,
+      openedMovieMenuId,
+      setOpenedMovieMenuId
+    }),
+    [heroMovie]
   );
+
+  // const value = useMemo(() => [heroMovie, setHeroMovie], [heroMovie]);
+
+  // console.log(value);
+
+  return <MovieContext.Provider value={value}>{children}</MovieContext.Provider>;
 };
 
 const useMovie = () => {

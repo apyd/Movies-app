@@ -41,13 +41,13 @@ const config: Configuration = {
         test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: 'style-loader'
           },
           {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: "[name]-[local]__[hash:base64:5]",
+                localIdentName: '[name]-[local]__[hash:base64:5]'
               },
               sourceMap: true
             }

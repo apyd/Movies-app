@@ -19,6 +19,7 @@ export const MovieCard: FC<IMovieCardProps> = ({
   overview,
   toggleEditModal,
   toggleDeleteModal,
+  onContextMenuClick,
   onMovieCardClick
 }) => {
   const movieDetails = {
@@ -33,10 +34,11 @@ export const MovieCard: FC<IMovieCardProps> = ({
   };
 
   return (
-    <li key={id} className={cx('movie-card')}>
+    <div className={cx('movie-card')}>
       <div className={cx('poster')}>
         <MovieContextMenu
           movieId={id}
+          onContextMenuClick={() => onContextMenuClick(movieDetails)}
           toggleDeleteModal={toggleDeleteModal}
           toggleEditModal={toggleEditModal}
         />
@@ -48,18 +50,18 @@ export const MovieCard: FC<IMovieCardProps> = ({
             currentTarget.onerror = null;
             currentTarget.src = DefaultPosterPlaceholder;
           }}
-          onClick={() => onMovieCardClick(id, movieDetails)}
+          onClick={() => onMovieCardClick(movieDetails)}
         />
       </div>
-      <section className={cx('details')} onClick={() => onMovieCardClick(id, movieDetails)}>
+      <section className={cx('details')} onClick={() => onMovieCardClick(movieDetails)}>
         <header className={cx('details__header')}>
           <div className={cx('title__wrapper')}>
             <h3 className={cx('details__title')}>{title}</h3>
           </div>
           <span className={cx('details__production-year')}>{getYearFromDate(release_date)}</span>
         </header>
-        <span className={cx('details__genres')}>{genres}</span>
+        <span className={cx('details__genres')}>{genres.join(', ')}</span>
       </section>
-    </li>
+    </div>
   );
 };

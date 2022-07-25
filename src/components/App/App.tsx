@@ -19,7 +19,7 @@ export const App = () => {
       <ErrorBoundary>
         <Provider store={store}>
           <MovieProvider>
-            <Hero />
+            {/* <Hero /> */}
             <Results />
             <Footer />
           </MovieProvider>
