@@ -1,8 +1,10 @@
-@use "../../../styles/colors";
-@use "../../../styles/variables";
-@use "../../../styles/mixins";
+@use '../../../styles/colors';
+@use '../../../styles/variables';
+@use '../../../styles/mixins';
 
-.movie-view {
+.movie-details {
+  width: 100%;
+
   &__content {
     @include mixins.flex-position(row, flex-start, center);
     gap: 0 3rem;

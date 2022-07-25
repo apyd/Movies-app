@@ -1,4 +1,3 @@
-export interface IStatusModalContentProps {
-  status: string
-  toggleModal: () => void
+export interface IStatusContentProps {
+  status: string;
 }

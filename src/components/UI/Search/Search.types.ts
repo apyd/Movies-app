@@ -1,7 +1,6 @@
 export interface ISearchProps {
-  placeholder?: string,
-  searchButtonText?: string,
-  value: string,
-  onChange: (value: React.SetStateAction<string>) => void
-  onSearch: (e: React.FormEvent<HTMLElement>) => void
+  placeholder?: string;
+  searchButtonText?: string;
+  searchRef: any,
+  onSearch: (e: React.FormEvent<HTMLElement>) => void;
 }

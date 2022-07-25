@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const BASE_URL = 'http://localhost:4000';
 
@@ -9,35 +9,41 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getMovies: builder.query({
       query: (queryParams) => `/movies/${queryParams}`,
-      providesTags: ['Movies'],
+      providesTags: ['Movies']
     }),
     getMovieById: builder.query({
-      query: (id) => `/movies/${id}`,
+      query: (id) => `/movies/${id}`
     }),
     addMovie: builder.mutation({
       query: (movie) => ({
         url: `/movies`,
         method: 'POST',
-        body: movie,
+        body: movie
       }),
-      invalidatesTags: ['Movies'],
+      invalidatesTags: ['Movies']
     }),
     updateMovieById: builder.mutation({
       query: (movie) => ({
-        url: `/movies/${movie.id}`,
+        url: `/movies`,
         method: 'PUT',
-        body: movie,
+        body: movie
       }),
-      invalidatesTags: ['Movies'],
+      invalidatesTags: ['Movies']
     }),
     deleteMovieById: builder.mutation({
       query: (id) => ({
         url: `/movies/${id}`,
-        method: 'DELETE',
+        method: 'DELETE'
       }),
-      invalidatesTags: ['Movies'],
-    }),
-  }),
-})
+      invalidatesTags: ['Movies']
+    })
+  })
+});
 
-export const { useGetMoviesQuery, useGetMovieByIdQuery, useAddMovieMutation, useUpdateMovieByIdMutation, useDeleteMovieByIdMutation } = apiSlice
+export const {
+  useGetMoviesQuery,
+  useGetMovieByIdQuery,
+  useAddMovieMutation,
+  useUpdateMovieByIdMutation,
+  useDeleteMovieByIdMutation
+} = apiSlice;

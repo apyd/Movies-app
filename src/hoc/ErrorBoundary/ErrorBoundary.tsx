@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import { IErrorProps, IErrorState } from "./ErrorBoundary.types";
+import React, { Component } from 'react';
+import { IErrorProps, IErrorState } from './ErrorBoundary.types';
 
 export class ErrorBoundary extends Component<IErrorProps, IErrorState> {
   constructor(props: IErrorProps) {
     super(props);
-    this.state = { hasError: false, error: { name: "", message: "" } };
+    this.state = { hasError: false, error: { name: '', message: '' } };
   }
 
   static getDerivedStateFromError(error: Error) {
     return {
       hasError: true,
-      error,
+      error
     };
   }
 

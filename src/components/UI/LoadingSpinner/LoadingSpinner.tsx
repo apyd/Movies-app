@@ -1,14 +1,14 @@
-import React from "react";
-import classNames from "classnames/bind";
-import styles from "./LoadingSpinner.scss";
+import React from 'react';
+import classNames from 'classnames/bind';
+import styles from './LoadingSpinner.scss';
 
 const cx = classNames.bind(styles);
 
 export const LoadingSpinner = () => {
   return (
-    <div className={cx("spinner")}>
-      <div className={cx("spinner__icon")}></div>
-      <span className={cx("spinner_text")}>Loading...</span>
+    <div className={cx('spinner')}>
+      <div className={cx('spinner__icon')}></div>
+      <span className={cx('spinner_text')}>Loading...</span>
     </div>
   );
 };

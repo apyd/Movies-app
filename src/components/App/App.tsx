@@ -1,15 +1,15 @@
-import React from "react";
-import classNames from "classnames/bind";
-import { MovieProvider } from "../../context/MovieContext/MovieContext";
-import { ErrorBoundary } from "../../hoc/ErrorBoundary/ErrorBoundary";
+import React from 'react';
+import classNames from 'classnames/bind';
+import { MovieProvider } from '../../context/MovieContext/MovieContext';
+import { ErrorBoundary } from '../../hoc/ErrorBoundary/ErrorBoundary';
 
-import { Hero } from "../Hero/Hero";
-import { Results } from "../Results/Results";
-import { Footer } from "../Footer/Footer";
+import { Hero } from '../Hero/Hero';
+import { Results } from '../Results/Results';
+import { Footer } from '../Footer/Footer';
 
-import styles from "./App.scss";
-import { Provider } from "react-redux";
-import { store } from "../../store/store";
+import styles from './App.scss';
+import { Provider } from 'react-redux';
+import { store } from '../../store/store';
 
 const cx = classNames.bind(styles);
 
@@ -19,7 +19,7 @@ export const App = () => {
       <ErrorBoundary>
         <Provider store={store}>
           <MovieProvider>
-            <Hero />
+            {/* <Hero /> */}
             <Results />
             <Footer />
           </MovieProvider>

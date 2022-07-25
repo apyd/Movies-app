@@ -1,0 +1,10 @@
+@use '../../../styles/mixins';
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  &-header {
+    @include mixins.flex-position(row, space-between, center);
+  }
+}

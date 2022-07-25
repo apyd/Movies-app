@@ -1,5 +1,5 @@
-import React, { createContext, FC, useContext, useState } from "react";
-import { IMovieContextType, IMovieDetails } from "./MovieContext.types";
+import React, { createContext, FC, useContext, useMemo, useState } from 'react';
+import { IMovieContextType, IMovieDetails } from './MovieContext.types';
 
 const initialState: IMovieContextType = {
   heroMovie: null,
@@ -7,41 +7,40 @@ const initialState: IMovieContextType = {
   selectedMovie: null,
   setSelectedMovie: () => {},
   openedMovieMenuId: null,
-  setOpenedMovieMenuId: () => {},
+  setOpenedMovieMenuId: () => {}
 };
 
 export const MovieContext = createContext<IMovieContextType>(initialState);
 
 export const MovieProvider: FC = ({ children }) => {
   const [heroMovie, setHeroMovie] = useState<IMovieDetails | null>(null);
-  const [selectedMovie, setSelectedMovie] = useState<IMovieDetails | null>(
-    null
-  );
-  const [openedMovieMenuId, setOpenedMovieMenuId] = useState<number | null>(
-    null
+  const [selectedMovie, setSelectedMovie] = useState<IMovieDetails | null>(null);
+  const [openedMovieMenuId, setOpenedMovieMenuId] = useState<number | null>(null);
+
+  const value = useMemo(
+    () => ({
+      heroMovie,
+      setHeroMovie,
+      selectedMovie,
+      setSelectedMovie,
+      openedMovieMenuId,
+      setOpenedMovieMenuId
+    }),
+    [heroMovie]
   );
 
-  return (
-    <MovieContext.Provider
-      value={{
-        heroMovie,
-        setHeroMovie,
-        selectedMovie,
-        setSelectedMovie,
-        openedMovieMenuId,
-        setOpenedMovieMenuId,
-      }}
-    >
-      {children}
-    </MovieContext.Provider>
-  );
+  // const value = useMemo(() => [heroMovie, setHeroMovie], [heroMovie]);
+
+  // console.log(value);
+
+  return <MovieContext.Provider value={value}>{children}</MovieContext.Provider>;
 };
 
 const useMovie = () => {
   const context = useContext(MovieContext);
 
   if (context === undefined) {
-    throw new Error("useMovie must be used within a MovieProvider");
+    throw new Error('useMovie must be used within a MovieProvider');
   }
   return context;
 };
