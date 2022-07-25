@@ -10,6 +10,7 @@ import { Footer } from '../Footer/Footer';
 import styles from './App.scss';
 import { Provider } from 'react-redux';
 import { store } from '../../store/store';
+import { Options } from '../Options/Options';
 
 const cx = classNames.bind(styles);
 
@@ -19,7 +20,8 @@ export const App = () => {
       <ErrorBoundary>
         <Provider store={store}>
           <MovieProvider>
-            {/* <Hero /> */}
+            <Hero />
+            <Options />
             <Results />
             <Footer />
           </MovieProvider>
