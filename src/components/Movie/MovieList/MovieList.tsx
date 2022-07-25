@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, memo, useCallback, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
 import {
   useDeleteMovieByIdMutation,
@@ -38,16 +38,33 @@ export const MovieList: FC<IMovieListProps> = ({ movies }) => {
 
   const { setHeroMovie, selectedMovie, setSelectedMovie } = useMovie();
 
-  const onMovieCardClick = (movieDetails: Movie) => {
+  const onMovieCardClick = useCallback((movieDetails: Movie) => {
     setHeroMovie(movieDetails);
-  };
+  }, []);
 
-  const onContextMenuClick = (movieDetails: Movie) => {
+  const onContextMenuClick = useCallback((movieDetails: Movie) => {
     setSelectedMovie(movieDetails);
     setMovieId(movieDetails.id);
-  };
+  }, []);
 
-  // const data: any = useMemo(() => movies []);
+  const moviesList = useMemo(
+    () =>
+      movies.map((movie: any) => {
+        return (
+          <li key={movie.id}>
+            <MovieCard
+              key={movie.id}
+              {...movie}
+              toggleEditModal={toggleEditModal}
+              toggleDeleteModal={toggleDeleteModal}
+              onMovieCardClick={onMovieCardClick}
+              onContextMenuClick={onContextMenuClick}
+            />
+          </li>
+        );
+      }),
+    [movies]
+  );
 
   return (
     <>
@@ -67,22 +84,7 @@ export const MovieList: FC<IMovieListProps> = ({ movies }) => {
         isSuccess={isDeleteSuccess}
         isLoading={isDeleteLoading}
       />
-      <ul className={cx('movies')}>
-        {movies.map((movie: any) => {
-          return (
-            <li key={movie.id}>
-              <MovieCard
-                key={movie.id}
-                {...movie}
-                toggleEditModal={toggleEditModal}
-                toggleDeleteModal={toggleDeleteModal}
-                onMovieCardClick={onMovieCardClick}
-                onContextMenuClick={onContextMenuClick}
-              />
-            </li>
-          );
-        })}
-      </ul>
+      <ul className={cx('movies')}>{moviesList}</ul>
     </>
   );
 };

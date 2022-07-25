@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { useDispatch, useSelector } from 'react-redux';
-import { querySelector } from '../../store/store';
+import { searchTextSelector } from '../../store/store';
 import { updateSearch } from '../../store/api/querySlice';
 import { useAddMovieMutation } from '../../store/api/apiSlice';
 import { useModal } from '../../hooks/useModal';
@@ -18,7 +18,7 @@ export const Hero = () => {
 
   const [AddMovieModal, toggleModal] = useModal('Add movie', AddMovie, reset);
 
-  const { searchText } = useSelector(querySelector);
+  const searchText = useSelector(searchTextSelector);
 
   const dispatch = useDispatch();
 

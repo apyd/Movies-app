@@ -16,4 +16,6 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export const querySelector = (state: { querySlice: QueryState }) => state.querySlice;
+export const searchTextSelector = (state: { querySlice: QueryState }) => state.querySlice.searchText;
+export const filterSelector = (state: { querySlice: QueryState }) => state.querySlice.filter;
+export const sortSelector = (state: { querySlice: QueryState }) => state.querySlice.sort;

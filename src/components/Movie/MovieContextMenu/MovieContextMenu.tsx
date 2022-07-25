@@ -18,7 +18,7 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { openedMovieMenuId, setOpenedMovieMenuId } = useMovie();
-  const onMenuButtonClick = useCallback(() => {
+  const onMenuButtonClick = () => {
     if (!isCollapsed) {
       setIsCollapsed(true);
       setOpenedMovieMenuId(null);
@@ -26,7 +26,7 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
       setIsCollapsed(false);
       setOpenedMovieMenuId(movieId);
     }
-  }, []);
+  };
 
   return (
     <>

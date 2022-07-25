@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import { searchTextSelector, sortSelector, filterSelector } from '../../store/store';
 import { useGetMoviesQuery } from '../../store/api/apiSlice';
@@ -15,7 +15,6 @@ export const Results = () => {
   const searchText = useSelector(searchTextSelector);
   const filter = useSelector(filterSelector);
   const sort = useSelector(sortSelector);
-  const dispatch = useDispatch();
   let defaultQueryParams = `?sortBy=${sort}&sortOrder=asc`;
   const [queryParams, setQueryParams] = useState(defaultQueryParams);
 
