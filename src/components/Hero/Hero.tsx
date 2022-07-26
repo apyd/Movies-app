@@ -30,7 +30,6 @@ export const Hero = () => {
     (e: React.FormEvent<HTMLElement>) => {
       e.preventDefault();
       const searchValue = inputRef?.current?.value;
-      console.log(searchValue, searchText);
       if (searchValue === searchText) {
         return;
       }
