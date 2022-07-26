@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback } from 'react';
 import classNames from 'classnames/bind';
 import useMovie from '../../../context/MovieContext/MovieContext';
 import { Button } from '../../UI/Button/Button';
@@ -16,17 +16,14 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
   toggleDeleteModal,
   onContextMenuClick
 }) => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
   const { openedMovieMenuId, setOpenedMovieMenuId } = useMovie();
-  const onMenuButtonClick = () => {
-    if (!isCollapsed) {
-      setIsCollapsed(true);
-      setOpenedMovieMenuId(null);
-    } else {
-      setIsCollapsed(false);
-      setOpenedMovieMenuId(movieId);
+
+  const onMenuButtonClick = useCallback(() => {
+    if (openedMovieMenuId === movieId) {
+      return setOpenedMovieMenuId(null);
     }
-  };
+    setOpenedMovieMenuId(movieId);
+  }, [openedMovieMenuId]);
 
   return (
     <>

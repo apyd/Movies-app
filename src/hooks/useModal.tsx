@@ -6,7 +6,7 @@ export const useModal = (title: string, Element: any, reset: any) => {
   const toggleModal = useCallback(() => {
     setIsOpened((isOpened) => !isOpened);
     reset();
-  }, []);
+  }, [reset]);
 
   const Modal = (props: any) => {
     return (

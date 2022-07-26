@@ -26,20 +26,37 @@ export const Hero = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const onSearchChange = useCallback((e: React.FormEvent<HTMLElement>) => {
-    e.preventDefault();
-    const searchValue = inputRef?.current?.value;
-    if (searchValue === searchText) {
-      return;
-    }
-    dispatch(updateSearch(searchValue));
-  }, []);
+  const onSearchChange = useCallback(
+    (e: React.FormEvent<HTMLElement>) => {
+      e.preventDefault();
+      const searchValue = inputRef?.current?.value;
+      console.log(searchValue, searchText);
+      if (searchValue === searchText) {
+        return;
+      }
+      dispatch(updateSearch(searchValue));
+    },
+    [searchText]
+  );
+
+  const resetHeroMovie = () => {
+    setHeroMovie(null);
+  };
 
   return (
     <div className={cx(styles.hero, { 'hero--search': !heroMovie })}>
       <div className={cx('hero__inner')}>
         {heroMovie ? (
-          <MovieDetails onSearchIconPress={() => setHeroMovie(null)} {...heroMovie} />
+          <MovieDetails
+            title={heroMovie.title}
+            vote_average={heroMovie.vote_average}
+            poster_path={heroMovie.poster_path}
+            genres={heroMovie.genres}
+            release_date={heroMovie.release_date}
+            runtime={heroMovie.runtime}
+            overview={heroMovie.overview}
+            onSearchIconPress={resetHeroMovie}
+          />
         ) : (
           <SearchView toggleModal={toggleModal} inputRef={inputRef} onSearch={onSearchChange} />
         )}

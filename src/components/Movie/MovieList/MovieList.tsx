@@ -15,7 +15,7 @@ import styles from './MovieList.scss';
 
 const cx = classNames.bind(styles);
 
-export const MovieList: FC<IMovieListProps> = ({ movies }) => {
+export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
   const [movieId, setMovieId] = useState(null);
   const [updateMovie, updateRequestStatus] = useUpdateMovieByIdMutation();
   const [deleteMovie, deleteRequestStatus] = useDeleteMovieByIdMutation();
@@ -51,7 +51,7 @@ export const MovieList: FC<IMovieListProps> = ({ movies }) => {
     () =>
       movies.map((movie: any) => {
         return (
-          <li key={movie.id}>
+          <li className={cx('movie-item')} key={movie.id}>
             <MovieCard
               key={movie.id}
               {...movie}
@@ -87,4 +87,4 @@ export const MovieList: FC<IMovieListProps> = ({ movies }) => {
       <ul className={cx('movies')}>{moviesList}</ul>
     </>
   );
-};
+});

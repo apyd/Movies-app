@@ -26,12 +26,8 @@ export const MovieProvider: FC = ({ children }) => {
       openedMovieMenuId,
       setOpenedMovieMenuId
     }),
-    [heroMovie]
+    [heroMovie, selectedMovie, openedMovieMenuId]
   );
-
-  // const value = useMemo(() => [heroMovie, setHeroMovie], [heroMovie]);
-
-  // console.log(value);
 
   return <MovieContext.Provider value={value}>{children}</MovieContext.Provider>;
 };

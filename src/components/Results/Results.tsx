@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import { searchTextSelector, sortSelector, filterSelector } from '../../store/store';
 import { useGetMoviesQuery } from '../../store/api/apiSlice';
-import { FILTER_OPTIONS } from '../../dictionary/dictionary';
+import { SORT_OPTIONS } from '../../dictionary/dictionary';
 import { MovieList } from '../Movie/MovieList/MovieList';
 import { ResultsCount } from './ResultsCount/ResultsCount';
 import { LoadingSpinner } from '../UI/LoadingSpinner/LoadingSpinner';
@@ -15,28 +15,39 @@ export const Results = () => {
   const searchText = useSelector(searchTextSelector);
   const filter = useSelector(filterSelector);
   const sort = useSelector(sortSelector);
-  let defaultQueryParams = `?sortBy=${sort}&sortOrder=asc`;
+  let searchQuery = '';
+  let sortQuery = '';
+  let filterQuery = '';
+  let defaultQueryParams = `?sortBy=${SORT_OPTIONS[0].value}&sortOrder=asc`;
   const [queryParams, setQueryParams] = useState(defaultQueryParams);
 
   useEffect(() => {
-    const searchQuery = searchText.trim().length > 0 ? `search=${searchText}&searchBy=title&` : '';
-    const sortQuery = `sortBy=${sort}&sortOrder=desc`;
-    const filterQuery = filter === FILTER_OPTIONS[0].value ? '' : `filter=${filter}&`;
+    if (searchQuery !== searchText) {
+      searchQuery = `search=${searchText}&searchBy=title&`;
+    }
+    if (filterQuery !== filter) {
+      filterQuery = `filter=${filter}&`;
+    }
+    if (sortQuery !== sort) {
+      sortQuery = `sortBy=${sort}&sortOrder=desc`;
+    }
     const query = `?${searchQuery}${filterQuery}${sortQuery}`;
     setQueryParams(query);
   }, [searchText, filter, sort]);
 
-  const { data, isLoading, isFetching, isError } = useGetMoviesQuery(queryParams);
+  const { data, isLoading, isSuccess, isError } = useGetMoviesQuery(queryParams);
+
+  const memoizedData = useMemo(() => data, [data]);
 
   return (
     <div className={cx('results')}>
       <div className={cx('results__inner-container')}>
-        {isLoading || (isFetching && <LoadingSpinner />)}
+        {isLoading && <LoadingSpinner />}
         {isError && <p>Data can't be loaded, please contact administrator</p>}
-        {data?.data?.length >= 0 && (
+        {isSuccess && memoizedData?.data?.length >= 0 && (
           <>
-            <ResultsCount value={data?.data?.length} />
-            <MovieList movies={data?.data} />
+            <ResultsCount value={memoizedData?.data?.length} />
+            <MovieList movies={memoizedData?.data} />
           </>
         )}
       </div>

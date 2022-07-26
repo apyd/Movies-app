@@ -24,7 +24,7 @@ export const Button: FC<IButtonProps> = ({
         styles[`btn--${size}`],
         styles[`btn--${shape}`]
       ])}
-      onClick={() => onClick()}>
+      onClick={onClick}>
       {children}
     </button>
   );
