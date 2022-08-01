@@ -17,13 +17,13 @@ export const EditMovie: FC<IEditMovieProps> = ({
 
   const initialValues: EditMovieFormData = {
     id: formData.id,
-    title: formData.title,
-    poster_path: formData.poster_path,
-    genres: formData.genres,
+    title: formData.title || '',
+    poster_path: formData.poster_path || '',
+    genres: formData.genres || [],
     release_date: formData.release_date || '',
     vote_average: formData.vote_average || 0,
-    runtime: formData.runtime,
-    overview: formData.overview
+    runtime: formData.runtime || 0,
+    overview: formData.overview || ''
   };
 
   const {
