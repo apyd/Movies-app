@@ -28,8 +28,6 @@ export const Results = () => {
 
   const { data, isLoading, isFetching, isError } = useGetMoviesQuery(queryParams);
 
-  console.log(queryParams);
-
   const onFilterChange = (selectedFilter: string) => {
     dispatch(updateFilter(selectedFilter));
   };
@@ -37,8 +35,6 @@ export const Results = () => {
   const onSortChange = (selectedSort: string) => {
     dispatch(updateSort(selectedSort));
   };
-
-  console.log(searchText, filter, sort);
 
   return (
     <div className="results">
