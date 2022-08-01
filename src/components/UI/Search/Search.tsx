@@ -8,15 +8,16 @@ import { ButtonType } from '../Button/Button.consts';
 const cx = classNames.bind(styles);
 
 export const Search: FC<ISearchProps> = ({
+  value,
   placeholder = 'What do you want to watch?',
   searchButtonText = 'Search',
-  searchRef,
+  onChange,
   onSearch
 }) => {
   return (
     <form className={cx('search')} onSubmit={(e) => onSearch(e)}>
       <label htmlFor="search"></label>
-      <input type="search" id="search" name="search" placeholder={placeholder} ref={searchRef} />
+      <input type="search" id="search" name="search" placeholder={placeholder} />
       <Button type={ButtonType.submit} onClick={() => ''}>
         {searchButtonText}
       </Button>

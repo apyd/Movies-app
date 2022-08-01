@@ -5,7 +5,7 @@ import styles from './Filter.scss';
 
 const cx = classNames.bind(styles);
 
-export const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
+export const Filter: FC<IFilterProps> = ({ name, selected, label, value, onFilterSelect }) => {
   return (
     <div className={cx('filter')}>
       <input
@@ -13,6 +13,7 @@ export const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect })
         type="radio"
         name={name}
         value={value}
+        checked={value === selected}
         className={cx('filter__input')}
       />
       <label

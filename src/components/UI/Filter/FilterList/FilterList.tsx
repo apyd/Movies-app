@@ -6,12 +6,13 @@ import styles from './FilterList.scss';
 
 const cx = classNames.bind(styles);
 
-export const FilterList: FC<IFilterListProps> = ({ options, onFilterSelect }) => {
+export const FilterList: FC<IFilterListProps> = ({ selected, options, onFilterSelect }) => {
   return (
     <form className={cx('filters')}>
       {options.map(({ label, value, name }, index) => {
         return (
           <Filter
+            selected={selected}
             key={index}
             name={name}
             label={label}

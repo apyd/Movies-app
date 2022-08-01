@@ -9,7 +9,7 @@ import styles from './SearchView.scss';
 
 const cx = classNames.bind(styles);
 
-export const SearchView: FC<ISearchViewProps> = ({ toggleModal, inputRef, onSearch }) => {
+export const SearchView: FC<ISearchViewProps> = ({ value, toggleModal, onChange, onSearch }) => {
   return (
     <div className={cx('search-view')}>
       <div className={cx('search-view__top-banner')}>
@@ -20,7 +20,7 @@ export const SearchView: FC<ISearchViewProps> = ({ toggleModal, inputRef, onSear
       </div>
       <section className={cx('search-view__content')}>
         <h1 className={cx('search__heading')}>FIND YOUR MOVIE</h1>
-        <Search searchRef={inputRef} onSearch={onSearch} />
+        <Search value={value} onChange={onChange} onSearch={onSearch} />
       </section>
     </div>
   );

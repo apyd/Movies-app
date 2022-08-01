@@ -1,5 +1,5 @@
-@use "../../../styles/colors";
-@use "../../../styles/mixins";
+@use '../../../styles/colors';
+@use '../../../styles/mixins';
 
 .filter {
   $this: &;
@@ -13,7 +13,7 @@
       height: 0.2rem;
       width: 100%;
       @include mixins.position(absolute, $left: 0, $bottom: 0);
-      content: "";
+      content: '';
       background-color: colors.$pastel-red;
       z-index: 10;
     }

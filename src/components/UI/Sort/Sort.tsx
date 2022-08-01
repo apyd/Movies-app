@@ -5,7 +5,12 @@ import styles from './Sort.scss';
 
 const cx = classNames.bind(styles);
 
-export const Sort: FC<ISortProps> = ({ options, onOptionChange, sortLabel = 'Sort by' }) => {
+export const Sort: FC<ISortProps> = ({
+  selected,
+  options,
+  onOptionChange,
+  sortLabel = 'Sort by'
+}) => {
   return (
     <div className={cx('sort')}>
       <label className={cx('sort__label')} htmlFor="sort">
@@ -15,6 +20,7 @@ export const Sort: FC<ISortProps> = ({ options, onOptionChange, sortLabel = 'Sor
         className={cx('sort__input')}
         name="sort"
         id="sort"
+        value={selected}
         onChange={(e) => onOptionChange(e.target.value)}>
         {options &&
           options.map(({ id, label, value }) => (

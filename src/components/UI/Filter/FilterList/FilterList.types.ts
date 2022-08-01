@@ -1,12 +1,11 @@
-// import { Dispatch } from "@reduxjs/toolkit"
-import { Dispatch, SetStateAction } from 'react';
-import { IFilterProps } from '../Filter.types';
+import { Dispatch, SetStateAction } from "react"
 
 export interface IFilterListProps {
   options: {
-    name: string;
-    label: string;
-    value: string;
-  }[];
-  onFilterSelect: Dispatch<SetStateAction<string>>;
+    name: string,
+    label: string,
+    value: string
+  }[],
+  selected: string,
+  onFilterSelect: any
 }

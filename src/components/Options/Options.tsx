@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
-import { useDispatch } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { FILTER_OPTIONS, SORT_OPTIONS } from '../../dictionary/dictionary';
-import { updateFilter, updateSort } from '../../store/api/querySlice';
 import { FilterList } from '../UI/Filter/FilterList/FilterList';
 import { Sort } from '../UI/Sort/Sort';
 import styles from './Options.scss';
@@ -10,21 +9,34 @@ import styles from './Options.scss';
 const cx = classNames.bind(styles);
 
 export const Options = () => {
-  const dispatch = useDispatch();
+  const [filter, setFilter] = useState('');
+  const [sort, setSort] = useState('');
+  const [params, setQueryParams] = useSearchParams();
 
   const onFilterChange = (selectedFilter: string) => {
-    dispatch(updateFilter(selectedFilter));
+    setFilter(selectedFilter);
+    if (!selectedFilter) {
+      setQueryParams({ sortBy: sort });
+      return;
+    }
+    setQueryParams({ sortBy: sort, genre: selectedFilter });
   };
 
   const onSortChange = (selectedSort: string) => {
-    dispatch(updateSort(selectedSort));
+    setSort(selectedSort);
+    setQueryParams({ sortBy: selectedSort, genre: filter });
   };
 
   return (
     <div className={cx('options')}>
       <div className={cx('options-wrapper')}>
-        <FilterList options={FILTER_OPTIONS} onFilterSelect={onFilterChange} />
-        <Sort options={SORT_OPTIONS} onOptionChange={onSortChange} sortLabel="Sort by" />
+        <FilterList selected={filter} options={FILTER_OPTIONS} onFilterSelect={onFilterChange} />
+        <Sort
+          selected={sort}
+          options={SORT_OPTIONS}
+          onOptionChange={onSortChange}
+          sortLabel="Sort by"
+        />
       </div>
     </div>
   );
