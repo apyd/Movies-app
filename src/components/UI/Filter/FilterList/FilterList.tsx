@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames/bind';
-import Filter from '../Filter';
+import { Filter } from '../Filter';
 import { IFilterListProps } from './FilterList.types';
 import styles from './FilterList.scss';
 

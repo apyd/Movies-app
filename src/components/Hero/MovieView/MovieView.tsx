@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames/bind';
-import { Logo } from '../../Logo/Logo';
+import { Logo } from '../../UI/Logo/Logo';
 import { getYearFromDate } from '../../../utils/getYearFromDate';
 import { transformMinutesToHoursAndMinutes } from '../../../utils/transformTime';
 import { Button } from '../../UI/Button/Button';

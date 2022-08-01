@@ -5,7 +5,7 @@ import styles from './Filter.scss';
 
 const cx = classNames.bind(styles);
 
-const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
+export const Filter: FC<IFilterProps> = ({ name, label, value, onFilterSelect }) => {
   return (
     <div className={cx('filter')}>
       <input
