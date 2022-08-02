@@ -15,10 +15,14 @@ export const Results = () => {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
-    const queryParams = new URLSearchParams(params).toString().replace('genre', 'filter');
+    const queryParams = { ...Object.fromEntries(params) };
+    const { movieId, ...filteredQuery } = queryParams;
+    const updatedQueryParams = new URLSearchParams(filteredQuery)
+      .toString()
+      .replace('genre', 'filter');
     const updatedQuery = searchQuery
-      ? `search=${searchQuery}&searchBy=title&${queryParams}`
-      : `${queryParams}`;
+      ? `search=${searchQuery}&searchBy=title&${updatedQueryParams}`
+      : `${updatedQueryParams}`;
     setQuery(updatedQuery);
   }, [params, searchQuery]);
 
