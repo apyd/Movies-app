@@ -87,7 +87,9 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
         isSuccess={isDeleteSuccess}
         isLoading={isDeleteLoading}
       />
-      <ul className={cx('movies')}>{moviesList}</ul>
+      <ul id="resultsList" className={cx('movies')}>
+        {moviesList}
+      </ul>
     </>
   );
 });

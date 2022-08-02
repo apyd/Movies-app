@@ -24,7 +24,7 @@ export const MovieDetails: FC<IMovieDetailsProps> = ({
   onSearchIconPress
 }) => {
   return (
-    <div className={cx('movie-details')}>
+    <div id="movieDetails" className={cx('movie-details')}>
       <div className={cx('movie-details__top-banner')}>
         <Logo />
         <Button variant={ButtonVariant.ghost} onClick={onSearchIconPress}>
@@ -45,7 +45,9 @@ export const MovieDetails: FC<IMovieDetailsProps> = ({
         </div>
         <div className={cx('movie_hero__details')}>
           <header className={cx('movie-details__header')}>
-            <h1 className={cx('movie-details__heading')}>{title}</h1>
+            <h1 id="movieTitle" className={cx('movie-details__heading')}>
+              {title}
+            </h1>
             <span className={cx('movie-details__vote-average')}>{vote_average}</span>
           </header>
           <span className={cx('movie-details__genres')}>{genres && genres.join(', ')}</span>
