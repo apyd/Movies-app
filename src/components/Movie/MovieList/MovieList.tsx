@@ -1,5 +1,6 @@
 import React, { FC, memo, useCallback, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
+import { useSearchParams } from 'react-router-dom';
 import {
   useDeleteMovieByIdMutation,
   useUpdateMovieByIdMutation
@@ -19,6 +20,7 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
   const [movieId, setMovieId] = useState(null);
   const [updateMovie, updateRequestStatus] = useUpdateMovieByIdMutation();
   const [deleteMovie, deleteRequestStatus] = useDeleteMovieByIdMutation();
+  const [params, setQueryParams] = useSearchParams();
 
   const {
     isSuccess: isUpdateSuccess,
@@ -39,12 +41,13 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
   const { setHeroMovie, selectedMovie, setSelectedMovie } = useMovie();
 
   const onMovieCardClick = (movieDetails: Movie) => {
-    movieId: selectedMovie.id.toString();
+    setQueryParams({ ...Object.fromEntries(params), movieId: movieDetails?.id.toString() });
+    setHeroMovie(movieDetails);
+    setMovieId(movieDetails?.id);
   };
 
   const onContextMenuClick = useCallback((movieDetails: Movie) => {
     setSelectedMovie(movieDetails);
-    setMovieId(movieDetails.id);
   }, []);
 
   const moviesList = useMemo(

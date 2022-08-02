@@ -19,12 +19,12 @@ export const Options = () => {
 
   const onFilterChange = (selectedFilter: string) => {
     setFilter(selectedFilter);
-    setQueryParams({ sortBy: sort, sortOrder: sortOrder, genre: selectedFilter });
+    setQueryParams({ ...Object.fromEntries(params), genre: selectedFilter });
   };
 
   const onSortChange = (selectedSort: string) => {
     setSort(selectedSort);
-    setQueryParams({ sortBy: selectedSort, sortOrder: sortOrder, genre: filter });
+    setQueryParams({ ...Object.fromEntries(params), sort: selectedSort });
   };
 
   return (
