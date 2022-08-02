@@ -17,7 +17,14 @@ export const Search: FC<ISearchProps> = ({
   return (
     <form className={cx('search')} onSubmit={(e) => onSearch(e)}>
       <label htmlFor="search"></label>
-      <input type="search" id="search" name="search" placeholder={placeholder} />
+      <input
+        type="search"
+        id="search"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        name="search"
+        placeholder={placeholder}
+      />
       <Button type={ButtonType.submit} onClick={() => ''}>
         {searchButtonText}
       </Button>

@@ -6,13 +6,14 @@ import { MovieProvider } from '../../context/MovieContext/MovieContext';
 import { ErrorBoundary } from '../../hoc/ErrorBoundary/ErrorBoundary';
 import { Options } from '../Options/Options';
 import { Hero } from '../Hero/Hero';
-// import { Results } from '../Results/Results';
+import { Results } from '../Results/Results';
 import { Footer } from '../Footer/Footer';
 
 import styles from './App.scss';
 
+const cx = classNames.bind(styles);
+
 export const App = () => {
-  const cx = classNames.bind(styles);
   return (
     <div className={cx(styles.app)}>
       <ErrorBoundary>
@@ -20,7 +21,7 @@ export const App = () => {
           <MovieProvider>
             <Hero />
             <Options />
-            {/* <Results /> */}
+            <Results />
             <Footer />
           </MovieProvider>
         </ApiProvider>
