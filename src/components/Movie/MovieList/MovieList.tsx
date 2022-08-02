@@ -32,18 +32,14 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
     isLoading: isDeleteLoading,
     reset: resetDelete
   } = deleteRequestStatus;
-  const { heroMovie, setHeroMovie } = useMovie();
-  const { onCardClick } = props;
 
   const [EditModal, toggleEditModal] = useModal('Edit movie', EditMovie, resetUpdate);
   const [DeleteModal, toggleDeleteModal] = useModal('Delete movie', DeleteMovie, resetDelete);
 
   const { setHeroMovie, selectedMovie, setSelectedMovie } = useMovie();
 
-  const onMovieCardClick = useCallback((movieDetails: Movie) => {
-    setHeroMovie(movieDetails);
-  }, []);
-    onCardClick(movieDetails);
+  const onMovieCardClick = (movieDetails: Movie) => {
+    movieId: selectedMovie.id.toString();
   };
 
   const onContextMenuClick = useCallback((movieDetails: Movie) => {

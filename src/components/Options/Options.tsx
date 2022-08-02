@@ -7,24 +7,24 @@ import { Sort } from '../UI/Sort/Sort';
 import styles from './Options.scss';
 
 const cx = classNames.bind(styles);
+const sortOrder = 'asc';
 
 export const Options = () => {
-  const [filter, setFilter] = useState('');
-  const [sort, setSort] = useState('');
   const [params, setQueryParams] = useSearchParams();
+  const initSort = params.get('sortBy');
+  const initFilter = params.get('genre');
+
+  const [filter, setFilter] = useState(initFilter ?? `${FILTER_OPTIONS[0].value}`);
+  const [sort, setSort] = useState(initSort ?? `${SORT_OPTIONS[0].value}`);
 
   const onFilterChange = (selectedFilter: string) => {
     setFilter(selectedFilter);
-    if (!selectedFilter) {
-      setQueryParams({ sortBy: sort });
-      return;
-    }
-    setQueryParams({ sortBy: sort, genre: selectedFilter });
+    setQueryParams({ sortBy: sort, sortOrder: sortOrder, genre: selectedFilter });
   };
 
   const onSortChange = (selectedSort: string) => {
     setSort(selectedSort);
-    setQueryParams({ sortBy: selectedSort, genre: filter });
+    setQueryParams({ sortBy: selectedSort, sortOrder: sortOrder, genre: filter });
   };
 
   return (

@@ -22,12 +22,14 @@ export const Hero = () => {
 
   const [query, setQuery] = useState(searchQuery || '');
 
+  const onChange = (value: string) => {
+    setQuery(value);
+  };
+
   const onSearch = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    navigate(`../search/${query}`, {
-      replace: true,
-      state: { searchQuery: query }
-    });
+    const queryParams = '?' + new URLSearchParams(params).toString().replace('genre', 'filter');
+    navigate(`../search/${query}${queryParams}`);
   };
 
   const switchToSearchView = () => {
@@ -43,7 +45,7 @@ export const Hero = () => {
           <SearchView
             toggleModal={toggleModal}
             value={query}
-            onChange={setQuery}
+            onChange={onChange}
             onSearch={onSearch}
           />
         )}
