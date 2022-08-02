@@ -27,7 +27,7 @@ export const Hero = () => {
 
   const onSearch = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    const queryParams = '?' + new URLSearchParams(params).toString().replace('genre', 'filter');
+    const queryParams = '?' + new URLSearchParams(params).toString().replace('filter', 'genre');
     navigate(`../search/${query}${queryParams}`);
   };
 
