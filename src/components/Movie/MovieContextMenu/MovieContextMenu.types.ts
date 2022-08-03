@@ -1,6 +1,8 @@
+import { Movie } from "../../../store/api/movie.interface";
+
 export interface IMovieContextMenuProps {
   movieId: number;
-  toggleEditModal: any; //FIX
-  toggleDeleteModal: any; // FIX
-  onContextMenuClick: any;
+  toggleEditModal: () => void;
+  toggleDeleteModal: () => void;
+  onContextMenuClick: () => void;
 }

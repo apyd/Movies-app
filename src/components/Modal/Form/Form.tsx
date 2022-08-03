@@ -6,7 +6,7 @@ import { MultiSelect } from '../../UI/MultiSelect/MultiSelect';
 import { Textarea } from '../../UI/Textarea/Textarea';
 import { Input } from '../../UI/Input/Input';
 import { useMultiSelect } from '../../../hooks/useMultiSelect';
-import { ButtonType, ButtonVariant } from '../../UI/Button/Button.consts';
+import { ButtonVariant } from '../../UI/Button/Button.consts';
 import { IFormProps } from './Form.types';
 import styles from './Form.scss';
 
@@ -115,10 +115,10 @@ export const Form: FC<IFormProps> = ({
         error={errors.overview}
       />
       <div className={cx('form__actions')}>
-        <Button type={ButtonType.reset} variant={ButtonVariant.secondary} onClick={resetForm}>
+        <Button type="reset" variant={ButtonVariant.secondary} onClick={resetForm}>
           Reset
         </Button>
-        <Button type={ButtonType.submit} onClick={() => {}} isDisabled={!isValid}>
+        <Button type="submit" isDisabled={!isValid}>
           Submit
         </Button>
       </div>

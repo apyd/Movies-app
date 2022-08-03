@@ -52,7 +52,7 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
 
   const moviesList = useMemo(
     () =>
-      movies.map((movie: any) => {
+      movies.map((movie: Movie) => {
         return (
           <li className={cx('movie-item')} key={movie.id}>
             <MovieCard
@@ -71,7 +71,6 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
 
   return (
     <>
-      {/* @ts-ignore - FIX IT*/}
       <EditModal
         onFormSubmit={updateMovie}
         formData={selectedMovie}
@@ -79,7 +78,6 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
         isSuccess={isUpdateSuccess}
         isLoading={isUpdateLoading}
       />
-      {/* @ts-ignore FIX-IT */}
       <DeleteModal
         onSubmit={deleteMovie}
         movieId={movieId}

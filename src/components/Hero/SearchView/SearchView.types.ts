@@ -1,6 +1,6 @@
 export interface ISearchViewProps {
   value: string,
-  toggleModal: any;
+  toggleModal: () => void;
   onSearch: (e: React.FormEvent<HTMLElement>) => void;
-  onChange: any,
+  onChange: (value: string) => void;
 }

@@ -3,9 +3,9 @@ export interface IPropsTextarea {
   name: string;
   value: string;
   touched: boolean;
-  onBlur: any; //FIX IT
-  onChange: any; //FIX IT
+  onBlur: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder: string;
   label: string;
-  error: any;
+  error: string;
 }

@@ -7,5 +7,5 @@ export interface IFilterListProps {
     value: string
   }[],
   selected: string,
-  onFilterSelect: any
+  onFilterSelect: (filter: string) => void;
 }

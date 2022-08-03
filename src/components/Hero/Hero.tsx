@@ -51,7 +51,6 @@ export const Hero = () => {
           />
         )}
       </div>
-      {/* @ts-ignore - FIX IT */}
       <AddMovieModal
         onFormSubmit={addMovie}
         isError={isError}

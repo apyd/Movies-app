@@ -15,9 +15,3 @@ export const ButtonShape = {
   rectangle: 'rectangle',
   round: 'round'
 };
-
-export const ButtonType = {
-  button: 'button',
-  submit: 'submit',
-  reset: 'reset'
-};
