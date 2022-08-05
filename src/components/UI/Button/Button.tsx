@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import classNames from 'classnames/bind';
-import { IButtonProps } from './Button.types';
-import { ButtonSize, ButtonShape, ButtonVariant } from './Button.consts';
-import styles from './Button.scss';
+import React, { FC } from "react";
+import classNames from "classnames/bind";
+import { IButtonProps } from "./Button.types";
+import { ButtonSize, ButtonShape, ButtonVariant } from "./Button.consts";
+import styles from "./Button.module.scss";
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +13,7 @@ export const Button: FC<IButtonProps> = ({
   variant = ButtonVariant.primary,
   shape = ButtonShape.rectangle,
   type,
-  isDisabled = false
+  isDisabled = false,
 }) => {
   return (
     <button
@@ -22,9 +22,10 @@ export const Button: FC<IButtonProps> = ({
       className={cx(styles.btn, [
         styles[`btn--${variant}`],
         styles[`btn--${size}`],
-        styles[`btn--${shape}`]
+        styles[`btn--${shape}`],
       ])}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       {children}
     </button>
   );

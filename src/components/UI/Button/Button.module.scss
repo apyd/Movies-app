@@ -1,0 +1,93 @@
+@use "src/styles/colors";
+@use "src/styles/mixins";
+
+.btn {
+  @include mixins.flex-position(row, center, center);
+  border: none;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: colors.$white;
+    color: colors.$alt-grey;
+
+    &:hover {
+      background-color: colors.$white;
+      color: colors.$alt-grey;
+      cursor: not-allowed;
+    }
+  }
+
+  &--primary {
+    background-color: colors.$pastel-red;
+    color: colors.$white;
+
+    &:hover {
+      background-color: colors.$pastel-red-bg-hover;
+    }
+
+    &:active {
+      background-color: colors.$pastel-red-bg-active;
+    }
+  }
+
+  &--secondary {
+    background-color: colors.$light-grey;
+    color: colors.$pastel-red;
+
+    &:hover {
+      background-color: colors.$light-grey-bg-hover;
+    }
+
+    &:active {
+      background-color: colors.$light-grey-bg-active;
+    }
+  }
+
+  &--ghost {
+    color: colors.$pastel-red;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      background-color: colors.$light-grey-bg-hover;
+    }
+
+    &:active {
+      background-color: colors.$light-grey;
+    }
+  }
+
+  &--outline {
+    color: colors.$pastel-red;
+    background-color: transparent;
+
+    &:hover {
+      background-color: colors.$light-grey-bg-hover;
+    }
+
+    &:active {
+      background-color: colors.$light-grey;
+    }
+  }
+
+  &--small {
+    padding: 0.2rem 0.4rem;
+  }
+
+  &--medium {
+    padding: 0.6rem 0.8rem;
+  }
+
+  &--large {
+    padding: 1rem 3rem;
+  }
+
+  &--round {
+    padding: 0.3rem;
+    border-radius: 50%;
+  }
+}

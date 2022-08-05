@@ -1,0 +1,46 @@
+@use "src/styles/variables";
+@use "src/styles/mixins";
+
+.hero {
+  display: flex;
+  height: clamp(200px, 45vh, 400px);
+  background-size: cover;
+
+  &--search {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.6)),
+      url("../../assets/hero-bg.jpeg");
+  }
+
+  &__inner {
+    display: flex;
+    // flex-direction: column;
+    width: 100%;
+    max-width: variables.$section-max-width;
+    margin: variables.$margin-center-vertically;
+    padding: variables.$section-padding;
+  }
+
+  &__top-banner {
+    @include mixins.flex-position(row, space-between, center);
+  }
+}
+
+.search__wrapper {
+  @include mixins.flex-position(column, center, stretch);
+  gap: 0.5rem 0;
+  flex: 1;
+  max-width: 1024px;
+  width: 100%;
+  margin: variables.$margin-center-vertically;
+  padding: variables.$section-padding;
+
+  &__heading {
+    font-weight: 400;
+    letter-spacing: 0.1ch;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 0 1rem;
+  }
+}

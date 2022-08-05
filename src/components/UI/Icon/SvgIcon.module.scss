@@ -1,0 +1,11 @@
+@use "src/styles/colors";
+@use "src/styles/variables";
+
+.icon {
+  width: variables.$icon-width;
+  fill: colors.$pastel-red;
+}
+
+.icon--small {
+  width: calc(variables.$icon-width / 2);
+}

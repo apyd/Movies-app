@@ -1,5 +1,0 @@
-@use "../../../styles/mixins";
-
-.delete-actions {
-  @include mixins.flex-position(row, flex-end);
-}

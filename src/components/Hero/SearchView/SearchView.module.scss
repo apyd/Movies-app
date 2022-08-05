@@ -1,0 +1,30 @@
+@use "src/styles/variables";
+@use "src/styles/mixins";
+
+.search-view {
+  width: 100%;
+
+  &__content {
+    @include mixins.flex-position(column, center, stretch);
+    gap: 0.5rem 0;
+    flex: 1;
+    max-width: 1024px;
+    width: 100%;
+    margin: variables.$margin-center-vertically;
+    padding: 3rem 1rem;
+  }
+
+  &__top-banner {
+    @include mixins.flex-position(row, space-between, center);
+  }
+
+  &__heading {
+    font-weight: 400;
+    letter-spacing: 0.1ch;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 0 1rem;
+  }
+}

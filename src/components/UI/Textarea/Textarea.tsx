@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import classNames from 'classnames/bind';
-import { IPropsTextarea } from './Textarea.types';
-import styles from './Textarea.scss';
+import React, { FC } from "react";
+import classNames from "classnames/bind";
+import { IPropsTextarea } from "./Textarea.types";
+import styles from "./Textarea.module.scss";
 
 const cx = classNames.bind(styles);
 
@@ -14,13 +14,13 @@ export const Textarea: FC<IPropsTextarea> = ({
   onChange,
   placeholder,
   label,
-  error
+  error,
 }) => {
   const isInvalid = !!error && touched;
 
   return (
-    <div className={cx('wrapper--textarea')}>
-      <label htmlFor={id} className={cx('textarea-label')}>
+    <div className={cx("wrapper--textarea")}>
+      <label htmlFor={id} className={cx("textarea-label")}>
         {label.toUpperCase()}
       </label>
       <textarea
@@ -31,9 +31,9 @@ export const Textarea: FC<IPropsTextarea> = ({
         onBlur={onBlur}
         onChange={onChange}
         rows={2}
-        className={cx('textarea', { 'textarea--invalid': isInvalid })}
+        className={cx("textarea", { "textarea--invalid": isInvalid })}
       />
-      {isInvalid && <span className={cx('input-error')}>{error}</span>}
+      {isInvalid && <span className={cx("input-error")}>{error}</span>}
     </div>
   );
 };

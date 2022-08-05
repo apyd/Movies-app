@@ -1,0 +1,79 @@
+@use "src/styles/colors";
+@use "src/styles/variables";
+@use "src/styles/mixins";
+
+.movie-details {
+  width: 100%;
+
+  &__content {
+    @include mixins.flex-position(row, flex-start, center);
+    gap: 0 3rem;
+    flex: 1;
+    padding: variables.$section-padding;
+    height: 100%;
+  }
+
+  &__top-banner {
+    @include mixins.flex-position(row, space-between, center);
+  }
+
+  &__header {
+    @include mixins.flex-position(row, flex-start, center);
+  }
+
+  &__details {
+    flex: 1;
+  }
+
+  &__heading {
+    font-weight: 400;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2ch;
+    padding-right: 1rem;
+  }
+
+  &__vote-average {
+    border: 1px solid colors.$white;
+    padding: 1rem;
+    border-radius: 50%;
+  }
+
+  &__genres {
+    padding: 0 1rem 0 0;
+    display: block;
+    padding: 0 0 1rem 0;
+    color: colors.$alt-grey;
+    font-size: 0.9rem;
+  }
+
+  &__release-date,
+  &__runtime {
+    padding: 0 1rem 0 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: colors.$pastel-red;
+  }
+
+  &__overview {
+    padding: 0 1rem 0 0;
+    color: colors.$alt-grey;
+  }
+
+  &__poster {
+    height: 90%;
+
+    @media screen and (max-width: 768px) {
+      height: 60%;
+    }
+
+    @media screen and (max-width: 550px) {
+      display: none;
+    }
+  }
+
+  &__img {
+    height: 100%;
+    object-fit: contain;
+  }
+}

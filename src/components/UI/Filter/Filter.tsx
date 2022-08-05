@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import { IFilterProps } from './Filter.types';
-import styles from './Filter.scss';
+import styles from './Filter.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -14,6 +14,7 @@ export const Filter: FC<IFilterProps> = ({ name, selected, label, value, onFilte
         name={name}
         value={value}
         checked={value === selected}
+        onChange={() => {}}
         className={cx('filter__input')}
       />
       <label

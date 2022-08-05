@@ -1,0 +1,29 @@
+@use "src/styles/mixins";
+
+.form {
+  @include mixins.flex-position(column);
+  height: 100%;
+
+  &__column {
+    @include mixins.flex-position(column, flex-end);
+    flex: 2;
+    min-width: 200px;
+
+    &--half-size {
+      flex: 1;
+    }
+  }
+
+  &__actions {
+    @include mixins.flex-position(row, flex-end, flex-end);
+    gap: 1rem;
+    height: 100%;
+    margin: 1rem 0 0.3rem 0;
+  }
+}
+
+.inputs--wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

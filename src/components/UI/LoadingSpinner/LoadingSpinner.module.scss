@@ -1,0 +1,27 @@
+@use "src/styles/colors";
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  &__icon {
+    height: 80px;
+    width: 80px;
+    border: 10px solid colors.$alt-grey;
+    border-top: 10px solid colors.$pastel-red;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

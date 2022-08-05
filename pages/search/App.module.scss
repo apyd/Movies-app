@@ -1,0 +1,6 @@
+@use "src/styles/mixins";
+
+.app {
+  @include mixins.flex-position(column, stretch, stretch);
+  height: 100%;
+}
