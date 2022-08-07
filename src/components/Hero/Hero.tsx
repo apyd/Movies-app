@@ -30,7 +30,7 @@ export const Hero: FC<IHeroProps> = ({ movie }) => {
   };
 
   const updateQueryParams = () => {
-    // @ts-expect-error
+    // @ts-expect-error - ignore queryParams type as works as expected
     const updatedQueryParams = new URLSearchParams(queryParams).toString();
     router.push(`/search/${query}?${updatedQueryParams}`);
   };
