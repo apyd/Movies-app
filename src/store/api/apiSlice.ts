@@ -9,7 +9,7 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getMovies: builder.query({
       query: (queryParams) => `/movies?${queryParams}`,
-      providesTags: ['Movies'],
+      providesTags: ['Movies']
     }),
     getMovieById: builder.query({
       query: (id) => `/movies/${id}`
@@ -33,7 +33,7 @@ export const apiSlice = createApi({
     deleteMovieById: builder.mutation({
       query: (id) => ({
         url: `/movies/${id}`,
-        method: 'DELETE',
+        method: 'DELETE'
       }),
       invalidatesTags: ['Movies']
     })

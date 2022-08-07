@@ -1,7 +1,7 @@
-import React, { FC, useState } from "react";
-import classNames from "classnames/bind";
-import { IPropsDatePicker } from "./DatePicker.types";
-import styles from "./DatePicker.module.scss";
+import React, { FC, useState } from 'react';
+import classNames from 'classnames/bind';
+import { IPropsDatePicker } from './DatePicker.types';
+import styles from './DatePicker.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -13,27 +13,27 @@ export const DatePicker: FC<IPropsDatePicker> = ({
   touched,
   onBlur,
   onChange,
-  error,
+  error
 }) => {
-  const [type, setType] = useState<string>("text");
+  const [type, setType] = useState<string>('text');
 
   const onInputFocus = () => {
-    setType("date");
+    setType('date');
   };
 
   const isInvalid = !!error && touched;
 
   return (
     <>
-      <label htmlFor={id} className={cx("date-picker__label")}>
+      <label htmlFor={id} className={cx('date-picker__label')}>
         {label.toUpperCase()}
       </label>
       <input
         type={type}
         id={id}
         name={name}
-        className={cx("date-picker__input", {
-          "date-picker__input--invalid": isInvalid,
+        className={cx('date-picker__input', {
+          'date-picker__input--invalid': isInvalid
         })}
         placeholder="Select date"
         onFocus={onInputFocus}
@@ -41,7 +41,7 @@ export const DatePicker: FC<IPropsDatePicker> = ({
         onBlur={onBlur}
         onChange={onChange}
       />
-      {isInvalid && <span className={cx("input-error")}>{error}</span>}
+      {isInvalid && <span className={cx('input-error')}>{error}</span>}
     </>
   );
 };

@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import classNames from "classnames/bind";
-import { LogoSize } from "./Logo.const";
-import { ILogoProps } from "./Logo.types";
-import styles from "./Logo.module.scss";
+import React, { FC } from 'react';
+import classNames from 'classnames/bind';
+import { LogoSize } from './Logo.const';
+import { ILogoProps } from './Logo.types';
+import styles from './Logo.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -15,5 +15,5 @@ export const Logo: FC<ILogoProps> = ({ size }) => {
 };
 
 Logo.defaultProps = {
-  size: LogoSize.medium,
+  size: LogoSize.medium
 };

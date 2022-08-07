@@ -1,4 +1,3 @@
-
 export interface IPropsInput {
   id: string;
   name: string;

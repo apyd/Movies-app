@@ -1,4 +1,4 @@
-import { Movie } from "../../types/movie.interface";
+import { Movie } from '../../types/movie.interface';
 
 export interface CustomizedState {
   searchQuery: string | null;
@@ -8,5 +8,5 @@ export interface CustomizedState {
 }
 
 export interface IHeroProps {
-  movie?: Movie
+  movie?: Movie;
 }

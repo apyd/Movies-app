@@ -1,4 +1,3 @@
-
 export interface IMovieContextMenuProps {
   movieId: number;
   toggleEditModal: () => void;

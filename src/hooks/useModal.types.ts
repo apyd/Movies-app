@@ -1,5 +1,5 @@
 export interface IUseModalProps {
-  title: string,
+  title: string;
   Element: React.ElementType;
   reset: () => void;
 }

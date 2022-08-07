@@ -21,7 +21,8 @@ export const Filter: FC<IFilterProps> = ({ name, selected, label, value, onFilte
         tabIndex={0}
         className={cx('filter__label')}
         onClick={onFilterSelect}
-        htmlFor={name + label}>
+        htmlFor={name + label}
+      >
         {label}
       </label>
     </div>

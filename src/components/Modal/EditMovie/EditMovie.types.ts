@@ -1,4 +1,4 @@
-import { AddMovieFormData } from "../AddMovie/AddMovie.types";
+import { AddMovieFormData } from '../AddMovie/AddMovie.types';
 
 export interface EditMovieFormData extends AddMovieFormData {
   id: number;
