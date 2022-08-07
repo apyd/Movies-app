@@ -62,7 +62,7 @@ export const EditMovie: FC<IEditMovieProps> = ({
       {isLoading && <LoadingSpinner />}
       {isSuccess && <Status status="SUCCESS" />}
       {isError && <Status status="ERROR" />}
-      // @ts-expect-error ignore form type error
+      {/* @ts-expect-error ignore form type error */}
       {isBeforeAction && <Form {...formProps} />}
     </>
   );

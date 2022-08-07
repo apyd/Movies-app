@@ -38,6 +38,7 @@ export const MovieCard: FC<IMovieCardProps> = ({
       <div className={cx('poster')}>
         <MovieContextMenu
           movieId={id}
+          // @ts-expect-error
           onContextMenuClick={() => onContextMenuClick(movieDetails)}
           toggleDeleteModal={toggleDeleteModal}
           toggleEditModal={toggleEditModal}
@@ -50,9 +51,11 @@ export const MovieCard: FC<IMovieCardProps> = ({
             currentTarget.onerror = null;
             // currentTarget.src = DefaultPosterPlaceholder;
           }}
+          // @ts-expect-error
           onClick={() => onMovieCardClick(movieDetails)}
         />
       </div>
+      {/* @ts-expect-error */}
       <section className={cx('details')} onClick={() => onMovieCardClick(movieDetails)}>
         <header className={cx('details__header')}>
           <div className={cx('title__wrapper')}>
