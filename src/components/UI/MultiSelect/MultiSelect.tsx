@@ -40,13 +40,11 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
         className={cx('multi-select__selected', {
           'multi-select__selected--invalid': isInvalid
         })}
-        onClick={toggleSelect}
-      >
+        onClick={toggleSelect}>
         <span
           className={cx('multi-select__summary', {
             'multi-select__summary--invalid': isInvalid
-          })}
-        >
+          })}>
           {value.length} selected
         </span>
         <SvgIcon icon={DropdownIcon} />
@@ -58,8 +56,7 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
               <li
                 key={id}
                 className={cx('multi-select__option')}
-                onClick={() => onInputChange(title)}
-              >
+                onClick={() => onInputChange(title)}>
                 <input
                   name="name"
                   checked={value.includes(title)}

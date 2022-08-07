@@ -14,15 +14,14 @@ export const Filter: FC<IFilterProps> = ({ name, selected, label, value, onFilte
         name={name}
         value={value}
         checked={value === selected}
-        onChange={() => {}}
+        onChange={() => ''}
         className={cx('filter__input')}
       />
       <label
         tabIndex={0}
         className={cx('filter__label')}
         onClick={onFilterSelect}
-        htmlFor={name + label}
-      >
+        htmlFor={name + label}>
         {label}
       </label>
     </div>

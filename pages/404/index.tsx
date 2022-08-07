@@ -1,5 +1,6 @@
-import classNames from 'classnames/bind';
+import React from 'react';
 import Head from 'next/head';
+import classNames from 'classnames/bind';
 import { useRouter } from 'next/router';
 import { Button } from '../../src/components/UI/Button/Button';
 import { Logo } from '../../src/components/UI/Logo/Logo';
