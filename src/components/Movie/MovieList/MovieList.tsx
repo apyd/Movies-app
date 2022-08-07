@@ -16,9 +16,9 @@ import useMovie from '../../../context/MovieContext/MovieContext';
 
 const cx = classNames.bind(styles);
 
-export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
+export const MovieList: FC<IMovieListProps> = memo(({ movies = [] }) => {
   const router = useRouter();
-  const { params: searchQuery, ...queryParams } = router?.query;
+  const { params: searchQuery, ...queryParams } = router.query;
   const { movieId } = queryParams;
   const [updateMovie, updateRequestStatus] = useUpdateMovieByIdMutation();
   const [deleteMovie, deleteRequestStatus] = useDeleteMovieByIdMutation();
@@ -59,19 +59,21 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
 
   const moviesList = useMemo(
     () =>
-      movies.map((movie: Movie) => {
-        return (
-          <li className={cx('movie-item')} key={movie.id}>
-            <MovieCard
-              {...movie}
-              toggleEditModal={toggleEditModal}
-              toggleDeleteModal={toggleDeleteModal}
-              onMovieCardClick={onMovieCardClick}
-              onContextMenuClick={onContextMenuClick}
-            />
-          </li>
-        );
-      }),
+      movies.length > 0
+        ? movies.map((movie: Movie) => {
+            return (
+              <li className={cx('movie-item')} key={movie.id}>
+                <MovieCard
+                  {...movie}
+                  toggleEditModal={toggleEditModal}
+                  toggleDeleteModal={toggleDeleteModal}
+                  onMovieCardClick={onMovieCardClick}
+                  onContextMenuClick={onContextMenuClick}
+                />
+              </li>
+            );
+          })
+        : null,
     [movies]
   );
 
