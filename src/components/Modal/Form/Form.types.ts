@@ -15,5 +15,5 @@ export interface IFormProps {
   ) => Promise<void> | Promise<FormikErrors<AddMovieFormData>>;
   handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   handleBlur: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  resetForm: (nextState?: Partial<FormikState<AddMovieFormData>>) => void;
+  resetForm: () => void;
 }

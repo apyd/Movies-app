@@ -21,13 +21,13 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
   const isInvalid = !!error && touched;
 
   const onInputChange = (inputValue: string) => {
-    let valuesCopy = [...value];
+    let valuesCopy = [...value!];
     if (!valuesCopy.includes(inputValue)) {
       valuesCopy = [...valuesCopy, inputValue];
-      onChange('genres', valuesCopy, false);
+      onChange!('genres', valuesCopy, false);
     } else {
-      valuesCopy.splice(value.indexOf(inputValue), 1);
-      onChange('genres', valuesCopy, false);
+      valuesCopy.splice(value!.indexOf(inputValue), 1);
+      onChange!('genres', valuesCopy, false);
     }
   };
 
@@ -45,13 +45,13 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
           className={cx('multi-select__summary', {
             'multi-select__summary--invalid': isInvalid
           })}>
-          {value.length} selected
+          {value?.length} selected
         </span>
         <SvgIcon icon={DropdownIcon} />
       </div>
       {isExpanded && (
         <ul className={cx('multi-select__options')}>
-          {options.map(({ id, title }) => {
+          {options?.map(({ id, title }) => {
             return (
               <li
                 key={id}
@@ -59,7 +59,7 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
                 onClick={() => onInputChange(title)}>
                 <input
                   name="name"
-                  checked={value.includes(title)}
+                  checked={value?.includes(title)}
                   type="checkbox"
                   className={cx('multi-select__checkbox')}
                   value={value}

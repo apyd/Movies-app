@@ -36,11 +36,9 @@ export const Form: FC<IFormProps> = ({
             placeholder="title"
             label="Movie title*"
             value={values.title}
-            // @ts-expect-error - ignore error
             touched={touched.title}
             onBlur={handleBlur}
             onChange={handleChange}
-            // @ts-expect-error - ignore error
             error={errors.title}
           />
           <Input
@@ -50,11 +48,9 @@ export const Form: FC<IFormProps> = ({
             placeholder="poster path url"
             label="Poster path (URL)*"
             value={values['poster_path']}
-            // @ts-expect-error  - ignore error
             touched={touched['poster_path']}
             onBlur={handleBlur}
             onChange={handleChange}
-            // @ts-expect-error  - ignore error
             error={errors.poster_path}
           />
           <MultiSelect
@@ -76,11 +72,9 @@ export const Form: FC<IFormProps> = ({
             placeholder="date picker"
             label="Release date"
             value={values['release_date']}
-            // @ts-expect-error  - ignore error
             touched={touched['release_date']}
             onBlur={handleBlur}
             onChange={handleChange}
-            // @ts-expect-error  - ignore error
             error={errors.release_date}
           />
           <Input
@@ -90,11 +84,9 @@ export const Form: FC<IFormProps> = ({
             placeholder="vote_average"
             label="Average votes"
             value={values['vote_average']}
-            // @ts-expect-error  - ignore error
             touched={touched['vote_average']}
             onBlur={handleBlur}
             onChange={handleChange}
-            // @ts-expect-error  - ignore error
             error={errors.vote_average}
           />
           <Input
@@ -104,11 +96,9 @@ export const Form: FC<IFormProps> = ({
             placeholder="runtime"
             label="Runtime*"
             value={values.runtime}
-            // @ts-expect-error  - ignore error
             touched={touched.runtime}
             onBlur={handleBlur}
             onChange={handleChange}
-            // @ts-expect-error  - ignore error
             error={errors.runtime}
           />
         </div>
@@ -119,11 +109,9 @@ export const Form: FC<IFormProps> = ({
         placeholder="overview"
         label="Overview*"
         value={values.overview}
-        // @ts-expect-error  - ignore error
         touched={touched.overview}
         onBlur={handleBlur}
         onChange={handleChange}
-        // @ts-expect-error  - ignore error
         error={errors.overview}
       />
       <div className={cx('form__actions')}>

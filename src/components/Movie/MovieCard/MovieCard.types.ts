@@ -1,5 +1,3 @@
-import { Movie } from '../../../store/api/movie.interface';
-
 export interface IMovieCardProps {
   id: number;
   title: string;
@@ -11,6 +9,6 @@ export interface IMovieCardProps {
   runtime: number;
   toggleEditModal: () => void;
   toggleDeleteModal: () => void;
-  onContextMenuClick: (movieDetails: Movie) => void;
-  onMovieCardClick: (movieDetails: Movie) => void;
+  onContextMenuClick: (movieDetails: any) => void;
+  onMovieCardClick: (movieDetails: any) => void;
 }

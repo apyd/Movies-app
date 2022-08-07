@@ -1,6 +1,6 @@
 import { Movie } from '../../../store/api/movie.interface';
 
-export interface IMovieDetailsProps extends Partial<Movie> {
+export interface IMovieDetailsProps extends Movie {
   title: string;
   vote_average: number;
   poster_path: string;
