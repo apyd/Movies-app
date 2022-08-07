@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 export const Options = () => {
   const router = useRouter();
-  const { params: searchParams, ...queryParams } = router?.query;
+  const { params: searchParams, ...queryParams } = router.query;
   const { genre, sortBy } = queryParams;
   const searchQuery = searchParams?.toString() || '';
 
@@ -20,7 +20,7 @@ export const Options = () => {
   const [filter, setFilter] = useState(defaultFilter ?? `${FILTER_OPTIONS[0].value}`);
   const [sort, setSort] = useState(defaultSort ?? `${SORT_OPTIONS[0].value}`);
 
-  const updateRoute = (queryParamToUpdate: {}, queryParams: {}, searchQuery: string) => {
+  const updateRoute = (queryParamToUpdate: any) => {
     const updatedQueryParams = new URLSearchParams({
       ...queryParams,
       ...queryParamToUpdate
@@ -32,12 +32,12 @@ export const Options = () => {
 
   const onFilterChange = (selectedFilter: string) => {
     setFilter(selectedFilter);
-    updateRoute({ genre: selectedFilter }, queryParams, searchQuery);
+    updateRoute({ genre: selectedFilter });
   };
 
   const onSortChange = (selectedSort: string) => {
     setSort(selectedSort);
-    updateRoute({ sortBy: selectedSort }, queryParams, searchQuery);
+    updateRoute({ sortBy: selectedSort });
   };
 
   return (
