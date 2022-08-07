@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames/bind';
 import { useAddMovieMutation } from '../../store/api/apiSlice';
@@ -6,11 +6,12 @@ import { useModal } from '../../hooks/useModal';
 import { AddMovie } from '../Modal/AddMovie/AddMovie';
 import { SearchView } from './SearchView/SearchView';
 import { MovieDetails } from './MovieDetails/MovieDetails';
+import { IHeroProps } from './Hero.types';
 import styles from './Hero.module.scss';
 
 const cx = classNames.bind(styles);
 
-export const Hero = ({ movie }: any) => {
+export const Hero: FC<IHeroProps> = ({ movie }) => {
   const router = useRouter();
   const { movieId, ...params } = router.query;
   const { params: searchQuery, ...queryParams } = params;
@@ -18,7 +19,6 @@ export const Hero = ({ movie }: any) => {
   const [AddMovieModal, toggleModal] = useModal('Add movie', AddMovie, reset);
 
   const [query, setQuery] = useState(searchQuery?.toString() || '');
-  console.log(searchQuery);
 
   const onChange = (value: string) => {
     setQuery(value);
@@ -30,9 +30,7 @@ export const Hero = ({ movie }: any) => {
   };
 
   const updateQueryParams = () => {
-    const updatedQueryParams = new URLSearchParams(queryParams)
-      .toString()
-      .replace('filter', 'genre');
+    const updatedQueryParams = new URLSearchParams(queryParams).toString();
     router.push(`/search/${query}?${updatedQueryParams}`);
   };
 

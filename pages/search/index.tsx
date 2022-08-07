@@ -9,8 +9,6 @@ import { Footer } from '../../src/components/Footer/Footer';
 
 import styles from './App.module.scss';
 
-const getAllMoviesURl = 'http://localhost:4000/movies';
-
 const cx = classNames.bind(styles);
 
 export default function SearchPage({ data }: any) {
@@ -35,8 +33,11 @@ export default function SearchPage({ data }: any) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(getAllMoviesURl);
+export async function getServerSideProps(context: any) {
+  const { params: searchQuery, ...queryParams } = context?.query;
+  console.log(context.query);
+  console.log('SEARCH PAGE');
+  const res = await fetch('http://localhost:4000/movies');
   const data = await res.json();
   return {
     props: {

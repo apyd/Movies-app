@@ -20,7 +20,7 @@ export const Options = () => {
   const [filter, setFilter] = useState(defaultFilter ?? `${FILTER_OPTIONS[0].value}`);
   const [sort, setSort] = useState(defaultSort ?? `${SORT_OPTIONS[0].value}`);
 
-  const updateRoute = (queryParamToUpdate: any) => {
+  const updateRoute = (queryParamToUpdate: {}, queryParams: {}, searchQuery: string) => {
     const updatedQueryParams = new URLSearchParams({
       ...queryParams,
       ...queryParamToUpdate
@@ -32,12 +32,12 @@ export const Options = () => {
 
   const onFilterChange = (selectedFilter: string) => {
     setFilter(selectedFilter);
-    updateRoute({ genre: selectedFilter });
+    updateRoute({ genre: selectedFilter }, queryParams, searchQuery);
   };
 
   const onSortChange = (selectedSort: string) => {
     setSort(selectedSort);
-    updateRoute({ sortBy: selectedSort });
+    updateRoute({ sortBy: selectedSort }, queryParams, searchQuery);
   };
 
   return (
