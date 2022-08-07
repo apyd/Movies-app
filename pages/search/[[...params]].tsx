@@ -45,7 +45,7 @@ export default function SearchPage({ movie, data }: any) {
 }
 
 export async function getServerSideProps(context: any) {
-  const { params: searchQuery, ...queryParams } = context?.query;
+  const { params: searchQuery, ...queryParams } = context.query;
   const { movieId } = queryParams;
   const queryParamsToString = new URLSearchParams(queryParams)
     .toString()
