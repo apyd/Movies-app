@@ -39,6 +39,7 @@ export const Hero: FC<IHeroProps> = ({ movie }) => {
     <div className={cx(styles.hero, { 'hero--search': !movieId })}>
       <div className={cx('hero__inner')}>
         {movieId ? (
+          // @ts-expect-error - ignore movieDetails type
           <MovieDetails onSearchIconPress={updateQueryParams} {...movie} />
         ) : (
           <SearchView
