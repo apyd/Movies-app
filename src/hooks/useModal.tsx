@@ -16,7 +16,7 @@ export const useModal = (
   const Modal = (props: IModalProps) => {
     return (
       <RawModal title={title} isOpened={isOpened} toggleModal={toggleModal}>
-        <Element toggleModal={toggleModal} {...props} />
+        <Element {...props} toggleModal={toggleModal} />
       </RawModal>
     );
   };
