@@ -30,6 +30,7 @@ export const Hero: FC<IHeroProps> = ({ movie }) => {
   };
 
   const updateQueryParams = () => {
+    // @ts-expect-error
     const updatedQueryParams = new URLSearchParams(queryParams).toString();
     router.push(`/search/${query}?${updatedQueryParams}`);
   };
