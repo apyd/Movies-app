@@ -1,12 +1,16 @@
-import '../src/styles/global.scss';
 import type { AppProps } from 'next/app';
 import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
 import { apiSlice } from '../src/store/api/apiSlice';
+import { MovieProvider } from '../src/context/MovieContext/MovieContext';
+
+import '../src/styles/global.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApiProvider api={apiSlice}>
-      <Component {...pageProps} />
+      <MovieProvider>
+        <Component {...pageProps} />
+      </MovieProvider>
     </ApiProvider>
   );
 }

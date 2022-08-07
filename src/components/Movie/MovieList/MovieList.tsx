@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useMemo } from 'react';
+import React, { FC, memo, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames/bind';
 import {
@@ -39,7 +39,7 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
   const [EditModal, toggleEditModal] = useModal('Edit movie', EditMovie, resetUpdate);
   const [DeleteModal, toggleDeleteModal] = useModal('Delete movie', DeleteMovie, resetDelete);
 
-  const { setHeroMovie, selectedMovie, setSelectedMovie } = useMovie();
+  const { setHeroMovie, selectedMovie, setSelectedMovie, setOpenedMovieMenuId } = useMovie();
 
   const onMovieCardClick = (movieDetails: Movie) => {
     const updatedQueryParams = new URLSearchParams({
@@ -53,9 +53,8 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
   };
 
   const onContextMenuClick = (movieDetails: Movie) => {
-    console.log(movieDetails);
+    setOpenedMovieMenuId(movieDetails?.id);
     setSelectedMovie(movieDetails);
-    console.log(selectedMovie);
   };
 
   const moviesList = useMemo(
@@ -64,7 +63,6 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
         return (
           <li className={cx('movie-item')} key={movie.id}>
             <MovieCard
-              key={movie.id}
               {...movie}
               toggleEditModal={toggleEditModal}
               toggleDeleteModal={toggleDeleteModal}

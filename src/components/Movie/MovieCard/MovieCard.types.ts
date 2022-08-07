@@ -1,6 +1,6 @@
 import { Movie } from '../../../store/api/movie.interface';
 
-export interface IMovieCardProps extends Partial<Movie> {
+export interface IMovieCardProps {
   id: number;
   title: string;
   vote_average: number;

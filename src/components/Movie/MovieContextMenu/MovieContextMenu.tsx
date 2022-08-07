@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import useMovie from '../../../context/MovieContext/MovieContext';
 import { Button } from '../../UI/Button/Button';

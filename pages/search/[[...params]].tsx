@@ -8,7 +8,6 @@ import { Results } from '../../src/components/Results/Results';
 import { Footer } from '../../src/components/Footer/Footer';
 
 import styles from './App.module.scss';
-import { Movie } from '../../src/types/movie.interface';
 
 const cx = classNames.bind(styles);
 
@@ -20,7 +19,7 @@ const getFetchURL = (searchQueryToString: string, queryParamsToString: string) =
   } else if (queryParamsToString) {
     return `http://localhost:4000/movies?${queryParamsToString}`;
   }
-  return `http://localhost:4000/movies?`;
+  return `http://localhost:4000/movies`;
 };
 
 export default function SearchPage({ movie, data }: any) {
@@ -46,7 +45,6 @@ export default function SearchPage({ movie, data }: any) {
 }
 
 export async function getServerSideProps(context: any) {
-  console.log('QUERY SEARCH PAGE');
   const { params: searchQuery, ...queryParams } = context?.query;
   const { movieId } = queryParams;
   const queryParamsToString = new URLSearchParams(queryParams)
@@ -56,10 +54,15 @@ export async function getServerSideProps(context: any) {
   const fetchURL = getFetchURL(searchQueryToString, queryParamsToString);
   const response = await fetch(fetchURL);
   const data = await response.json();
-  const movie = data?.data.filter((movie: Movie) => movie?.id.toString() === movieId);
+  let movie;
+  if (movieId) {
+    const movieResponse = await fetch(`http://localhost:4000/movies/${movieId}`);
+    movie = await movieResponse.json();
+  }
+
   return {
     props: {
-      movie: movie.length === 1 ? movie?.[0] : '',
+      movie: movie ? movie : null,
       data
     }
   };
