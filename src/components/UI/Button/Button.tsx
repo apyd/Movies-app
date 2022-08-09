@@ -8,6 +8,7 @@ const cx = classNames.bind(styles);
 
 export const Button: FC<IButtonProps> = ({
   children,
+  id = 'button',
   onClick,
   size = ButtonSize.medium,
   variant = ButtonVariant.primary,
@@ -17,6 +18,7 @@ export const Button: FC<IButtonProps> = ({
 }) => {
   return (
     <button
+      id={id}
       disabled={isDisabled}
       type={type}
       className={cx(styles.btn, [

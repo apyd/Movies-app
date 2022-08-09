@@ -14,7 +14,7 @@ export const SearchView: FC<ISearchViewProps> = ({ value, toggleModal, onChange,
     <div className={cx('search-view')}>
       <div className={cx('search-view__top-banner')}>
         <Logo />
-        <Button variant={ButtonVariant.secondary} onClick={toggleModal}>
+        <Button id="openAddMovieModal" variant={ButtonVariant.secondary} onClick={toggleModal}>
           + ADD MOVIE
         </Button>
       </div>

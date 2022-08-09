@@ -23,10 +23,10 @@ export const Modal: FC<IModalProps> = ({ title, isOpened, toggleModal, children 
           {isOpened && (
             <>
               <div className={cx('overlay')}></div>
-              <div className={cx('modal')}>
+              <div id="modal" className={cx('modal')}>
                 <div className={cx('modal__header')}>
                   <h2>{title.toUpperCase()}</h2>
-                  <Button variant={ButtonVariant.ghost} onClick={toggleModal}>
+                  <Button id="closeModal" variant={ButtonVariant.ghost} onClick={toggleModal}>
                     x
                   </Button>
                 </div>
