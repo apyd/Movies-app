@@ -1,0 +1,27 @@
+@use "src/styles/variables";
+@use "src/styles/colors";
+@use "src/styles/mixins";
+
+.options {
+  padding: 0 1rem;
+  margin: 1rem 0 0 0;
+
+  @media screen and (max-width: 550px) {
+    height: unset;
+  }
+
+  &-wrapper {
+    @include mixins.flex-position(row, space-between, center);
+    position: relative;
+    padding: 0.8rem 1rem 0.8rem 0;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    &::after {
+      @include mixins.position(absolute, $left: 0, $right: 0, $bottom: 0.2rem);
+      height: 0.1rem;
+      content: "";
+      background-color: colors.$light-grey;
+    }
+  }
+}

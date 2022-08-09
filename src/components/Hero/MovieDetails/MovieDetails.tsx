@@ -6,21 +6,21 @@ import { transformMinutesToHoursAndMinutes } from '../../../utils/transformTime'
 import { Button } from '../../UI/Button/Button';
 import { SvgIcon } from '../../UI/Icon/SvgIcon';
 import SearchIcon from '../../../assets/search.svg';
-import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder.jpeg';
+// import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder.jpeg';
 import { ButtonVariant } from '../../UI/Button/Button.consts';
 import { IMovieDetailsProps } from './MovieDetails.types';
-import styles from './MovieDetails.scss';
+import styles from './MovieDetails.module.scss';
 
 const cx = classNames.bind(styles);
 
 export const MovieDetails: FC<IMovieDetailsProps> = ({
-  title,
-  vote_average,
-  poster_path,
-  genres,
-  release_date,
-  runtime,
-  overview,
+  title = '',
+  vote_average = 0,
+  poster_path = '',
+  genres = [],
+  release_date = '',
+  runtime = 0,
+  overview = '',
   onSearchIconPress
 }) => {
   return (
@@ -38,7 +38,7 @@ export const MovieDetails: FC<IMovieDetailsProps> = ({
             alt="movie poster"
             onError={({ currentTarget }) => {
               currentTarget.onerror = null;
-              currentTarget.src = DefaultPosterPlaceholder;
+              // currentTarget.src = DefaultPosterPlaceholder;
             }}
             className={cx('movie-details__img')}
           />

@@ -3,9 +3,9 @@ import classNames from 'classnames/bind';
 import { Button } from '../../UI/Button/Button';
 import { ButtonVariant } from '../../UI/Button/Button.consts';
 import { IDeleteMovieProps } from './DeleteMovie.types';
-import styles from './DeleteMovie.scss';
 import { LoadingSpinner } from '../../UI/LoadingSpinner/LoadingSpinner';
 import { Status } from '../Status/Status';
+import styles from './DeleteMovie.module.scss';
 
 const cx = classNames.bind(styles);
 

@@ -1,0 +1,36 @@
+@use "src/styles/colors";
+
+.textarea {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: colors.$dark-grey;
+  color: colors.$white;
+  font-family: inherit;
+
+  &::placeholder {
+    color: colors.$white;
+    text-transform: capitalize;
+  }
+
+  &--invalid {
+    color: colors.$pastel-red;
+    border: 1px solid colors.$pastel-red;
+
+    &::placeholder {
+      color: colors.$pastel-red;
+    }
+  }
+}
+
+.textarea-label {
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem 0;
+  color: colors.$pastel-red;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.input-error {
+  color: colors.$pastel-red;
+  font-size: 0.7rem;
+}

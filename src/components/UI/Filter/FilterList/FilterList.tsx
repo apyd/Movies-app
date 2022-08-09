@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import { Filter } from '../Filter';
 import { IFilterListProps } from './FilterList.types';
-import styles from './FilterList.scss';
+import styles from './FilterList.module.scss';
 
 const cx = classNames.bind(styles);
 

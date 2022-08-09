@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import { Button } from '../Button/Button';
 import { ISearchProps } from './Search.types';
-import styles from './Search.scss';
+import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
 

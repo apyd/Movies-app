@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import { getYearFromDate } from '../../../utils/getYearFromDate';
 import { MovieContextMenu } from '../MovieContextMenu/MovieContextMenu';
-import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder.jpeg';
+// import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder.jpeg';
 import { IMovieCardProps } from './MovieCard.types';
-import styles from './MovieCard.scss';
+import styles from './MovieCard.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -48,7 +48,7 @@ export const MovieCard: FC<IMovieCardProps> = ({
           className={cx('poster__img')}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
-            currentTarget.src = DefaultPosterPlaceholder;
+            // currentTarget.src = DefaultPosterPlaceholder;
           }}
           onClick={() => onMovieCardClick(movieDetails)}
         />

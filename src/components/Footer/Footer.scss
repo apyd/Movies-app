@@ -1,8 +1,0 @@
-@use "../../styles/colors";
-@use "../../styles/mixins";
-
-.footer {
-  @include mixins.flex-position(row, center, center);
-  padding: 1rem 0;
-  background-color: colors.$light-grey;
-}

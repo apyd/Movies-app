@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames/bind';
-import styles from './SvgIcon.scss';
 import { ISvgIconProps } from './SvgIcon.types';
+import styles from './SvgIcon.module.scss';
 
 const cx = classNames.bind(styles);
 

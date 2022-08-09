@@ -1,7 +1,0 @@
-@use '../../../../styles/mixins';
-
-.filters {
-  @include mixins.flex-position(row, flex-start, center);
-  overflow: auto;
-  flex-wrap: wrap;
-}

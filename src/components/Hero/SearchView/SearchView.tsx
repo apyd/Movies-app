@@ -5,7 +5,7 @@ import { Button } from '../../UI/Button/Button';
 import { Search } from '../../UI/Search/Search';
 import { ButtonVariant } from '../../UI/Button/Button.consts';
 import { ISearchViewProps } from './SearchView.types';
-import styles from './SearchView.scss';
+import styles from './SearchView.module.scss';
 
 const cx = classNames.bind(styles);
 

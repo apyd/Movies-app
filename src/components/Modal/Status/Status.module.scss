@@ -1,0 +1,6 @@
+@use "src/styles/mixins";
+
+.status-modal {
+  @include mixins.flex-position(column, center, center);
+  font-size: 1.5rem;
+}

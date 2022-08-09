@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import { ISortProps } from './Sort.types';
-import styles from './Sort.scss';
+import styles from './Sort.module.scss';
 
 const cx = classNames.bind(styles);
 

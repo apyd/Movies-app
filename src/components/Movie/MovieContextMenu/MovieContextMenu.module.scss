@@ -1,0 +1,20 @@
+@use "src/styles/colors";
+@use "src/styles/mixins";
+
+.context-menu {
+  @include mixins.position(absolute, $right: 0);
+  padding: 0.5rem 0.5rem;
+
+  &__icon {
+    @include mixins.size(auto, 1.3rem);
+  }
+
+  &__options {
+    @include mixins.flex-position(column);
+    position: absolute;
+    background-color: colors.$light-grey;
+    z-index: 10;
+    left: -30%;
+    transform: translateX(-30%);
+  }
+}

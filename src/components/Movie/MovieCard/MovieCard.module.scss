@@ -1,0 +1,51 @@
+@use "src/styles/colors";
+@use "src/styles/mixins";
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.poster {
+  position: relative;
+  cursor: pointer;
+
+  &__img {
+    @include mixins.size(auto, 100%);
+    object-fit: contain;
+  }
+}
+
+.details {
+  @include mixins.flex-position(column);
+  flex: 1;
+
+  &__header {
+    @include mixins.flex-position(row, space-between, center);
+    font-size: 0.8rem;
+  }
+
+  &__title {
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  &__production-year {
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    border: 1px solid colors.$light-grey;
+  }
+
+  &__genres {
+    color: colors.$alt-grey;
+    font-size: 0.9rem;
+  }
+}
+
+.title__wrapper {
+  max-width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

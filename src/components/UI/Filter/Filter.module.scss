@@ -1,0 +1,28 @@
+@use "src/styles/colors";
+@use "src/styles/mixins";
+
+.filter {
+  $this: &;
+
+  &__input {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+
+    &:checked + #{$this}__label:after {
+      height: 0.2rem;
+      width: 100%;
+      @include mixins.position(absolute, $left: 0, $bottom: 0);
+      content: "";
+      background-color: colors.$pastel-red;
+      z-index: 10;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    position: relative;
+    padding: 0.5rem 0.8rem;
+    text-transform: uppercase;
+  }
+}

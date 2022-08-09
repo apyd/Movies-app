@@ -1,0 +1,32 @@
+@use "src/styles/variables";
+@use "src/styles/colors";
+@use "src/styles/mixins";
+
+.results {
+  height: 100%;
+  padding: 0 1rem;
+  margin: 1rem 0 3rem 0;
+
+  @media screen and (max-width: 550px) {
+    height: unset;
+  }
+
+  &__inner-container {
+    @include mixins.flex-position(column);
+    max-width: variables.$section-max-width;
+    margin: 0 auto;
+  }
+
+  &__modifiers {
+    @include mixins.flex-position(row, space-between, center);
+    position: relative;
+    padding: 0.8rem 1rem 0.8rem 0;
+
+    &::after {
+      @include mixins.position(absolute, $left: 0, $right: 0, $bottom: 0.2rem);
+      height: 0.1rem;
+      content: "";
+      background-color: colors.$light-grey;
+    }
+  }
+}

@@ -1,26 +1,27 @@
-import React, { FC, memo, useCallback, useMemo, useState } from 'react';
+import React, { FC, memo, useMemo } from 'react';
+import { useRouter } from 'next/router';
 import classNames from 'classnames/bind';
-import { useSearchParams } from 'react-router-dom';
 import {
   useDeleteMovieByIdMutation,
   useUpdateMovieByIdMutation
 } from '../../../store/api/apiSlice';
-import useMovie from '../../../context/MovieContext/MovieContext';
 import { useModal } from '../../../hooks/useModal';
 import { EditMovie } from '../../Modal/EditMovie/EditMovie';
 import { MovieCard } from '../MovieCard/MovieCard';
 import { DeleteMovie } from '../../Modal/DeleteMovie/DeleteMovie';
-import { Movie } from '../../../store/api/movie.interface';
+import { Movie } from '../../../types/movie.interface';
 import { IMovieListProps } from './MovieList.types';
-import styles from './MovieList.scss';
+import styles from './MovieList.module.scss';
+import useMovie from '../../../context/MovieContext/MovieContext';
 
 const cx = classNames.bind(styles);
 
-export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
-  const [movieId, setMovieId] = useState(null);
+export const MovieList: FC<IMovieListProps> = memo(({ movies = [] }) => {
+  const router = useRouter();
+  const { params: searchQuery, ...queryParams } = router.query;
+  const { movieId } = queryParams;
   const [updateMovie, updateRequestStatus] = useUpdateMovieByIdMutation();
   const [deleteMovie, deleteRequestStatus] = useDeleteMovieByIdMutation();
-  const [params, setQueryParams] = useSearchParams();
 
   const {
     isSuccess: isUpdateSuccess,
@@ -38,34 +39,41 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies }) => {
   const [EditModal, toggleEditModal] = useModal('Edit movie', EditMovie, resetUpdate);
   const [DeleteModal, toggleDeleteModal] = useModal('Delete movie', DeleteMovie, resetDelete);
 
-  const { setHeroMovie, selectedMovie, setSelectedMovie } = useMovie();
+  const { setHeroMovie, selectedMovie, setSelectedMovie, setOpenedMovieMenuId } = useMovie();
 
   const onMovieCardClick = (movieDetails: Movie) => {
-    setQueryParams({ ...Object.fromEntries(params), movieId: movieDetails?.id.toString() });
+    const updatedQueryParams = new URLSearchParams({
+      ...queryParams,
+      movieId: movieDetails?.id.toString()
+    }).toString();
+    searchQuery?.toString()
+      ? router.push(`/search/${searchQuery}?${updatedQueryParams}`)
+      : router.push(`/search/?${updatedQueryParams}`);
     setHeroMovie(movieDetails);
-    setMovieId(movieDetails?.id);
   };
 
-  const onContextMenuClick = useCallback((movieDetails: Movie) => {
+  const onContextMenuClick = (movieDetails: Movie) => {
+    setOpenedMovieMenuId(movieDetails?.id);
     setSelectedMovie(movieDetails);
-  }, []);
+  };
 
   const moviesList = useMemo(
     () =>
-      movies.map((movie: Movie) => {
-        return (
-          <li className={cx('movie-item')} key={movie.id}>
-            <MovieCard
-              key={movie.id}
-              {...movie}
-              toggleEditModal={toggleEditModal}
-              toggleDeleteModal={toggleDeleteModal}
-              onMovieCardClick={onMovieCardClick}
-              onContextMenuClick={onContextMenuClick}
-            />
-          </li>
-        );
-      }),
+      movies.length > 0
+        ? movies.map((movie: Movie) => {
+            return (
+              <li className={cx('movie-item')} key={movie.id}>
+                <MovieCard
+                  {...movie}
+                  toggleEditModal={toggleEditModal}
+                  toggleDeleteModal={toggleDeleteModal}
+                  onMovieCardClick={onMovieCardClick}
+                  onContextMenuClick={onContextMenuClick}
+                />
+              </li>
+            );
+          })
+        : null,
     [movies]
   );
 

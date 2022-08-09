@@ -1,6 +1,6 @@
 import cypress from 'cypress'
 
-const getMovieRequestURL = (searchQuery) => `${Cypress.env('apiBaseRequestURL')}search=${searchQuery}&searchBy=title&`
+const getMovieRequestURL = (searchQuery: string) => `${Cypress.env('apiBaseRequestURL')}search=${searchQuery}&searchBy=title&`
 
 describe("Search panel", () => {
   it("should search for Test123123 and return no results", () => {

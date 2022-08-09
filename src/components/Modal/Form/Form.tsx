@@ -8,7 +8,7 @@ import { Input } from '../../UI/Input/Input';
 import { useMultiSelect } from '../../../hooks/useMultiSelect';
 import { ButtonVariant } from '../../UI/Button/Button.consts';
 import { IFormProps } from './Form.types';
-import styles from './Form.scss';
+import styles from './Form.module.scss';
 
 const cx = classNames.bind(styles);
 

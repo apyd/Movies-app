@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import { IPropsInput } from './Input.types';
-import styles from './Input.scss';
+import styles from './Input.module.scss';
 
 const cx = classNames.bind(styles);
 

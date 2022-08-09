@@ -1,0 +1,39 @@
+@use "src/styles/colors";
+@use "src/styles/mixins";
+
+.input {
+  appearance: none;
+  @include mixins.size(30px, 100%);
+  min-width: 100px;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: colors.$dark-grey;
+  color: colors.$white;
+
+  &::placeholder {
+    color: colors.$white;
+    text-transform: capitalize;
+  }
+
+  &--invalid {
+    color: colors.$pastel-red;
+    border: 1px solid colors.$pastel-red;
+
+    &::placeholder {
+      color: colors.$pastel-red;
+    }
+  }
+}
+
+.text-label {
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem 0;
+  color: colors.$pastel-red;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.input-error {
+  color: colors.$pastel-red;
+  font-size: 0.7rem;
+}

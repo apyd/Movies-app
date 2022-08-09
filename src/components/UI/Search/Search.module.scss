@@ -1,0 +1,24 @@
+@use "src/styles/colors";
+@use "src/styles/variables";
+@use "src/styles/mixins";
+
+.search {
+  display: flex;
+
+  > input {
+    @include mixins.size(100%, 100%);
+    padding: variables.$section-padding;
+    margin-right: 0.5rem;
+    border: 1px solid colors.$dark-grey;
+    border-radius: 3px;
+    background-color: colors.$dark;
+    color: colors.$white;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+  ::placeholder {
+    color: inherit;
+    font-family: inherit;
+  }
+}

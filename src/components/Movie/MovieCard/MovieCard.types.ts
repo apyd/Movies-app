@@ -1,6 +1,4 @@
-import { Movie } from '../../../store/api/movie.interface';
-
-export interface IMovieCardProps extends Partial<Movie> {
+export interface IMovieCardProps {
   id: number;
   title: string;
   vote_average: number;
@@ -11,6 +9,6 @@ export interface IMovieCardProps extends Partial<Movie> {
   runtime: number;
   toggleEditModal: () => void;
   toggleDeleteModal: () => void;
-  onContextMenuClick: (movieDetails: Partial<Movie>) => void;
-  onMovieCardClick: (movieDetails: Partial<Movie>) => void;
+  onContextMenuClick: (movieDetails: any) => void;
+  onMovieCardClick: (movieDetails: any) => void;
 }

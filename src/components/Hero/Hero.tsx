@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import React, { FC, useState } from 'react';
+import { useRouter } from 'next/router';
 import classNames from 'classnames/bind';
-import { useAddMovieMutation, useGetMovieByIdQuery } from '../../store/api/apiSlice';
+import { useAddMovieMutation } from '../../store/api/apiSlice';
 import { useModal } from '../../hooks/useModal';
 import { AddMovie } from '../Modal/AddMovie/AddMovie';
 import { SearchView } from './SearchView/SearchView';
 import { MovieDetails } from './MovieDetails/MovieDetails';
-import styles from './Hero.scss';
+import { IHeroProps } from './Hero.types';
+import styles from './Hero.module.scss';
 
 const cx = classNames.bind(styles);
 
-export const Hero = () => {
+export const Hero: FC<IHeroProps> = ({ movie }) => {
+  const router = useRouter();
+  const { movieId, ...params } = router.query;
+  const { params: searchQuery, ...queryParams } = params;
   const [addMovie, { isLoading, isError, isSuccess, reset }] = useAddMovieMutation();
   const [AddMovieModal, toggleModal] = useModal('Add movie', AddMovie, reset);
-  const navigate = useNavigate();
-  const { searchQuery } = useParams();
-  const [params, setQueryParams] = useSearchParams();
-  const movieId = params.get('movieId');
-  const { data: movie, isLoading: isDataLoading } = useGetMovieByIdQuery(movieId);
 
-  const [query, setQuery] = useState(searchQuery || '');
+  const [query, setQuery] = useState(searchQuery?.toString() || '');
 
   const onChange = (value: string) => {
     setQuery(value);
@@ -27,21 +26,21 @@ export const Hero = () => {
 
   const onSearch = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    const queryParams = '?' + new URLSearchParams(params).toString().replace('filter', 'genre');
-    navigate(`../search/${query}${queryParams}`);
+    updateQueryParams();
   };
 
-  const switchToSearchView = () => {
-    const queryParams = { ...Object.fromEntries(params) };
-    const { movieId, ...filteredQueryParams } = queryParams;
-    setQueryParams(filteredQueryParams);
+  const updateQueryParams = () => {
+    // @ts-expect-error - ignore queryParams type as works as expected
+    const updatedQueryParams = new URLSearchParams(queryParams).toString();
+    router.push(`/search/${query}?${updatedQueryParams}`);
   };
 
   return (
     <div className={cx(styles.hero, { 'hero--search': !movieId })}>
       <div className={cx('hero__inner')}>
-        {movieId && !isDataLoading ? (
-          <MovieDetails onSearchIconPress={switchToSearchView} {...movie} />
+        {movieId ? (
+          // @ts-expect-error - ignore movieDetails type
+          <MovieDetails onSearchIconPress={updateQueryParams} {...movie} />
         ) : (
           <SearchView
             toggleModal={toggleModal}

@@ -1,14 +1,14 @@
 export const SORT_OPTIONS = [
   {
     id: 1,
-    label: "Rating",
-    value: "average_vote",
+    label: 'Rating',
+    value: 'average_vote'
   },
   {
     id: 2,
-    label: "Release date",
-    value: "release_date",
-  },
+    label: 'Release date',
+    value: 'release_date'
+  }
 ];
 
 export const FILTER_OPTIONS = [

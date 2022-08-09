@@ -1,13 +1,12 @@
-
 export interface IPropsInput {
   id: string;
   name: string;
   type: string;
   value: string | number;
-  touched: boolean;
+  touched: boolean | undefined;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   label: string;
-  error: string;
+  error: string | undefined;
 }

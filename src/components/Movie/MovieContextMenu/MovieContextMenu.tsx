@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import useMovie from '../../../context/MovieContext/MovieContext';
 import { Button } from '../../UI/Button/Button';
@@ -6,7 +6,7 @@ import { SvgIcon } from '../../UI/Icon/SvgIcon';
 import MenuIcon from '../../../assets/threedots.svg';
 import { ButtonVariant } from '../../UI/Button/Button.consts';
 import { IMovieContextMenuProps } from './MovieContextMenu.types';
-import styles from './MovieContextMenu.scss';
+import styles from './MovieContextMenu.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -18,12 +18,12 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
 }) => {
   const { openedMovieMenuId, setOpenedMovieMenuId } = useMovie();
 
-  const onMenuButtonClick = useCallback(() => {
+  const onMenuButtonClick = () => {
     if (openedMovieMenuId === movieId) {
       return setOpenedMovieMenuId(null);
     }
     setOpenedMovieMenuId(movieId);
-  }, [openedMovieMenuId]);
+  };
 
   return (
     <>

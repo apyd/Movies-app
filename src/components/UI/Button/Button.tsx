@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import classNames from 'classnames/bind';
 import { IButtonProps } from './Button.types';
 import { ButtonSize, ButtonShape, ButtonVariant } from './Button.consts';
-import styles from './Button.scss';
+import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 

@@ -4,7 +4,7 @@ import { SvgIcon } from '../../UI/Icon/SvgIcon';
 import Success from '../../../assets/success.svg';
 import Error from '../../../assets/error.svg';
 import { IStatusContentProps } from './Status.types';
-import styles from './Status.scss';
+import styles from './Status.module.scss';
 
 export const status_icon: { [key: string]: ReactNode } = {
   SUCCESS: <SvgIcon icon={Success} />,

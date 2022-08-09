@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames/bind';
 import { IPropsDatePicker } from './DatePicker.types';
-import styles from './DatePicker.scss';
+import styles from './DatePicker.module.scss';
 
 const cx = classNames.bind(styles);
 

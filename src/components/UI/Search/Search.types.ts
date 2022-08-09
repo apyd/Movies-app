@@ -1,5 +1,5 @@
 export interface ISearchProps {
-  value: string,
+  value: string;
   placeholder?: string;
   searchButtonText?: string;
   onSearch: (e: React.FormEvent<HTMLElement>) => void;

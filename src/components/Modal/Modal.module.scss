@@ -1,0 +1,29 @@
+@use "src/styles/colors";
+@use "src/styles/variables";
+@use "src/styles/mixins";
+
+.overlay {
+  @include mixins.size(100%, 100%);
+  @include mixins.position(fixed, $top: 0, $left: 0);
+  background-color: colors.$light-grey;
+  opacity: 0.9;
+  z-index: 100;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  @include mixins.position(absolute, $top: 50%, $left: 50%);
+  transform: translate(-50%, -50%);
+  width: clamp(300px, 85vw, 600px);
+  min-height: 200px;
+  padding: 1.5rem;
+  overflow: auto;
+  background-color: colors.$dark;
+  box-shadow: variables.$modal-box-shadow;
+  z-index: 100;
+
+  &__header {
+    @include mixins.flex-position(row, space-between, center);
+  }
+}
