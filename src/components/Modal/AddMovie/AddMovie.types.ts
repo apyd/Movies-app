@@ -9,9 +9,9 @@ export interface AddMovieFormData {
 }
 
 export interface IAddMovieProps {
-  onFormSubmit: any;
+  onFormSubmit: (values: AddMovieFormData) => void;
   isError: boolean;
   isLoading: boolean;
   isSuccess: boolean;
-  toggleModal: any;
+  toggleModal: () => void;
 }

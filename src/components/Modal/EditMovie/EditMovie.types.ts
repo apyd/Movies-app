@@ -1,19 +1,14 @@
-export interface EditMovieFormData {
+import { AddMovieFormData } from "../AddMovie/AddMovie.types";
+
+export interface EditMovieFormData extends AddMovieFormData {
   id: number;
-  title: string;
-  poster_path: string;
-  genres: string[];
-  release_date: string;
-  vote_average: number;
-  runtime: number;
-  overview: string;
 }
 
 export interface IEditMovieProps {
-  onFormSubmit: any;
+  onFormSubmit: (values: EditMovieFormData) => void;
   isError: boolean;
   formData: EditMovieFormData;
   isLoading: boolean;
   isSuccess: boolean;
-  toggleModal: any;
+  toggleModal: () => void;
 }

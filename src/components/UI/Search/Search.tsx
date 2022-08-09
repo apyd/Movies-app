@@ -3,7 +3,6 @@ import classNames from 'classnames/bind';
 import { Button } from '../Button/Button';
 import { ISearchProps } from './Search.types';
 import styles from './Search.scss';
-import { ButtonType } from '../Button/Button.consts';
 
 const cx = classNames.bind(styles);
 
@@ -25,9 +24,7 @@ export const Search: FC<ISearchProps> = ({
         name="search"
         placeholder={placeholder}
       />
-      <Button type={ButtonType.submit} onClick={() => ''}>
-        {searchButtonText}
-      </Button>
+      <Button type="submit">{searchButtonText}</Button>
     </form>
   );
 };

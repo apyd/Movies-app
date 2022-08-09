@@ -9,12 +9,16 @@ export const NotFound = () => {
   const cx = classNames.bind(styles);
   const navigate = useNavigate();
 
+  const navigateToSearch = () => {
+    navigate('/search');
+  };
+
   return (
     <section className={cx('not-found')}>
       <Logo />
       <h3>404 - Page not found</h3>
       <p>Oops... looks like this page doesn't exist</p>
-      <Button onClick={() => navigate('/search')}>Go back to home page</Button>
+      <Button onClick={navigateToSearch}>Go back to home page</Button>
     </section>
   );
 };

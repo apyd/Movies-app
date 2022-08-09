@@ -9,8 +9,8 @@ export interface IMovieCardProps extends Partial<Movie> {
   overview: string;
   genres: string[];
   runtime: number;
-  toggleEditModal: any;
-  toggleDeleteModal: any;
-  onContextMenuClick: any;
+  toggleEditModal: () => void;
+  toggleDeleteModal: () => void;
+  onContextMenuClick: (movieDetails: Partial<Movie>) => void;
   onMovieCardClick: (movieDetails: Partial<Movie>) => void;
 }

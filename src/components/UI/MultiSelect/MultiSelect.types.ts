@@ -3,13 +3,13 @@ export interface IPropsMultiSelect {
     id: string;
     title: string;
   }[];
-  setIsExpanded: any;
+  setIsExpanded: boolean;
   isExpanded: boolean;
   value: string[];
   touched: boolean;
-  onChange: any; //FIX IT
-  onBlur: any; //FIX IT
+  onChange: (field: string, value: string[], shouldValidate?: boolean) => void;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   label: string;
-  toggleSelect: any; //FIX IT
-  error: any; //FIX IT
+  toggleSelect: () => void;
+  error: string | string[];
 }

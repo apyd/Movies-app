@@ -4,7 +4,8 @@ import { FormSchema } from '../Form/configuration';
 import { LoadingSpinner } from '../../UI/LoadingSpinner/LoadingSpinner';
 import { Form } from '../Form/Form';
 import { Status } from '../Status/Status';
-import { IEditMovieProps, EditMovieFormData } from './EditMovie.types';
+import { IEditMovieProps } from './EditMovie.types';
+import { EditMovieFormData } from './EditMovieFormData';
 
 export const EditMovie: FC<IEditMovieProps> = ({
   onFormSubmit,

@@ -1,8 +1,7 @@
 export interface IDeleteMovieProps {
   movieId: number;
-  onSubmit: any;
+  onSubmit: (id: number) => void;
   isError: boolean;
   isSuccess: boolean;
   isLoading: boolean;
 }
-// TODO
