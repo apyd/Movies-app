@@ -1,4 +1,4 @@
 export interface ISvgIconProps {
-  icon: React.ElementType;
+  icon: any;
   isSmall?: boolean;
 }

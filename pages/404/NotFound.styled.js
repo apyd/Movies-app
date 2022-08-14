@@ -1,6 +1,6 @@
-@use "src/styles/colors";
+import { css } from '@emotion/css'
 
-.not-found {
+export const notFound = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,10 +11,6 @@
   height: 100%;
   text-align: center;
   margin: 0 auto;
-}
+`
 
-.btn__link {
-  display: block;
-  text-decoration: none;
-  color: colors.$white;
-}
+

@@ -1,10 +1,7 @@
 import React, { FC } from 'react';
-import classNames from 'classnames/bind';
 import { IButtonProps } from './Button.types';
 import { ButtonSize, ButtonShape, ButtonVariant } from './Button.consts';
-import styles from './Button.module.scss';
-
-const cx = classNames.bind(styles);
+import { StyledButton } from './Button.styles';
 
 export const Button: FC<IButtonProps> = ({
   children,
@@ -17,17 +14,15 @@ export const Button: FC<IButtonProps> = ({
   isDisabled = false
 }) => {
   return (
-    <button
+    <StyledButton
       id={id}
       disabled={isDisabled}
       type={type}
-      className={cx(styles.btn, [
-        styles[`btn--${variant}`],
-        styles[`btn--${size}`],
-        styles[`btn--${shape}`]
-      ])}
-      onClick={onClick}>
+      onClick={onClick}
+      size={size}
+      variant={variant}
+      shape={shape}>
       {children}
-    </button>
+    </StyledButton>
   );
 };
