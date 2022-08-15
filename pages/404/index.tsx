@@ -34,8 +34,7 @@ export default function Custom404() {
           size={ButtonSize.medium}
           shape={ButtonShape.rectangle}
           variant={ButtonVariant.primary}
-          onClick={navigateToSearch}
-        >
+          onClick={navigateToSearch}>
           Go back to home page
         </Button>
       </section>

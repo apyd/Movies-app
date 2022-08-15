@@ -15,8 +15,7 @@ export const Sort: FC<ISortProps> = ({
         name="sort"
         id="sort"
         value={selected}
-        onChange={(e) => onOptionChange(e.target.value)}
-      >
+        onChange={(e) => onOptionChange(e.target.value)}>
         {options &&
           options.map(({ id, label, value }) => (
             <option key={id} value={value}>

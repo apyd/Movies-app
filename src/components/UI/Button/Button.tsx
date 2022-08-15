@@ -21,8 +21,7 @@ export const Button: FC<IButtonProps> = ({
       onClick={onClick}
       size={size}
       variant={variant}
-      shape={shape}
-    >
+      shape={shape}>
       {children}
     </StyledButton>
   );

@@ -43,8 +43,7 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
         id="multi-select"
         isInvalid={!!isInvalid}
         tabIndex={0}
-        onClick={toggleSelect}
-      >
+        onClick={toggleSelect}>
         <MultiSelectSummary isInvalid={!!isInvalid}>{value?.length} selected</MultiSelectSummary>
         <SvgIcon icon={iconTypes.chevron} isSmall={true} />
       </MultiSelectSelected>

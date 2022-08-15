@@ -29,8 +29,7 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
           size={ButtonSize.small}
           variant={ButtonVariant.secondary}
           shape={ButtonShape.round}
-          onClick={onMenuButtonClick}
-        >
+          onClick={onMenuButtonClick}>
           <SvgIcon icon={iconTypes.threeDots} isSmall={true} />
         </Button>
         {openedMovieMenuId === movieId && (
@@ -39,16 +38,14 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
               size={ButtonSize.small}
               shape={ButtonShape.rectangle}
               variant={ButtonVariant.secondary}
-              onClick={toggleEditModal}
-            >
+              onClick={toggleEditModal}>
               Edit
             </Button>
             <Button
               size={ButtonSize.small}
               shape={ButtonShape.rectangle}
               variant={ButtonVariant.secondary}
-              onClick={toggleDeleteModal}
-            >
+              onClick={toggleDeleteModal}>
               Delete
             </Button>
           </ContextMenuOptions>

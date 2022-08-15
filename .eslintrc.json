@@ -22,7 +22,6 @@
     "@typescript-eslint/no-empty-function": 1,
     "react/no-unescaped-entities": 0,
     "react/prop-types": "off",
-    "react/display-name": 0,
-    "@typescript-eslint/ban-ts-ignore": "off"
+    "react/display-name": 0
   }
 }

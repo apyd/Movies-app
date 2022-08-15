@@ -28,8 +28,7 @@ export const DeleteMovie: FC<IDeleteMovieProps> = ({
               variant={ButtonVariant.primary}
               size={ButtonSize.medium}
               shape={ButtonShape.rectangle}
-              onClick={() => onSubmit(movieId)}
-            >
+              onClick={() => onSubmit(movieId)}>
               Confirm
             </Button>
           </DeleteActions>

@@ -14,15 +14,15 @@ export const StyledButton = styled.button<StyledButtonProps>`
   cursor: pointer;
 
   background-color: ${(props) =>
-    // @ts-ignore
+    // @ts-expect-error: ts complaining but all works
     buttonStyles[props.variant as keyof typeof buttonStyles].backgroundColor};
   color: ${(props) =>
-    // @ts-ignore
+    // @ts-expect-error: ts complaining but all works
     buttonStyles[props.variant as keyof typeof buttonStyles].color};
   border: ${(props) =>
-    // @ts-ignore
+    // @ts-expect-error: ts complaining but all works
     buttonStyles[props.variant as keyof typeof buttonStyles].border};
   padding: ${(props) =>
-    // @ts-ignore
+    // @ts-expect-error: ts complaining but all works
     buttonStyles[props.size as keyof typeof buttonStyles].padding};
 `;

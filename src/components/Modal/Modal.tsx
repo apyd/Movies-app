@@ -28,8 +28,7 @@ export const Modal: FC<IModalProps> = ({ title, isOpened, toggleModal, children 
                     size={ButtonSize.medium}
                     shape={ButtonShape.rectangle}
                     variant={ButtonVariant.ghost}
-                    onClick={toggleModal}
-                  >
+                    onClick={toggleModal}>
                     x
                   </Button>
                 </ModalHeader>
