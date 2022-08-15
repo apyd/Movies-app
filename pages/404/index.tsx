@@ -3,8 +3,21 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Button } from '../../src/components/UI/Button/Button';
 import { Logo } from '../../src/components/UI/Logo/Logo';
+import { css } from '@emotion/css';
 
-import { notFound } from './NotFound.styled';
+const notFound = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1%;
+  width: 25%;
+  min-width: 300px;
+  max-width: 400px;
+  height: 100%;
+  text-align: center;
+  margin: 0 auto;
+`;
+
 import { LogoSize } from '../../src/components/UI/Logo/Logo.const';
 import {
   ButtonShape,

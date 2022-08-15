@@ -1,12 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
+import { css } from '@emotion/css';
 import { ErrorBoundary } from '../../src/hoc/ErrorBoundary/ErrorBoundary';
 import { Options } from '../../src/components/Options/Options';
 import { Hero } from '../../src/components/Hero/Hero';
 import { Results } from '../../src/components/Results/Results';
 import { Footer } from '../../src/components/Footer/Footer';
 
-import { app } from './App.styled';
+const app = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  height: 100%;
+`;
 
 const getFetchURL = (searchQueryToString: string, queryParamsToString: string) => {
   if (searchQueryToString && queryParamsToString) {
