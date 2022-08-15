@@ -22,7 +22,8 @@ export const SearchView: FC<ISearchViewProps> = ({ value, toggleModal, onChange,
           variant={ButtonVariant.secondary}
           size={ButtonSize.medium}
           shape={ButtonShape.rectangle}
-          onClick={toggleModal}>
+          onClick={toggleModal}
+        >
           + ADD MOVIE
         </Button>
       </TopBanner>

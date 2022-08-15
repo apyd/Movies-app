@@ -42,7 +42,8 @@ export const MovieDetails: FC<IMovieDetailsProps> = ({
           size={ButtonSize.medium}
           shape={ButtonShape.rectangle}
           variant={ButtonVariant.ghost}
-          onClick={onSearchIconPress}>
+          onClick={onSearchIconPress}
+        >
           <SvgIcon isSmall={false} icon={iconTypes.search} />
         </Button>
       </MovieDetailsTopBanner>

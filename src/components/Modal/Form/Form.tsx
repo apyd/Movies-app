@@ -123,7 +123,8 @@ export const Form: FC<IFormProps> = ({
           variant={ButtonVariant.secondary}
           size={ButtonSize.medium}
           shape={ButtonShape.rectangle}
-          onClick={resetForm}>
+          onClick={resetForm}
+        >
           Reset
         </Button>
         <Button
@@ -131,7 +132,8 @@ export const Form: FC<IFormProps> = ({
           variant={ButtonVariant.primary}
           size={ButtonSize.medium}
           shape={ButtonShape.rectangle}
-          isDisabled={!isValid}>
+          isDisabled={!isValid}
+        >
           Submit
         </Button>
       </FormActions>

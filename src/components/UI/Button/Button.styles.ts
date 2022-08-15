@@ -1,4 +1,3 @@
-//@ts-nocheck
 import styled from '@emotion/styled';
 import { buttonStyles } from './Button.consts';
 import { StyledButtonProps } from './Button.types';
@@ -13,10 +12,17 @@ export const StyledButton = styled.button<StyledButtonProps>`
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  
-  
-  background-color: ${(props) => buttonStyles[props.variant as keyof typeof buttonStyles].backgroundColor};
-  color: ${(props) => buttonStyles[props.variant as keyof typeof buttonStyles].color};
-  border: ${(props) => buttonStyles[props.variant as keyof typeof buttonStyles].border};
-  padding: ${(props) => buttonStyles[props.size as keyof typeof buttonStyles].padding};
+
+  background-color: ${(props) =>
+    // @ts-ignore
+    buttonStyles[props.variant as keyof typeof buttonStyles].backgroundColor};
+  color: ${(props) =>
+    // @ts-ignore
+    buttonStyles[props.variant as keyof typeof buttonStyles].color};
+  border: ${(props) =>
+    // @ts-ignore
+    buttonStyles[props.variant as keyof typeof buttonStyles].border};
+  padding: ${(props) =>
+    // @ts-ignore
+    buttonStyles[props.size as keyof typeof buttonStyles].padding};
 `;
