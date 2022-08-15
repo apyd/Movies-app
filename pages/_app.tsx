@@ -1,5 +1,4 @@
 import React from 'react';
-import type { AppProps } from 'next/app';
 import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
 import { Global, css } from '@emotion/react';
 import { apiSlice } from '../src/store/api/apiSlice';

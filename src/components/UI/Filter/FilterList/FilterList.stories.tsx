@@ -20,5 +20,5 @@ export const Default = Template.bind({});
 Default.args = {
   options: FILTER_OPTIONS,
   selected: FILTER_OPTIONS[0].value,
-  onFilterSelect: (selected: string) => {}
+  onFilterSelect: () => {}
 };
