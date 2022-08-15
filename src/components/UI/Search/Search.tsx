@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Button } from '../Button/Button';
 import { ISearchProps } from './Search.types';
 import { SearchInput, SearchWrapper } from './Search.styled';
+import { ButtonShape, ButtonSize, ButtonVariant } from '../Button/Button.consts';
 
 export const Search: FC<ISearchProps> = ({
   value,
@@ -21,7 +22,13 @@ export const Search: FC<ISearchProps> = ({
         name="search"
         placeholder={placeholder}
       />
-      <Button type="submit">{searchButtonText}</Button>
+      <Button
+        size={ButtonSize.medium}
+        shape={ButtonShape.rectangle}
+        variant={ButtonVariant.primary}
+        type="submit">
+        {searchButtonText}
+      </Button>
     </SearchWrapper>
   );
 };

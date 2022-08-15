@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { Button } from '../../src/components/UI/Button/Button';
 import { Logo } from '../../src/components/UI/Logo/Logo';
 
-import { notFound } from './notFound.styled';
+import { notFound } from './NotFound.styled';
 import { LogoSize } from '../../src/components/UI/Logo/Logo.const';
 import {
   ButtonShape,
