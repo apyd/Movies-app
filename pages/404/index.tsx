@@ -5,6 +5,7 @@ import { Button } from '../../src/components/UI/Button/Button';
 import { Logo } from '../../src/components/UI/Logo/Logo';
 
 import { notFound } from './notFound.styled';
+import { LogoSize } from '../../src/components/UI/Logo/Logo.const';
 
 export default function Custom404() {
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function Custom404() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className={notFound}>
-        <Logo />
+        <Logo size={LogoSize.medium} />
         <h3>404 - Page not found</h3>
         <p>Oops... looks like this page doesn't exist</p>
         <Button onClick={navigateToSearch}>Go back to home page</Button>

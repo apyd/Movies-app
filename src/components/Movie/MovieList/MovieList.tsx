@@ -1,6 +1,5 @@
 import React, { FC, memo, useMemo } from 'react';
 import { useRouter } from 'next/router';
-import classNames from 'classnames/bind';
 import {
   useDeleteMovieByIdMutation,
   useUpdateMovieByIdMutation
@@ -11,10 +10,8 @@ import { MovieCard } from '../MovieCard/MovieCard';
 import { DeleteMovie } from '../../Modal/DeleteMovie/DeleteMovie';
 import { Movie } from '../../../types/movie.interface';
 import { IMovieListProps } from './MovieList.types';
-import styles from './MovieList.module.scss';
 import useMovie from '../../../context/MovieContext/MovieContext';
-
-const cx = classNames.bind(styles);
+import { MovieItem, Movies } from './MovieList.styled';
 
 export const MovieList: FC<IMovieListProps> = memo(({ movies = [] }) => {
   const router = useRouter();
@@ -62,7 +59,7 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies = [] }) => {
       movies.length > 0
         ? movies.map((movie: Movie) => {
             return (
-              <li className={cx('movie-item')} key={movie.id}>
+              <MovieItem key={movie.id}>
                 <MovieCard
                   {...movie}
                   toggleEditModal={toggleEditModal}
@@ -70,7 +67,7 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies = [] }) => {
                   onMovieCardClick={onMovieCardClick}
                   onContextMenuClick={onContextMenuClick}
                 />
-              </li>
+              </MovieItem>
             );
           })
         : null,
@@ -93,9 +90,7 @@ export const MovieList: FC<IMovieListProps> = memo(({ movies = [] }) => {
         isSuccess={isDeleteSuccess}
         isLoading={isDeleteLoading}
       />
-      <ul id="resultsList" className={cx('movies')}>
-        {moviesList}
-      </ul>
+      <Movies id="resultsList">{moviesList}</Movies>
     </>
   );
 });

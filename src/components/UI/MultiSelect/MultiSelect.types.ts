@@ -5,7 +5,7 @@ export interface IPropsMultiSelect {
   }[];
   isExpanded: boolean;
   value: string[];
-  touched: boolean | undefined;
+  touched: boolean;
   onChange: (field: string, value: string[], shouldValidate?: boolean) => void;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   label: string;

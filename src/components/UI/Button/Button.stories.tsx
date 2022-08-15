@@ -17,6 +17,12 @@ export default {
     shape: {
       options: ['rectangle', 'round'],
       control: { type: 'radio' }
+    },
+    children: {
+      control: { type: 'text' }
+    },
+    isDisabled: {
+      control: { type: 'boolean' }
     }
   }
 } as ComponentMeta<typeof Button>;
@@ -27,5 +33,7 @@ export const CustomButton = Template.bind({});
 CustomButton.args = {
   variant: 'primary',
   size: 'small',
-  shape: 'rectangle'
+  shape: 'rectangle',
+  children: 'ButtonText',
+  isDisabled: false
 };

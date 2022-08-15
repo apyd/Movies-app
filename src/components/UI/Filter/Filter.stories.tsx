@@ -7,10 +7,10 @@ export default {
   component: Filter,
   argTypes: {
     value: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     label: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     }
   }
 } as ComponentMeta<typeof Filter>;
@@ -21,7 +21,7 @@ export const Default = Template.bind({});
 Default.args = {
   name: 'Filter',
   onFilterSelect: () => {},
-  value: '',
-  label: '',
+  value: 'all',
+  label: 'All',
   selected: ''
 };

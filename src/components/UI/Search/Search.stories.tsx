@@ -7,13 +7,13 @@ export default {
   component: Search,
   argTypes: {
     value: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     placeholder: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     searchButtonText: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     }
   }
 } as ComponentMeta<typeof Search>;

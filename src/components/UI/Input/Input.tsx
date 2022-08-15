@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
-import classNames from 'classnames/bind';
 import { IPropsInput } from './Input.types';
-import styles from './Input.module.scss';
-
-const cx = classNames.bind(styles);
+import { Label, InputElement } from './Input.styled';
+import { InputError } from '../../../shared/error.styled';
 
 export const Input: FC<IPropsInput> = ({
   id,
@@ -21,20 +19,18 @@ export const Input: FC<IPropsInput> = ({
 
   return (
     <>
-      <label htmlFor={id} className={cx('text-label')}>
-        {label.toUpperCase()}
-      </label>
-      <input
+      <Label htmlFor={id}>{label.toUpperCase()}</Label>
+      <InputElement
         type={type}
         id={id}
         name={name}
+        isInvalid={isInvalid}
         placeholder={placeholder}
-        className={cx('input', { 'input--invalid': isInvalid })}
         value={value}
         onBlur={onBlur}
         onChange={onChange}
       />
-      {isInvalid && <span className={cx('input-error')}>{error}</span>}
+      {isInvalid && <InputError>{error}</InputError>}
     </>
   );
 };

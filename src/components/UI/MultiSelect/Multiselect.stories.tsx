@@ -11,10 +11,10 @@ export default {
       control: { type: 'boolean' }
     },
     label: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     error: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     }
   }
 } as ComponentMeta<typeof MultiSelect>;

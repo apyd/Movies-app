@@ -7,16 +7,16 @@ export default {
   component: DatePicker,
   argTypes: {
     value: {
-      control: { type: 'input' }
+      control: { type: 'date' }
     },
     label: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     placeholder: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     error: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     }
   }
 } as ComponentMeta<typeof DatePicker>;
@@ -26,7 +26,9 @@ const Template: ComponentStory<typeof DatePicker> = (args) => <DatePicker {...ar
 export const Default = Template.bind({});
 Default.args = {
   id: 'DatePicker',
-  touched: true,
+  touched: false,
+  value: '',
+  label: 'DatePicker',
   onBlur: () => {},
   onChange: () => {}
 };

@@ -1,9 +1,6 @@
 import React, { FC } from 'react';
-import classNames from 'classnames/bind';
+import { SortLabel, SortSelect, SortWrapper } from './Sort.styled';
 import { ISortProps } from './Sort.types';
-import styles from './Sort.module.scss';
-
-const cx = classNames.bind(styles);
 
 export const Sort: FC<ISortProps> = ({
   selected,
@@ -12,12 +9,9 @@ export const Sort: FC<ISortProps> = ({
   sortLabel = 'Sort by'
 }) => {
   return (
-    <div className={cx('sort')}>
-      <label className={cx('sort__label')} htmlFor="sort">
-        {sortLabel}
-      </label>
-      <select
-        className={cx('sort__input')}
+    <SortWrapper>
+      <SortLabel htmlFor="sort">{sortLabel}</SortLabel>
+      <SortSelect
         name="sort"
         id="sort"
         value={selected}
@@ -28,7 +22,7 @@ export const Sort: FC<ISortProps> = ({
               {label}
             </option>
           ))}
-      </select>
-    </div>
+      </SortSelect>
+    </SortWrapper>
   );
 };

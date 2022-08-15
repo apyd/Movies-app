@@ -1,11 +1,16 @@
 import React, { FC } from 'react';
-import classNames from 'classnames/bind';
-import DropdownIcon from '../../../assets/chevron-down.svg';
+import { InputError } from '../../../shared/error.styled';
 import { SvgIcon } from '../Icon/SvgIcon';
+import { iconTypes } from '../Icon/SvgIcon.consts';
+import {
+  MultiSelectLabel,
+  MultiSelectOption,
+  MultiSelectOptions,
+  MultiSelectSelected,
+  MultiSelectSummary,
+  MultiSelectWrapper
+} from './MultiSelect.styled';
 import { IPropsMultiSelect } from './MultiSelect.types';
-import styles from './MultiSelect.module.scss';
-
-const cx = classNames.bind(styles);
 
 export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
   options,
@@ -32,47 +37,36 @@ export const MultiSelect: FC<Partial<IPropsMultiSelect>> = ({
   };
 
   return (
-    <div className={cx('multi-select')}>
-      <span className={cx('multi-select__label')}>{label}</span>
-      <div
+    <MultiSelectWrapper>
+      <MultiSelectLabel>{label}</MultiSelectLabel>
+      <MultiSelectSelected
         id="multi-select"
+        isInvalid={!!isInvalid}
         tabIndex={0}
-        className={cx('multi-select__selected', {
-          'multi-select__selected--invalid': isInvalid
-        })}
         onClick={toggleSelect}>
-        <span
-          className={cx('multi-select__summary', {
-            'multi-select__summary--invalid': isInvalid
-          })}>
-          {value?.length} selected
-        </span>
-        <SvgIcon icon={DropdownIcon} />
-      </div>
+        <MultiSelectSummary isInvalid={!!isInvalid}>{value?.length} selected</MultiSelectSummary>
+        <SvgIcon icon={iconTypes.chevron} isSmall={true} />
+      </MultiSelectSelected>
       {isExpanded && (
-        <ul className={cx('multi-select__options')}>
+        <MultiSelectOptions>
           {options?.map(({ id, title }) => {
             return (
-              <li
-                key={id}
-                className={cx('multi-select__option')}
-                onClick={() => onInputChange(title)}>
+              <MultiSelectOption key={id} onClick={() => onInputChange(title)}>
                 <input
                   name="name"
                   checked={value?.includes(title)}
                   type="checkbox"
-                  className={cx('multi-select__checkbox')}
                   value={value}
                   onBlur={onBlur}
                   onChange={() => onInputChange(title)}
                 />
                 <span>{title}</span>
-              </li>
+              </MultiSelectOption>
             );
           })}
-        </ul>
+        </MultiSelectOptions>
       )}
-      {isInvalid && <span className={cx('input-error')}>{error}</span>}
-    </div>
+      {isInvalid && <InputError>{error}</InputError>}
+    </MultiSelectWrapper>
   );
 };

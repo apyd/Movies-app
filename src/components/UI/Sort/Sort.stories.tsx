@@ -20,5 +20,5 @@ export const Default = Template.bind({});
 Default.args = {
   selected: SORT_OPTIONS[0].value,
   onOptionChange: () => {},
-  sortLabel: ''
+  sortLabel: 'Sort by'
 };

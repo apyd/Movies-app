@@ -19,44 +19,44 @@ export const ButtonShape = {
 };
 
 export const buttonStyles = {
-  'primary': {
+  primary: {
     backgroundColor: colors.pastelRed,
     color: colors.white,
     border: 'none',
     hoverBg: colors.pastelRedBgHover,
     activeBg: colors.pastelRedBgActive
   },
-  'secondary': {
+  secondary: {
     backgroundColor: colors.lightGrey,
     color: colors.pastelRed,
     border: 'none',
     hoverBg: colors.lightGreyBgHover,
     activeBg: colors.lightGreyBgActive
   },
-  'ghost': {
+  ghost: {
     backgroundColor: 'transparent',
     color: colors.pastelRed,
     border: 'none',
     hoverBg: colors.lightGreyBgHover,
     activeBg: colors.lightGrey
   },
-  'outline': {
+  outline: {
     backgroundColor: 'transparent',
     color: colors.pastelRed,
     border: 'none',
     hoverBg: colors.lightGreyBgHover,
     activeBg: colors.lightGrey
   },
-  'small': {
+  small: {
     padding: '0.2rem 0.4rem'
   },
-  'medium': {
+  medium: {
     padding: '0.6rem 0.8rem'
   },
-  'large': {
+  large: {
     padding: '1rem 3rem'
   },
-  'round': {
+  round: {
     padding: '0.3rem',
     borderRadius: '50%'
   },

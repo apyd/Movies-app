@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
-import classNames from 'classnames/bind';
+import { InputError } from '../../../shared/error.styled';
+import { TextareaElement, TextareaLabel } from './Textarea.styled';
 import { IPropsTextarea } from './Textarea.types';
-import styles from './Textarea.module.scss';
-
-const cx = classNames.bind(styles);
 
 export const Textarea: FC<IPropsTextarea> = ({
   id,
@@ -19,21 +17,19 @@ export const Textarea: FC<IPropsTextarea> = ({
   const isInvalid = !!error && touched;
 
   return (
-    <div className={cx('wrapper--textarea')}>
-      <label htmlFor={id} className={cx('textarea-label')}>
-        {label.toUpperCase()}
-      </label>
-      <textarea
+    <>
+      <TextareaLabel htmlFor={id}>{label.toUpperCase()}</TextareaLabel>
+      <TextareaElement
         id={id}
         name={name}
+        isInvalid={!!isInvalid}
         placeholder={placeholder}
         value={value}
         onBlur={onBlur}
         onChange={onChange}
         rows={2}
-        className={cx('textarea', { 'textarea--invalid': isInvalid })}
       />
-      {isInvalid && <span className={cx('input-error')}>{error}</span>}
-    </div>
+      {isInvalid && <InputError>{error}</InputError>}
+    </>
   );
 };

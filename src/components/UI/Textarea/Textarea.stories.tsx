@@ -7,13 +7,10 @@ export default {
   component: Textarea,
   argTypes: {
     value: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     label: {
-      control: { type: 'input' }
-    },
-    error: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     }
   }
 } as ComponentMeta<typeof Textarea>;
@@ -25,10 +22,6 @@ Default.args = {
   id: 'textArea',
   name: 'textArea',
   value: '',
-  touched: false,
-  onBlur: () => {},
-  onChange: () => {},
   placeholder: 'Textarea placeholder',
-  label: '',
-  error: ''
+  label: ''
 };

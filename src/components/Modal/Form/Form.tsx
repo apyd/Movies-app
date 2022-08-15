@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import classNames from 'classnames/bind';
 import { Button } from '../../UI/Button/Button';
 import { DatePicker } from '../../UI/DatePicker/DatePicker';
 import { MultiSelect } from '../../UI/MultiSelect/MultiSelect';
@@ -8,9 +7,13 @@ import { Input } from '../../UI/Input/Input';
 import { useMultiSelect } from '../../../hooks/useMultiSelect';
 import { ButtonVariant } from '../../UI/Button/Button.consts';
 import { IFormProps } from './Form.types';
-import styles from './Form.module.scss';
-
-const cx = classNames.bind(styles);
+import {
+  FormActions,
+  FormColumn,
+  FormWrapper,
+  InnerWrapper,
+  NarrowFormColumn
+} from './Form.styled';
 
 export const Form: FC<IFormProps> = ({
   isValid,
@@ -26,9 +29,9 @@ export const Form: FC<IFormProps> = ({
   const { options, label, isExpanded, toggleSelect } = useMultiSelect('Genres*');
 
   return (
-    <form className={cx('form')} onSubmit={handleSubmit}>
-      <div className={cx('inputs--wrapper')}>
-        <div className={cx('form__column')}>
+    <FormWrapper onSubmit={handleSubmit}>
+      <InnerWrapper>
+        <FormColumn>
           <Input
             type="text"
             id="title"
@@ -64,8 +67,8 @@ export const Form: FC<IFormProps> = ({
             isExpanded={isExpanded}
             error={errors.genres}
           />
-        </div>
-        <div className={cx('form__column', 'form__column--half-size')}>
+        </FormColumn>
+        <NarrowFormColumn>
           <DatePicker
             id="release_date"
             name="release_date"
@@ -101,8 +104,8 @@ export const Form: FC<IFormProps> = ({
             onChange={handleChange}
             error={errors.runtime}
           />
-        </div>
-      </div>
+        </NarrowFormColumn>
+      </InnerWrapper>
       <Textarea
         id="overview"
         name="overview"
@@ -114,14 +117,14 @@ export const Form: FC<IFormProps> = ({
         onChange={handleChange}
         error={errors.overview}
       />
-      <div className={cx('form__actions')}>
+      <FormActions>
         <Button type="reset" variant={ButtonVariant.secondary} onClick={resetForm}>
           Reset
         </Button>
         <Button type="submit" isDisabled={!isValid}>
           Submit
         </Button>
-      </div>
-    </form>
+      </FormActions>
+    </FormWrapper>
   );
 };

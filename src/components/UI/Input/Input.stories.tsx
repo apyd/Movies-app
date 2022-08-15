@@ -7,22 +7,22 @@ export default {
   component: Input,
   argTypes: {
     id: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     name: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     value: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     label: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     placeholder: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     },
     error: {
-      control: { type: 'input' }
+      control: { type: 'text' }
     }
   }
 } as ComponentMeta<typeof Input>;

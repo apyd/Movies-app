@@ -1,4 +1,4 @@
 export interface ISvgIconProps {
-  icon: any;
-  isSmall?: boolean;
+  icon: string;
+  isSmall: boolean;
 }
