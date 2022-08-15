@@ -1,6 +1,5 @@
-import styled from '@emotion/styled'
-import { variables } from '../../shared/variables.styled'
-
+import styled from '@emotion/styled';
+import { variables } from '../../shared/variables.styled';
 
 export const ResultsWrapper = styled.div`
   height: 100%;
@@ -10,11 +9,11 @@ export const ResultsWrapper = styled.div`
   @media screen and (max-width: 550px) {
     height: unset;
   }
-`
+`;
 
 export const ResultsInnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   max-width: ${variables.sectionMaxWidth};
   margin: 0 auto;
-`
+`;

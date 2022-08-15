@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
-import { colors } from '../../../shared/colors.styled'
-import calendar from '../../../assets/calendar-symbol.svg'
+import styled from '@emotion/styled';
+import { colors } from '../../../shared/colors.styled';
+import calendar from '../../../assets/calendar-symbol.svg';
 
 export const DatePickerInput = styled.input`
   padding: 0.5rem 1rem;
@@ -15,9 +15,9 @@ export const DatePickerInput = styled.input`
   }
 
   ::-webkit-calendar-picker-indicator {
-      background-image: url(${calendar.src});
+    background-image: url(${calendar.src});
   }
-`
+`;
 
 export const DatePickerLabel = styled.label`
   display: inline-block;
@@ -25,4 +25,4 @@ export const DatePickerLabel = styled.label`
   color: ${colors.pastelRed};
   font-weight: bold;
   font-size: 0.8rem;
-`
+`;

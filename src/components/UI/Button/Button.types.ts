@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export interface IButtonProps {
   children: ReactNode;
-  id?: string,
+  id?: string;
   onClick?: () => void;
   type?: 'submit' | 'reset' | 'button';
   size: string;
@@ -12,7 +12,7 @@ export interface IButtonProps {
 }
 
 export interface StyledButtonProps {
-  variant: string,
-  size: string,
-  shape: string,
+  variant: string;
+  size: string;
+  shape: string;
 }

@@ -5,7 +5,7 @@ import { MultiSelect } from '../../UI/MultiSelect/MultiSelect';
 import { Textarea } from '../../UI/Textarea/Textarea';
 import { Input } from '../../UI/Input/Input';
 import { useMultiSelect } from '../../../hooks/useMultiSelect';
-import { ButtonVariant } from '../../UI/Button/Button.consts';
+import { ButtonShape, ButtonSize, ButtonVariant } from '../../UI/Button/Button.consts';
 import { IFormProps } from './Form.types';
 import {
   FormActions,
@@ -118,10 +118,20 @@ export const Form: FC<IFormProps> = ({
         error={errors.overview}
       />
       <FormActions>
-        <Button type="reset" variant={ButtonVariant.secondary} onClick={resetForm}>
+        <Button
+          type="reset"
+          variant={ButtonVariant.secondary}
+          size={ButtonSize.medium}
+          shape={ButtonShape.rectangle}
+          onClick={resetForm}>
           Reset
         </Button>
-        <Button type="submit" isDisabled={!isValid}>
+        <Button
+          type="submit"
+          variant={ButtonVariant.primary}
+          size={ButtonSize.medium}
+          shape={ButtonShape.rectangle}
+          isDisabled={!isValid}>
           Submit
         </Button>
       </FormActions>

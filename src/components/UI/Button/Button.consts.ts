@@ -1,4 +1,4 @@
-import { colors } from '../../../shared/colors.styled'
+import { colors } from '../../../shared/colors.styled';
 
 export const ButtonVariant = {
   primary: 'primary',
@@ -59,5 +59,5 @@ export const buttonStyles = {
   round: {
     padding: '0.3rem',
     borderRadius: '50%'
-  },
-}
+  }
+};

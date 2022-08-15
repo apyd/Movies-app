@@ -1,4 +1,4 @@
-import { css } from '@emotion/css'
+import { css } from '@emotion/css';
 
 export const notFound = css`
   display: flex;
@@ -11,6 +11,4 @@ export const notFound = css`
   height: 100%;
   text-align: center;
   margin: 0 auto;
-`
-
-
+`;

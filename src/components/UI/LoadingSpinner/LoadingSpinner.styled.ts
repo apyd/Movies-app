@@ -1,6 +1,5 @@
-import styled from '@emotion/styled'
-import { colors } from '../../../shared/colors.styled'
-
+import styled from '@emotion/styled';
+import { colors } from '../../../shared/colors.styled';
 
 export const SpinnerWrapper = styled.div`
   display: flex;
@@ -17,7 +16,7 @@ export const SpinnerWrapper = styled.div`
       transform: rotate(360deg);
     }
   }
-`
+`;
 
 export const SpinnerIcon = styled.div`
   height: 80px;
@@ -26,4 +25,4 @@ export const SpinnerIcon = styled.div`
   border-top: 10px solid ${colors.pastelRed};
   border-radius: 50%;
   animation: spin 1s linear infinite;
-`
+`;

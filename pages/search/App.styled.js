@@ -1,4 +1,4 @@
-import { css } from '@emotion/css'
+import { css } from '@emotion/css';
 
 export const app = css`
   display: flex;
@@ -6,4 +6,4 @@ export const app = css`
   justify-content: stretch;
   align-items: stretch;
   height: 100%;
-`
+`;

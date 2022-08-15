@@ -3,7 +3,7 @@ export interface IPropsInput {
   name: string;
   type: string;
   value: string | number;
-  touched: boolean;
+  touched: boolean | undefined;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
@@ -12,5 +12,5 @@ export interface IPropsInput {
 }
 
 export interface InputElementProps {
-  isInvalid: boolean,
+  isInvalid: boolean;
 }

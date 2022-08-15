@@ -1,6 +1,5 @@
-import styled from '@emotion/styled'
-import { colors } from '../../../shared/colors.styled'
-
+import styled from '@emotion/styled';
+import { colors } from '../../../shared/colors.styled';
 
 export const SortWrapper = styled.div`
   display: flex;
@@ -13,16 +12,16 @@ export const SortWrapper = styled.div`
   &::after {
     position: absolute;
     right: -1rem;
-    content: "\\25BC";
+    content: '\\25BC';
     color: ${colors.pastelRed};
   }
-`
+`;
 
 export const SortLabel = styled.label`
   color: ${colors.altGrey};
   letter-spacing: 0.1ch;
   white-space: nowrap;
-`
+`;
 
 export const SortSelect = styled.select`
   appearance: none;
@@ -34,4 +33,4 @@ export const SortSelect = styled.select`
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1ch;
-`
+`;

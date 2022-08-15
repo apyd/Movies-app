@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Logo } from '../../UI/Logo/Logo';
 import { Button } from '../../UI/Button/Button';
 import { Search } from '../../UI/Search/Search';
-import { ButtonVariant } from '../../UI/Button/Button.consts';
+import { ButtonShape, ButtonSize, ButtonVariant } from '../../UI/Button/Button.consts';
 import { ISearchViewProps } from './SearchView.types';
 import {
   SearchHeading,
@@ -17,7 +17,12 @@ export const SearchView: FC<ISearchViewProps> = ({ value, toggleModal, onChange,
     <SearchViewWrapper>
       <TopBanner>
         <Logo size={LogoSize.medium} />
-        <Button id="openAddMovieModal" variant={ButtonVariant.secondary} onClick={toggleModal}>
+        <Button
+          id="openAddMovieModal"
+          variant={ButtonVariant.secondary}
+          size={ButtonSize.medium}
+          shape={ButtonShape.rectangle}
+          onClick={toggleModal}>
           + ADD MOVIE
         </Button>
       </TopBanner>

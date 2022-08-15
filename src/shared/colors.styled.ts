@@ -9,4 +9,4 @@ export const colors = {
   lightGreyBgActive: '#414141',
   altGrey: '#a8a8a9',
   white: '#ffffff'
-}
+};

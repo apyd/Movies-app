@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const DeleteActions = styled.div`
-  display:flex;
+  display: flex;
   justify-content: flex-end;
-`
+`;

@@ -1,10 +1,10 @@
-import styled from '@emotion/styled'
-import { variables } from '../../../shared/variables.styled'
-import { colors } from '../../../shared/colors.styled'
+import styled from '@emotion/styled';
+import { variables } from '../../../shared/variables.styled';
+import { colors } from '../../../shared/colors.styled';
 
 export const SearchWrapper = styled.form`
   display: flex;
-`
+`;
 
 export const SearchInput = styled.input`
     height: 100%;
@@ -23,4 +23,4 @@ export const SearchInput = styled.input`
     color: inherit;
     font-family: inherit;
   }
-`
+`;

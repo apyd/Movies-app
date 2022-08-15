@@ -1,14 +1,14 @@
-import styled from '@emotion/styled'
-import { colors } from '../../../shared/colors.styled'
+import styled from '@emotion/styled';
+import { colors } from '../../../shared/colors.styled';
 
 export interface MultiSelectWrapperProps {
-  isInvalid: boolean
+  isInvalid: boolean;
 }
 
 export const MultiSelectWrapper = styled.div`
   position: relative;
   width: 100%;
-`
+`;
 
 export const MultiSelectOptions = styled.ul`
   position: absolute;
@@ -17,7 +17,7 @@ export const MultiSelectOptions = styled.ul`
   padding: 0.5rem 0;
   background-color: ${colors.dark};
   accent-color: red;
-`
+`;
 
 export const MultiSelectOption = styled.li`
   display: flex;
@@ -32,7 +32,7 @@ export const MultiSelectOption = styled.li`
   &:hover {
     background-color: ${colors.darkGrey};
   }
-`
+`;
 
 export const MultiSelectLabel = styled.span`
   display: inline-block;
@@ -42,20 +42,20 @@ export const MultiSelectLabel = styled.span`
   font-weight: bold;
   font-size: 0.8rem;
   text-transform: uppercase;
-`
+`;
 
 export const MultiSelectSummary = styled.span<MultiSelectWrapperProps>`
-    font-size: 0.8rem;
-    font-family: inherit;
-    color: ${(props) => props.isInvalid ? `${colors.pastelRed}` : 'inherit'};
-`
+  font-size: 0.8rem;
+  font-family: inherit;
+  color: ${(props) => (props.isInvalid ? `${colors.pastelRed}` : 'inherit')};
+`;
 
 export const MultiSelectSelected = styled.div<MultiSelectWrapperProps>`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-    padding: 0 1rem;
-    background-color: ${colors.darkGrey};
-    border: ${(props) => props.isInvalid ? `1px solid ${colors.pastelRed}` : 'none'};
-`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  padding: 0 1rem;
+  background-color: ${colors.darkGrey};
+  border: ${(props) => (props.isInvalid ? `1px solid ${colors.pastelRed}` : 'none')};
+`;

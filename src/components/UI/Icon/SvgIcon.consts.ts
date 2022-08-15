@@ -5,4 +5,4 @@ export const iconTypes = {
   error: 'error',
   success: 'success',
   threeDots: 'threedots'
-}
+};

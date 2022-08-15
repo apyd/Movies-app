@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
-import { colors } from '../../shared/colors.styled'
-import { variables } from '../../shared/variables.styled'
+import styled from '@emotion/styled';
+import { colors } from '../../shared/colors.styled';
+import { variables } from '../../shared/variables.styled';
 
 export const Overlay = styled.form`
   width: 100%;
@@ -11,7 +11,7 @@ export const Overlay = styled.form`
   background-color: ${colors.lightGrey};
   opacity: 0.9;
   z-index: 100;
-`
+`;
 
 export const ModalWrapper = styled.div`
   display: flex;
@@ -27,9 +27,9 @@ export const ModalWrapper = styled.div`
   background-color: ${colors.dark};
   box-shadow: ${variables.modalBoxShadow};
   z-index: 100;
-`
+`;
 
 export const ModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
-`
+`;

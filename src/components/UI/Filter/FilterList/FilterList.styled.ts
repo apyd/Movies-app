@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const Filters = styled.form`
   display: flex;
@@ -6,4 +6,4 @@ export const Filters = styled.form`
   align-items: center;
   overflow: auto;
   flex-wrap: wrap;
-`
+`;

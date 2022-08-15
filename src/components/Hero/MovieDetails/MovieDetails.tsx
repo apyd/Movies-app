@@ -22,7 +22,6 @@ import {
   PosterWrapper
 } from './MovieDetails.styled';
 import { LogoSize } from '../../UI/Logo/Logo.const';
-import { StyledSearchIcon } from '../../UI/Icon/SvgIcon.styled';
 import { iconTypes } from '../../UI/Icon/SvgIcon.consts';
 
 export const MovieDetails: FC<IMovieDetailsProps> = ({
