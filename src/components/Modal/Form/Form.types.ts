@@ -1,4 +1,4 @@
-import { FormikErrors, FormikState, FormikTouched } from 'formik';
+import { FormikErrors, FormikTouched } from 'formik';
 import { AddMovieFormData } from '../AddMovie/AddMovie.types';
 import { EditMovieFormData } from '../EditMovie/EditMovieFormData';
 

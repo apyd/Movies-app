@@ -1,14 +1,11 @@
 import React, { FC } from 'react';
-import classNames from 'classnames/bind';
 import useMovie from '../../../context/MovieContext/MovieContext';
 import { Button } from '../../UI/Button/Button';
 import { SvgIcon } from '../../UI/Icon/SvgIcon';
-import MenuIcon from '../../../assets/threedots.svg';
-import { ButtonVariant } from '../../UI/Button/Button.consts';
+import { ButtonShape, ButtonSize, ButtonVariant } from '../../UI/Button/Button.consts';
 import { IMovieContextMenuProps } from './MovieContextMenu.types';
-import styles from './MovieContextMenu.module.scss';
-
-const cx = classNames.bind(styles);
+import { ContextMenu, ContextMenuOptions } from './MovieContextMenu.styled';
+import { iconTypes } from '../../UI/Icon/SvgIcon.consts';
 
 export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
   movieId,
@@ -27,21 +24,33 @@ export const MovieContextMenu: FC<IMovieContextMenuProps> = ({
 
   return (
     <>
-      <div className={cx('context-menu')} onClick={onContextMenuClick}>
-        <Button variant="secondary" shape="round" onClick={onMenuButtonClick}>
-          <SvgIcon icon={MenuIcon} isSmall />
+      <ContextMenu onClick={onContextMenuClick}>
+        <Button
+          size={ButtonSize.small}
+          variant={ButtonVariant.secondary}
+          shape={ButtonShape.round}
+          onClick={onMenuButtonClick}>
+          <SvgIcon icon={iconTypes.threeDots} isSmall={true} />
         </Button>
         {openedMovieMenuId === movieId && (
-          <div className={cx('context-menu__options')}>
-            <Button variant={ButtonVariant.secondary} onClick={toggleEditModal}>
+          <ContextMenuOptions>
+            <Button
+              size={ButtonSize.small}
+              shape={ButtonShape.rectangle}
+              variant={ButtonVariant.secondary}
+              onClick={toggleEditModal}>
               Edit
             </Button>
-            <Button variant={ButtonVariant.secondary} onClick={toggleDeleteModal}>
+            <Button
+              size={ButtonSize.small}
+              shape={ButtonShape.rectangle}
+              variant={ButtonVariant.secondary}
+              onClick={toggleDeleteModal}>
               Delete
             </Button>
-          </div>
+          </ContextMenuOptions>
         )}
-      </div>
+      </ContextMenu>
     </>
   );
 };

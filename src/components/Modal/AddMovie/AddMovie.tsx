@@ -50,11 +50,11 @@ export const AddMovie: FC<IAddMovieProps> = ({ onFormSubmit, isError, isLoading,
   };
 
   return (
-    <>
+    <div id="addMovie">
       {isLoading && <LoadingSpinner />}
       {isSuccess && <Status status="SUCCESS" />}
       {isError && <Status status="ERROR" />}
       {isBeforeAction && <Form {...formProps} />}
-    </>
+    </div>
   );
 };

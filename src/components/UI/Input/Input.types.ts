@@ -10,3 +10,7 @@ export interface IPropsInput {
   label: string;
   error: string | undefined;
 }
+
+export interface InputElementProps {
+  isInvalid: boolean;
+}

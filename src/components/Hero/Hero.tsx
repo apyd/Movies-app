@@ -1,15 +1,12 @@
 import React, { FC, useState } from 'react';
 import { useRouter } from 'next/router';
-import classNames from 'classnames/bind';
 import { useAddMovieMutation } from '../../store/api/apiSlice';
 import { useModal } from '../../hooks/useModal';
 import { AddMovie } from '../Modal/AddMovie/AddMovie';
 import { SearchView } from './SearchView/SearchView';
 import { MovieDetails } from './MovieDetails/MovieDetails';
 import { IHeroProps } from './Hero.types';
-import styles from './Hero.module.scss';
-
-const cx = classNames.bind(styles);
+import { HeroContainer, InnerContainer } from './Hero.styled';
 
 export const Hero: FC<IHeroProps> = ({ movie }) => {
   const router = useRouter();
@@ -36,8 +33,8 @@ export const Hero: FC<IHeroProps> = ({ movie }) => {
   };
 
   return (
-    <div className={cx(styles.hero, { 'hero--search': !movieId })}>
-      <div className={cx('hero__inner')}>
+    <HeroContainer movieId={movieId}>
+      <InnerContainer>
         {movieId ? (
           // @ts-expect-error - ignore movieDetails type
           <MovieDetails onSearchIconPress={updateQueryParams} {...movie} />
@@ -49,13 +46,13 @@ export const Hero: FC<IHeroProps> = ({ movie }) => {
             onSearch={onSearch}
           />
         )}
-      </div>
+      </InnerContainer>
       <AddMovieModal
         onFormSubmit={addMovie}
         isError={isError}
         isSuccess={isSuccess}
         isLoading={isLoading}
       />
-    </div>
+    </HeroContainer>
   );
 };

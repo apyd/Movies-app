@@ -1,10 +1,8 @@
 import React, { FC } from 'react';
-import classNames from 'classnames/bind';
 import { Button } from '../Button/Button';
 import { ISearchProps } from './Search.types';
-import styles from './Search.module.scss';
-
-const cx = classNames.bind(styles);
+import { SearchInput, SearchWrapper } from './Search.styled';
+import { ButtonShape, ButtonSize, ButtonVariant } from '../Button/Button.consts';
 
 export const Search: FC<ISearchProps> = ({
   value,
@@ -14,9 +12,9 @@ export const Search: FC<ISearchProps> = ({
   onSearch
 }) => {
   return (
-    <form id="searchForm" className={cx('search')} onSubmit={(e) => onSearch(e)}>
+    <SearchWrapper id="searchForm" onSubmit={(e) => onSearch(e)}>
       <label htmlFor="search"></label>
-      <input
+      <SearchInput
         type="search"
         id="search"
         value={value}
@@ -24,7 +22,13 @@ export const Search: FC<ISearchProps> = ({
         name="search"
         placeholder={placeholder}
       />
-      <Button type="submit">{searchButtonText}</Button>
-    </form>
+      <Button
+        size={ButtonSize.medium}
+        shape={ButtonShape.rectangle}
+        variant={ButtonVariant.primary}
+        type="submit">
+        {searchButtonText}
+      </Button>
+    </SearchWrapper>
   );
 };

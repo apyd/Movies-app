@@ -1,12 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import classNames from 'classnames/bind';
 import { Button } from '../UI/Button/Button';
-import { ButtonVariant } from '../UI/Button/Button.consts';
+import { ButtonShape, ButtonSize, ButtonVariant } from '../UI/Button/Button.consts';
+import { ModalHeader, ModalWrapper, Overlay } from './Modal.styled';
 import { IModalProps } from './Modal.types';
-import styles from './Modal.module.scss';
-
-const cx = classNames.bind(styles);
 
 export const Modal: FC<IModalProps> = ({ title, isOpened, toggleModal, children }) => {
   const [mounted, setMounted] = useState(false);
@@ -22,16 +19,21 @@ export const Modal: FC<IModalProps> = ({ title, isOpened, toggleModal, children 
         <>
           {isOpened && (
             <>
-              <div className={cx('overlay')}></div>
-              <div className={cx('modal')}>
-                <div className={cx('modal__header')}>
+              <Overlay></Overlay>
+              <ModalWrapper id="modal">
+                <ModalHeader>
                   <h2>{title.toUpperCase()}</h2>
-                  <Button variant={ButtonVariant.ghost} onClick={toggleModal}>
+                  <Button
+                    id="closeModal"
+                    size={ButtonSize.medium}
+                    shape={ButtonShape.rectangle}
+                    variant={ButtonVariant.ghost}
+                    onClick={toggleModal}>
                     x
                   </Button>
-                </div>
+                </ModalHeader>
                 {children}
-              </div>
+              </ModalWrapper>
             </>
           )}
         </>,

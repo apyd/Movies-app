@@ -1,12 +1,19 @@
 import React, { FC } from 'react';
-import classNames from 'classnames/bind';
 import { getYearFromDate } from '../../../utils/getYearFromDate';
 import { MovieContextMenu } from '../MovieContextMenu/MovieContextMenu';
+import {
+  CardDetails,
+  CardHeader,
+  CardPoster,
+  CardPosterWrapper,
+  MovieCardWrapper,
+  MovieGenres,
+  MovieProductionYear,
+  MovieTitle,
+  MovieTitleWrapper
+} from './MovieCard.styled';
 // import DefaultPosterPlaceholder from '../../../assets/default-poster-placeholder.jpeg';
 import { IMovieCardProps } from './MovieCard.types';
-import styles from './MovieCard.module.scss';
-
-const cx = classNames.bind(styles);
 
 export const MovieCard: FC<IMovieCardProps> = ({
   id,
@@ -34,34 +41,33 @@ export const MovieCard: FC<IMovieCardProps> = ({
   };
 
   return (
-    <div className={cx('movie-card')}>
-      <div className={cx('poster')}>
+    <MovieCardWrapper>
+      <CardPosterWrapper>
         <MovieContextMenu
           movieId={id}
           onContextMenuClick={() => onContextMenuClick(movieDetails)}
           toggleDeleteModal={toggleDeleteModal}
           toggleEditModal={toggleEditModal}
         />
-        <img
+        <CardPoster
           src={poster_path}
           alt="movie poster"
-          className={cx('poster__img')}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
             // currentTarget.src = DefaultPosterPlaceholder;
           }}
           onClick={() => onMovieCardClick(movieDetails)}
         />
-      </div>
-      <section className={cx('details')} onClick={() => onMovieCardClick(movieDetails)}>
-        <header className={cx('details__header')}>
-          <div className={cx('title__wrapper')}>
-            <h3 className={cx('details__title')}>{title}</h3>
-          </div>
-          <span className={cx('details__production-year')}>{getYearFromDate(release_date)}</span>
-        </header>
-        <span className={cx('details__genres')}>{genres.join(', ')}</span>
-      </section>
-    </div>
+      </CardPosterWrapper>
+      <CardDetails onClick={() => onMovieCardClick(movieDetails)}>
+        <CardHeader>
+          <MovieTitleWrapper>
+            <MovieTitle>{title}</MovieTitle>
+          </MovieTitleWrapper>
+          <MovieProductionYear>{getYearFromDate(release_date)}</MovieProductionYear>
+        </CardHeader>
+        <MovieGenres>{genres.join(', ')}</MovieGenres>
+      </CardDetails>
+    </MovieCardWrapper>
   );
 };

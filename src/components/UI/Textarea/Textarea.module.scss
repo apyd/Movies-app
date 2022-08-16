@@ -1,4 +1,4 @@
-@use "src/styles/colors";
+@use 'src/styles/colors';
 
 .textarea {
   width: 100%;
@@ -22,15 +22,15 @@
   }
 }
 
-.textarea-label {
-  display: inline-block;
-  margin: 1.5rem 0 0.5rem 0;
-  color: colors.$pastel-red;
-  font-weight: bold;
-  font-size: 0.8rem;
-}
+// .textarea-label {
+//   display: inline-block;
+//   margin: 1.5rem 0 0.5rem 0;
+//   color: colors.$pastel-red;
+//   font-weight: bold;
+//   font-size: 0.8rem;
+// }
 
-.input-error {
-  color: colors.$pastel-red;
-  font-size: 0.7rem;
-}
+// .input-error {
+//   color: colors.$pastel-red;
+//   font-size: 0.7rem;
+// }

@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import classNames from 'classnames/bind';
 import { FILTER_OPTIONS, SORT_OPTIONS } from '../../dictionary/dictionary';
 import { FilterList } from '../UI/Filter/FilterList/FilterList';
 import { Sort } from '../UI/Sort/Sort';
-import styles from './Options.module.scss';
-
-const cx = classNames.bind(styles);
+import { OptionsInnerWrapper, OptionsWrapper } from './Options.styled';
 
 export const Options = () => {
   const router = useRouter();
@@ -41,8 +38,8 @@ export const Options = () => {
   };
 
   return (
-    <div className={cx('options')}>
-      <div className={cx('options-wrapper')}>
+    <OptionsWrapper>
+      <OptionsInnerWrapper>
         <FilterList selected={filter} options={FILTER_OPTIONS} onFilterSelect={onFilterChange} />
         <Sort
           selected={sort}
@@ -50,7 +47,7 @@ export const Options = () => {
           onOptionChange={onSortChange}
           sortLabel="Sort by"
         />
-      </div>
-    </div>
+      </OptionsInnerWrapper>
+    </OptionsWrapper>
   );
 };
