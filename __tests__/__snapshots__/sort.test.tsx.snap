@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sort/> snapshot testing suite matches DOM Snapshot 1`] = `
+<div
+  className="css-1jmft5i"
+  data-testid="Sort"
+>
+  <label
+    className="css-xf46ac"
+    htmlFor="sort"
+  >
+    Sort by
+  </label>
+  <select
+    className="css-17fdvkm"
+    data-testid="SortSelect"
+    id="sort"
+    name="sort"
+    onChange={[Function]}
+    value="average_vote"
+  >
+    <option
+      data-testid={1}
+      value="average_vote"
+    >
+      Rating
+    </option>
+    <option
+      data-testid={2}
+      value="release_date"
+    >
+      Release date
+    </option>
+  </select>
+</div>
+`;

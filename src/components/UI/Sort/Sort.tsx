@@ -9,16 +9,17 @@ export const Sort: FC<ISortProps> = ({
   sortLabel = 'Sort by'
 }) => {
   return (
-    <SortWrapper>
+    <SortWrapper data-testid="Sort">
       <SortLabel htmlFor="sort">{sortLabel}</SortLabel>
       <SortSelect
+        data-testid="SortSelect"
         name="sort"
         id="sort"
         value={selected}
         onChange={(e) => onOptionChange(e.target.value)}>
         {options &&
           options.map(({ id, label, value }) => (
-            <option key={id} value={value}>
+            <option data-testid={id} key={id} value={value}>
               {label}
             </option>
           ))}
